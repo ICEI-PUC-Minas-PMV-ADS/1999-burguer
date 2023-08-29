@@ -1,27 +1,59 @@
-# TÍTULO DO PROJETO
+# 1999 Burguer
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Eixo 4 - Projeto: Desenvolvimento de uma Aplicação Distribuída - Turma 03 - 2023/2`
 
-`SEMESTRE`
+`Quarto Semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+A nossa aplicação será composto por 3 aplicações majoritárias. Uma aplicação WEB, onde o restaurante de delivery fará a gestão dos pedidos, desde a emissão à entrega. Uma aplicação Mobile, onde o cliente terá acesso ao cardápio e também à funcionalidade de realizar pedidos. E, por fim, uma API, onde servirá os dados tanto para a WEB quanto para o Mobile.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Carlos Eduardo Pereira Marques
+* Gabriel José Puddo Cardoso
+* Guilherme de Oliveira Costa
+* João Victor Lessa Henrique
 
 ## Orientador
 
-* Nome completo do professor 1
+* Leonardo Vilela Cardoso
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+### Utilização Online
+
+#### Gestor de Pedidos (Front-end web):
+* Acesse www.google.com.br
+
+#### Super App (Front-web mobile):
+* Acesse www.google.com.br
+
+#### API
+Está hospedada em www.google.com.br
+
+### Execução Local
+
+Primeiros passos:
+* Instalar VS Code;
+* Instalar NodeJS v16;
+* Instalar o framework Angular globalmente;
+
+#### API (Back-end):
+* Utilizando o VS Code, acesse a pasta /src/projetos/back-end
+* Execute o comando: `npm install`
+
+#### Gestor de Pedidos (Front-end web):
+* Utilizando o VS Code, acesse a pasta /src/projetos/front-web
+* Execute o comando: `npm install`
+* Execute a aplicação: `ng s`
+* Abra a página no navegador: `http://localhost:4200`
+
+#### Super App (Front-web mobile):
+* Utilizando o VS Code, acesse a pasta /src/projetos/front-mobile
+* Execute o comando: `npm install`
+* Execute a aplicação: ``
+* Abra a página no navegador com dimensões em modo mobile
 
 # Documentação
 
