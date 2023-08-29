@@ -1,46 +1,35 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+A praticidade na realização de pedidos por consumidores e também da organização deles por parte das empresas tem se tornado uma necessidade cada vez mais latente no cotidiano de empreendedores e consumidores.
+
+Nos dias de hoje, principalmente após a pandemia de 2020, as formas de realizar pedidos em delivery praticamente se estabeleceram como algo feito quase que exclusivamente por aplicativos como Ifood e UberEats.
+
+Porém, é muito comum que as empresas acabam se vendo reféns dessas plataformas, uma vez que elas fazem a gestão dos pedidos e do marketing do negócio, como no caso do Ifood. Mas além de tirar parte do faturamento, esses marketplaces acabam tirando a personalidade dos negócios, e distanciando empresas de delivery dos consumidores.
+
+O trabalho que vai ser desenvolvido será composto por 3 aplicações majoritárias. Uma aplicação WEB, onde o restaurante de delivery fará a gestão dos pedidos, desde a emissão à entrega. Uma aplicação Mobile, onde o cliente terá acesso ao cardápio e também à funcionalidade de realizar pedidos. E, por fim, uma API, onde servirá os dados tanto para a WEB quanto para o Mobile.
+
+Iremos ter como objetivo, entregar uma aplicação de ponta a ponta para o dono da burgueria, de forma que ele melhore seu faturamento e também o relacionamento com os seus clientes, gerando mais proximidade entre as duas partes. A ideia também é facilitar os dois lados, dos clientes de pedirem e do empreendedor de fazer a gestão dos pedidos.
+
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+A falta da centralização de pedidos em um sistema e a dificuldade da realização destes pelos consumidores tem se tornado cada vez mais um desafio das empresas de delivery, fazendo com que elas possam perder vendas e consequentemente clientes.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Existe a necessidade de que haja praticidade por meio das empresas de delivery na hora de captar seus clientes, uma vez que não podem ficar reféns de plataformas terceiras e marketplaces. E os aplicativos próprios tem sido a melhor forma de fazer isso, já que mostra profissionalismo da empresa em ter algo seu, facilitando a comunicação com o usuário. Além disso, é necessário um sistema de gestão para que as empresas tenham um controle completo da jornada de compra do cliente, desde o pedido até a entrega.
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+O desenvolvimento dessas aplicações para o delivery está relacionado ao fato de que a maioria das pessoas hoje em dia fazem seus pedidos através de aplicativos e também as empresas utilizam softwares de gestão para os mesmos pedidos.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+A aplicação mobile oferecerá uma solução para a dependência dos marketplaces, uma vez que não será necessário o cadastro do cardápio e atendimento fora das dependências do próprio negócio.
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+O Web será fundamental, porque o empresário deve ter uma forma de controle do que está sendo pedido. Assim, é uma das ideias do semestre, uma aplicação distribuída, onde os dados gerenciados pelo backend farão com que haja uma comunicação entre a aplicação Mobile e os pedidos gerados pela versão Web.
+
+Assim, com a utilização do aplicativo os clientes da loja vão conseguir fazer seus pedidos com tranquilidade, bem como ter um contato mais direto com o estabelecimento. Já a utilização do empresário fará com que os dados gerados pelo app sejam gerenciados de forma mais dinâmica e proprietária da própria empresa.
+
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
