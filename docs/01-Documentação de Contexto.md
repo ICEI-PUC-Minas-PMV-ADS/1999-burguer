@@ -33,3 +33,4 @@ Assim, com a utilização do aplicativo os clientes da loja vão conseguir fazer
 
 ## Público-Alvo
 
+O público-alvo da aplicação se divide em dois grupos. O primeiro deles é a própria hamburgueria, onde seus funcionários de 18 a 65 anos irão fazer a gestão dos pedidos gerados. O segundo são os clientes, entre 18-45 anos, que farão pedidos acessando pelo aplicativo da loja. Ambos são compostos por homens e mulheres.
