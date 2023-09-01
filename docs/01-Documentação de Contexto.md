@@ -22,7 +22,7 @@ Desenvolver um plataforma de pedidos, gerenciamento de comanda e cardápio para 
 
 *OBJETIVOS ESPECÍFICOS*
 
-* Promover o gerenciamento de pedidos realizados pelos clientes no aplicativo
+* Promover o gerenciamento de pedidos realizados pelos clientes no aplicativo.
 * Promover a realização de pedidos pelo aplicativo móvel.
 * Criação e gerenciamento de cardápio, bem como, sua disponibilização para os clientes.
 * Individualização dos pedidos entre "Pendentes" e "Em Andamento"
