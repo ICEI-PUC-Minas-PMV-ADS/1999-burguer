@@ -18,19 +18,14 @@ A escolha do referido problema foi definida por meio de discussões e estudos re
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
+|EU COMO...| QUERO/PRECISO ... |PARA ...  |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Pedro  | Preciso de uma plataforma onde consigo fazer os controles dos pedidos          |Aumentar meu faturamento e crescer meu negócio.           |
+|Ana  | Preciso de uma plataforma que facilite os pedidos de lanches         |para melhorar as sextas do lanche que realizo            |
+|João  | Preciso de um aplicativo que não demore para fazer pedidos        | para não atraplhar as noites de jogatina com os meus              |
+|Geneci  | Quero um aplicativo que seja fácil de mexer           |Pedir lanches durante os jogos         |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Modelagem do Processo de Negócio 
 
@@ -69,32 +64,66 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
+#Requisitos funcionais aplicação WEB
+
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deverá conter uma tela de login para que o dono do estabelecimento realize o acesso ao sistema | ALTA | 
+|RF-002| O sistema deverá ter uma home na qual o usuário terá acesso a uma tela de pedidos e um menu de navegação para outras páginas  | ALTA |
+|RF-003| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, gerenciar cardápio, histórico de pedidos, meu perfil | ALTA | 
+|RF-004| A tela de pedidos será composta por uma listagem de pedidos feitos pelo APP organizados em blocos e com informações como ticket do pedido, lanche, valor  | ALTA |
+|RF-005| A tela de pedidos terá os botões 'pendente' e 'em andamento', cada um deles exibirá os pedidos com seu respectivo status | ALTA |
+|RF-006| Os blocos de pedidos em andamento terão um botão de concluído, para enviar o pedido ao histórico e ao cliente| ALTA |
+|RF-007| A tela de gerenciar cardápio deverá exibir o cardápio da loja em lista | ALTA | 
+|RF-008| Na tela de gerenciar cardápio é necessário haver um botão de acrescentar novo item, encaminhando para uma página de cadastro.| ALTA |
+|RF-009| A página de cadastro deve permitir criar um produto com nome, imagem, descrição e preço. Deve haver um botão de públicar o ítem | ALTA | 
+|RF-010| O item gerado deverá conter as opções de: editar, excluir e disponibilizar| ALTA |
+|RF-011| A tela de histórico de pedidos deverá exibir uma lista em blocos com o nome do cliente, endereço, telefone, ticket do pedido, o que pediu e valor da compra, status concluido e data do pedido| ALTA | 
+|RF-012| Deve ser possível inciar o pedido ou cancelar na própria tela de pedidos pendentes na home| ALTA |
+|RF-013| O usuário deverá conseguir editar seus dados no sistema  | ALTA |
+|RF-014| Ao clicar em editar, o sistema deverá permitir que o usuário altere as informações desejadas no produto  | ALTA |
+
+
+#Requisitos API
+|RF-012| INSERIR REQUISITO  | MÉDIA |
+|RF-013| INSERIR REQUISITO  | MÉDIA |
+|RF-014| INSERIR REQUISITO  | MÉDIA |
+|RF-015| INSERIR REQUISITO  | MÉDIA |
+|RF-016| INSERIR REQUISITO  | MÉDIA |
+|RF-017| INSERIR REQUISITO  | MÉDIA |
+|RF-018| INSERIR REQUISITO  | MÉDIA |
+|RF-019| INSERIR REQUISITO  | MÉDIA |
+|RF-20| INSERIR REQUISITO  | MÉDIA |
+
+
+#Requisitos APP
+|RF-012| INSERIR REQUISITO  | MÉDIA |
+|RF-013| INSERIR REQUISITO  | MÉDIA |
+|RF-014| INSERIR REQUISITO  | MÉDIA |
+|RF-015| INSERIR REQUISITO  | MÉDIA |
+|RF-016| INSERIR REQUISITO  | MÉDIA |
+|RF-017| INSERIR REQUISITO  | MÉDIA |
+|RF-018| INSERIR REQUISITO  | MÉDIA |
+|RF-019| INSERIR REQUISITO  | MÉDIA |
+|RF-20| INSERIR REQUISITO  | MÉDIA |
+
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001|  INSERIR REQUISITO NÃO FUNCIONAL | ALTA | 
+|RNF-002| INSERIR REQUISITO NÃO FUNCIONAL  | MÉDIA |
+|RNF-003| INSERIR REQUISITO NÃO FUNCIONAL | ALTA | 
+|RNF-004| INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA |
+|RNF-005| INSERIR REQUISITO NÃO FUNCIONAL | ALTA | 
+|RNF-006| INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA |
+|RNF-007| INSERIR REQUISITO NÃO FUNCIONAL | ALTA | 
+|RNF-008|  INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA |
+|RNF-009| INSERIR REQUISIT NÃO FUNCIONAL | ALTA | 
+|RNF-010| INSERIR REQUISITO NÃO FUNCIONAL  | MÉDIA |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -106,10 +135,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |02| Não pode ser desenvolvido um módulo de backend        |
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
