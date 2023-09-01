@@ -1,14 +1,12 @@
 # Introdução
 
-A praticidade na realização de pedidos por consumidores e também da organização deles por parte das empresas tem se tornado uma necessidade cada vez mais latente no cotidiano de empreendedores e consumidores.
+A praticidade na realização de pedidos por consumidores e também da organização deles por parte das empresas tem se tornado uma necessidade cada vez mais latente no cotidiano de empreendedores e consumidores. Após a pandemia de 2020, as formas de realizar pedidos em delivery praticamente se estabeleceram como algo feito quase que exclusivamente por aplicativos como Ifood e UberEats.
 
-Nos dias de hoje, principalmente após a pandemia de 2020, as formas de realizar pedidos em delivery praticamente se estabeleceram como algo feito quase que exclusivamente por aplicativos como Ifood e UberEats.
+Porém, é muito comum que as empresas acabem se vendo reféns dessas plataformas, uma vez que elas fazem a gestão dos pedidos e do marketing do negócio, como no caso do Ifood. Mas além de tirar parte do faturamento, esses marketplaces acabam tirando a personalidade dos negócios, e distanciando as empresas de delivery dos consumidores.
 
-Porém, é muito comum que as empresas acabam se vendo reféns dessas plataformas, uma vez que elas fazem a gestão dos pedidos e do marketing do negócio, como no caso do Ifood. Mas além de tirar parte do faturamento, esses marketplaces acabam tirando a personalidade dos negócios, e distanciando empresas de delivery dos consumidores.
+O trabalho será composto por 3 aplicações majoritárias. Uma aplicação WEB, onde o restaurante de delivery fará a gestão dos pedidos, desde a emissão à entrega. Uma aplicação Mobile, onde o cliente terá acesso ao cardápio e também à funcionalidade de realizar pedidos. E, por fim, uma API, onde servirá os dados tanto para a WEB quanto para o Mobile.
 
-O trabalho que vai ser desenvolvido será composto por 3 aplicações majoritárias. Uma aplicação WEB, onde o restaurante de delivery fará a gestão dos pedidos, desde a emissão à entrega. Uma aplicação Mobile, onde o cliente terá acesso ao cardápio e também à funcionalidade de realizar pedidos. E, por fim, uma API, onde servirá os dados tanto para a WEB quanto para o Mobile.
-
-Iremos ter como objetivo, entregar uma aplicação de ponta a ponta para o dono da burgueria, de forma que ele melhore seu faturamento e também o relacionamento com os seus clientes, gerando mais proximidade entre as duas partes. A ideia também é facilitar os dois lados, dos clientes de pedirem e do empreendedor de fazer a gestão dos pedidos.
+Temos como objetivo, entregar uma aplicação de ponta a ponta para o dono da hamburgueria, de forma que ele melhore tanto seu faturamento quanto o relacionamento com seus clientes, gerando mais proximidade entre as duas partes. A ideia também é facilitar os dois lados, dos clientes de pedirem e do empreendedor de fazer a gestão dos pedidos.
 
 ## Problema
 
