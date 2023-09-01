@@ -10,15 +10,24 @@ O trabalho que vai ser desenvolvido será composto por 3 aplicações majoritár
 
 Iremos ter como objetivo, entregar uma aplicação de ponta a ponta para o dono da burgueria, de forma que ele melhore seu faturamento e também o relacionamento com os seus clientes, gerando mais proximidade entre as duas partes. A ideia também é facilitar os dois lados, dos clientes de pedirem e do empreendedor de fazer a gestão dos pedidos.
 
-
 ## Problema
+
 A falta da centralização de pedidos em um sistema e a dificuldade da realização destes pelos consumidores tem se tornado cada vez mais um desafio das empresas de delivery, fazendo com que elas possam perder vendas e consequentemente clientes.
 
 Existe a necessidade de que haja praticidade por meio das empresas de delivery na hora de captar seus clientes, uma vez que não podem ficar reféns de plataformas terceiras e marketplaces. E os aplicativos próprios tem sido a melhor forma de fazer isso, já que mostra profissionalismo da empresa em ter algo seu, facilitando a comunicação com o usuário. Além disso, é necessário um sistema de gestão para que as empresas tenham um controle completo da jornada de compra do cliente, desde o pedido até a entrega.
 
 ## Objetivos
 
+Desenvolver um plataforma de pedidos, gerenciamento de comanda e cardápio para a Hamburgueria 1999 Burguer.
 
+*OBJETIVOS ESPECÍFICOS*
+
+* Promover o gerenciamento de pedidos realizados pelos clientes no aplicativo.
+* Promover a realização de pedidos pelo aplicativo móvel.
+* Criação e gerenciamento de cardápio, bem como, sua disponibilização para os clientes.
+* Individualização dos pedidos entre "Pendentes" e "Em Andamento"
+* Desenvolver uma API REST responsável por disponibilizar os dados tanto para plataforma WEB quando para o aplicativo móvel.
+* Deverá ser fácil e conveniente de usar: o aplicativo deve ser fácil de usar e acessível, independentemente do nível de experiência ou habilidade tecnológica do usuário. Ele deve ser conveniente para realização de pedidos.
 
 ## Justificativa
 
@@ -29,7 +38,6 @@ A aplicação mobile oferecerá uma solução para a dependência dos marketplac
 O Web será fundamental, porque o empresário deve ter uma forma de controle do que está sendo pedido. Assim, é uma das ideias do semestre, uma aplicação distribuída, onde os dados gerenciados pelo backend farão com que haja uma comunicação entre a aplicação Mobile e os pedidos gerados pela versão Web.
 
 Assim, com a utilização do aplicativo os clientes da loja vão conseguir fazer seus pedidos com tranquilidade, bem como ter um contato mais direto com o estabelecimento. Já a utilização do empresário fará com que os dados gerados pelo app sejam gerenciados de forma mais dinâmica e proprietária da própria empresa.
-
 
 ## Público-Alvo
 
