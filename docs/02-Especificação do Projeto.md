@@ -180,19 +180,17 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
 
-![Diagrama de Gant 1](./img/gantt.png)
-![Diagrama de Gant 2](./img/gantt2.png)
+![cronograma-1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/b44ec2a1-d3ba-46e4-ab03-41e08ae00705)
+![cronograma-2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/ee4401bf-16d2-4d47-a080-92e78405b970)
 
 ## Gerenciamento de Custos
 
 O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo
 
-![Custos](./img/custos1.png)
-
+![custos](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/dc1901f2-2b3b-4e48-aa81-62ff2c5305af)
 
 ## Gerenciamento de Pessoal
 
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados.
 
-![Pessoal 1](./img/pessoal1.png)
-![Pessoal 2](./img/pessoal2.png)
+![equipe](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/ffad668d-31b3-4d37-8c9b-5a6fef4bb921)
