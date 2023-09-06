@@ -64,7 +64,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-##### Requisitos funcionais aplicação WEB
+#### Requisitos Funcionais Aplicação WEB
 
 | ID     | Descrição do Requisito                                                                                                                                                                          | Prioridade |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -83,39 +83,43 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-013 | O usuário deverá conseguir editar seus dados no sistema                                                                                                                                         | ALTA       |
 | RF-014 | Ao clicar em editar, o sistema deverá permitir que o usuário altere as informações desejadas no produto                                                                                       | ALTA       |
 
-##### Requisitos API
+#### Requisitos Funcionais API
 
 | ID     | Descrição do Requisito                                                                            | Prioridade |
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
-| RF-001 | A API deverá fornecer um endpoint GET para retornar todos os produtos cadastrados                  | ALTA       |
-| RF-002 | A API deverá fornecer um endpoint GET para retornar dados de um único produto                     | ALTA       |
-| RF-003 | A API deverá fornecer um endpoint POST para criar um novo produto                                  | ALTA       |
-| RF-004 | A API deverá fornecer um endpoint PUT para atualizar o produto                                     | ALTA       |
-| RF-005 | A API deverá fornecer um endpoint DELETE para excluir um produto                                   | ALTA       |
-| RF-006 | A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados                   | ALTA       |
-| RF-007 | A API deverá fornecer um endpoint GET para retornar detalhes de um pedido                          | ALTA       |
-| RF-008 | A API deverá fornecer um endpoint POST para criar um novo pedido                                   | ALTA       |
-| RF-009 | A API deverá fornecer um endpoint GET para retornar todos os produtos com status iguais            | ALTA       |
-| RF-010 | A API deverá fornecer um endpoint PUT para alterar o status do pedido                             | ALTA       |
-| RF-011 | A API deverá fornecer um endpoint GET para retornar dados do usuário                              | ALTA       |
-| RF-012 | A API deverá fornecer um endpoint PUT para atualizar dados do usuário                             | ALTA       |
-| RF-013 | A API deverá fornecer um endpoint POST para inserir os dados básicos para realização do pedido | ALTA       |
-| RF-014 | A API deverá fornecer um endpoint DELETE para excluir o registro da pessoa                        | ALTA       |
-| RF-015 | A API deverá fornecer um endpoint POST para autenticar o login do usuário                        | ALTA       |
-| RF-016 | A API deverá fornecer um endpoint POST para cadastrar um usuário no banco                        | ALTA       |
+| RF-015 | A API deverá fornecer um endpoint GET para retornar todos os produtos cadastrados                  | ALTA       |
+| RF-016 | A API deverá fornecer um endpoint GET para retornar dados de um único produto                     | ALTA       |
+| RF-017 | A API deverá fornecer um endpoint POST para criar um novo produto                                  | ALTA       |
+| RF-018 | A API deverá fornecer um endpoint PUT para atualizar o produto                                     | ALTA       |
+| RF-019 | A API deverá fornecer um endpoint DELETE para excluir um produto                                   | ALTA       |
+| RF-020 | A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados                   | ALTA       |
+| RF-021 | A API deverá fornecer um endpoint GET para retornar detalhes de um pedido                          | ALTA       |
+| RF-022 | A API deverá fornecer um endpoint POST para criar um novo pedido                                   | ALTA       |
+| RF-023 | A API deverá fornecer um endpoint GET para retornar todos os produtos com status iguais            | ALTA       |
+| RF-024 | A API deverá fornecer um endpoint PUT para alterar o status do pedido                             | ALTA       |
+| RF-025 | A API deverá fornecer um endpoint GET para retornar dados do usuário                              | ALTA       |
+| RF-026 | A API deverá fornecer um endpoint PUT para atualizar dados do usuário                             | ALTA       |
+| RF-027 | A API deverá fornecer um endpoint POST para inserir os dados básicos para realização do pedido | ALTA       |
+| RF-028 | A API deverá fornecer um endpoint DELETE para excluir o registro da pessoa                        | ALTA       |
+| RF-029 | A API deverá fornecer um endpoint POST para autenticar o login do usuário                        | ALTA       |
+| RF-030 | A API deverá fornecer um endpoint POST para cadastrar um usuário no banco                        | ALTA       |
 
-#Requisitos APP
-|RF-017| INSERIR REQUISITO  | MÉDIA |
-|RF-018| INSERIR REQUISITO  | MÉDIA |
-|RF-019| INSERIR REQUISITO  | MÉDIA |
-|RF-020| INSERIR REQUISITO  | MÉDIA |
-|RF-021| INSERIR REQUISITO  | MÉDIA |
-|RF-022| INSERIR REQUISITO  | MÉDIA |
-|RF-023| INSERIR REQUISITO  | MÉDIA |
-|RF-024| INSERIR REQUISITO  | MÉDIA |
-|RF-025| INSERIR REQUISITO  | MÉDIA |
+#### Requisitos Funcionais Aplicação Mobile
 
-### Requisitos não Funcionais
+| ID     | Descrição do Requisito         | Prioridade |
+| ------ | ------------------------------ | ---------- |
+| RF-031 | INSERIR REQUISITO              | MÉDIA |
+| RF-032 | INSERIR REQUISITO              | MÉDIA |
+| RF-033 | INSERIR REQUISITO              | MÉDIA |
+| RF-034 | INSERIR REQUISITO              | MÉDIA |
+| RF-035 | INSERIR REQUISITO              | MÉDIA |
+| RF-036 | INSERIR REQUISITO              | MÉDIA |
+| RF-037 | INSERIR REQUISITO              | MÉDIA |
+| RF-038 | INSERIR REQUISITO              | MÉDIA |
+| RF-039 | INSERIR REQUISITO              | MÉDIA |
+
+
+### Requisitos Não Funcionais
 
 | ID      | Descrição do Requisito         | Prioridade |
 | ------- | -------------------------------- | ---------- |
