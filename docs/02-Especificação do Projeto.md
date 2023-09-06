@@ -105,15 +105,15 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-016 | A API deverá fornecer um endpoint POST para cadastrar um usuário no banco                        | ALTA       |
 
 #Requisitos APP
-|RF-012| INSERIR REQUISITO  | MÉDIA |
-|RF-013| INSERIR REQUISITO  | MÉDIA |
-|RF-014| INSERIR REQUISITO  | MÉDIA |
-|RF-015| INSERIR REQUISITO  | MÉDIA |
-|RF-016| INSERIR REQUISITO  | MÉDIA |
 |RF-017| INSERIR REQUISITO  | MÉDIA |
 |RF-018| INSERIR REQUISITO  | MÉDIA |
 |RF-019| INSERIR REQUISITO  | MÉDIA |
-|RF-20| INSERIR REQUISITO  | MÉDIA |
+|RF-020| INSERIR REQUISITO  | MÉDIA |
+|RF-021| INSERIR REQUISITO  | MÉDIA |
+|RF-022| INSERIR REQUISITO  | MÉDIA |
+|RF-023| INSERIR REQUISITO  | MÉDIA |
+|RF-024| INSERIR REQUISITO  | MÉDIA |
+|RF-025| INSERIR REQUISITO  | MÉDIA |
 
 ### Requisitos não Funcionais
 
