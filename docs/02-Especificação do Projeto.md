@@ -108,15 +108,15 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID     | Descrição do Requisito         | Prioridade |
 | ------ | ------------------------------ | ---------- |
-| RF-031 | INSERIR REQUISITO              | MÉDIA |
-| RF-032 | INSERIR REQUISITO              | MÉDIA |
-| RF-033 | INSERIR REQUISITO              | MÉDIA |
-| RF-034 | INSERIR REQUISITO              | MÉDIA |
-| RF-035 | INSERIR REQUISITO              | MÉDIA |
-| RF-036 | INSERIR REQUISITO              | MÉDIA |
-| RF-037 | INSERIR REQUISITO              | MÉDIA |
-| RF-038 | INSERIR REQUISITO              | MÉDIA |
-| RF-039 | INSERIR REQUISITO              | MÉDIA |
+| RF-031 | A aplicação mobile deverá possuir uma tela de login, colhendo: e-mail e senha | ALTA |
+| RF-032 | A aplicação mobile deverá possuir uma tela de cadastro, colhendo: nome, e-mail, senha, endereço de entrega | ALTA |
+| RF-033 | A aplicação mobile deverá possuir uma tela de cardápio, possibilidando a visualização dos produtos | ALTA |
+| RF-034 | Na tela do cardápio, permitir adicionar produtos ao carrinho | ALTA |
+| RF-035 | A aplicação mobile deverá possuir uma tela de carrinho, listando os produtos escolhidos | ALTA |
+| RF-036 | Na tela de carrinho, permitir a manuteção dos produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | ALTA |
+| RF-037 | Na tela do carrinho, permitir finalizar o pedido | ALTA |
+| RF-038 | A aplicação mobile deverá possuir uma tela de acompanhamento do pedido | MÉDIA |
+| RF-039 | A aplicação mobile deverá possuir uma tela para manuteção do cadastro do usuário | MÉDIA |
 
 
 ### Requisitos Não Funcionais
