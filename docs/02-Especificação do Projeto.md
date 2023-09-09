@@ -37,17 +37,30 @@ A falta da centralização de pedidos em um sistema e a dificuldade da realizaç
 
 Nossa plataforma auxiliará a hamburgueria no gerenciamento dos pedidos, bem como ter contato mais direto com o consumidor final. O consumidor final terá a comodidade e praticidade em realizar os pedidos em uma plataforma mobile acessível e intuitiva.
 
-#### Processo 1 - Cadastro Consumidor Final
+#### Processo 1 - Cadastro Consumidor Final - Mobile
 ![cadastro-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/f93e1012-e02f-4870-b498-6052519406a5)
 
-#### Processo 2 - Cardápio
-![cardapio-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/cbb47801-0456-4133-bf48-e8304385defb)
+#### Processo 2 - Cardápio - Mobile
+![cardapio-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/44a755c4-8517-4b1b-a550-8ba412e7fb3a)
 
-#### Processo 3 - Carrinho
+#### Processo 3 - Carrinho - Mobile
 ![carrinho-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/9703f44d-a860-4c24-9bb2-bda16d5c103b)
 
-#### Processo 4 - Home Page
+#### Processo 4 - Home Page - Mobile
 ![home-page](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/34d7af23-c18b-45fb-a1f1-65dba804034c)
+
+#### Processo 5 - Cadastro Usuário - Aplicação Web
+![cadastro-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/5526ab74-ef5a-4095-ace7-ab803a33c4b8)
+
+#### Processo 6 - Produtos - Aplicação Web
+![produtos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/18fb5620-7a1b-4c03-859f-76921f717fc4)
+
+#### Processo 7 - Lista Pedidos - Aplicação Web
+![pedidos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/eeb63d39-b70c-4ae2-96ba-49dd7abd418e)
+
+#### Processo 8 - Detalhes Pedido - Aplicação Web
+![detalhes-pedido-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/baf75d83-c4cc-49db-9402-77bdd0cdd42e)
+
 
 ## Indicadores de Desempenho
 
