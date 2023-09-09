@@ -59,7 +59,7 @@ Nossa plataforma auxiliará a hamburgueria no gerenciamento dos pedidos, bem com
 ![pedidos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/b15aa719-528c-4e9d-836c-dbb23931c328)
 
 #### Processo 8 - Detalhes Pedido - Aplicação Web
-![detalhes-pedido-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/baf75d83-c4cc-49db-9402-77bdd0cdd42e)
+![detalhes-pedido-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/ce2b8039-f47a-4548-8707-fc9341ac25bc)
 
 #### Processo 9 - Histórico de Pedidos - Aplicação Web
 ![historico-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/2b7cffb9-1503-4ec8-ad91-9e3ace072eed)
