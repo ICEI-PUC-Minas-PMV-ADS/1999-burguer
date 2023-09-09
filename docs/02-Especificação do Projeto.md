@@ -121,20 +121,15 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-039 | A aplicação mobile deverá possuir uma tela para manuteção do cadastro do usuário | MÉDIA |
 
 
-### Requisitos Não Funcionais
+### Requisitos Não Funcionais Web
 
 | ID      | Descrição do Requisito         | Prioridade |
 | ------- | -------------------------------- | ---------- |
-| RNF-001 | INSERIR REQUISITO NÃO FUNCIONAL | ALTA       |
-| RNF-002 | INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA     |
-| RNF-003 | INSERIR REQUISITO NÃO FUNCIONAL | ALTA       |
-| RNF-004 | INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA     |
-| RNF-005 | INSERIR REQUISITO NÃO FUNCIONAL | ALTA       |
-| RNF-006 | INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA     |
-| RNF-007 | INSERIR REQUISITO NÃO FUNCIONAL | ALTA       |
-| RNF-008 | INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA     |
-| RNF-009 | INSERIR REQUISIT NÃO FUNCIONAL  | ALTA       |
-| RNF-010 | INSERIR REQUISITO NÃO FUNCIONAL | MÉDIA     |
+| RNF-001 | O sistema irá criptografar a senha do usuário | ALTA       |
+| RNF-002 | A aplicação web deve ser compatível com os principais navegadores da web, como Chrome, Firefox, Safari e Edge. | MÉDIA     |
+| RNF-003 | A interface da aplicação web deve ser responsiva, adaptando-se automaticamente a diferentes tamanhos de tela | ALTA       |
+| RNF-004 | A tela de pedidos será composta por uma lista de pedidos organizados em blocos com as informações dos pedidos | MÉDIA     |
+
 
 ## Restrições
 
@@ -151,13 +146,9 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 ![Diagrama de caso de uso](img/Diagrama-caso-de-uso.png)
 
-# Matriz de Rastreabilidade
+# Matriz de Rastreabilidade Web
 
-A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio.
-
-A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
-
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
+![Matriz de Rastreabilidade Web](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/264edd86-a648-4ffa-afd8-f1840c72fd66)
 
 > **Links Úteis**:
 >
