@@ -53,10 +53,10 @@ Nossa plataforma auxiliará a hamburgueria no gerenciamento dos pedidos, bem com
 ![cadastro-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/5526ab74-ef5a-4095-ace7-ab803a33c4b8)
 
 #### Processo 6 - Produtos - Aplicação Web
-![produtos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/18fb5620-7a1b-4c03-859f-76921f717fc4)
+![produtos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/36ee9b1a-d32a-4d4c-826a-bad77c7b854b)
 
 #### Processo 7 - Lista Pedidos - Aplicação Web
-![pedidos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/eeb63d39-b70c-4ae2-96ba-49dd7abd418e)
+![pedidos-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/b15aa719-528c-4e9d-836c-dbb23931c328)
 
 #### Processo 8 - Detalhes Pedido - Aplicação Web
 ![detalhes-pedido-res](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/baf75d83-c4cc-49db-9402-77bdd0cdd42e)
