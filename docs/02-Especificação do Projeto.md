@@ -31,23 +31,23 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional.
+A falta da centralização de pedidos em um sistema e a dificuldade da realização destes pelos consumidores tem se tornado cada vez mais um desafio das empresas de delivery, fazendo com que elas possam perder vendas e consequentemente clientes.
 
 ### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+Nossa plataforma auxiliará a hamburgueria no gerenciamento dos pedidos, bem como ter contato mais direto com o consumidor final. O consumidor final terá a comodidade e praticidade em realizar os pedidos em uma plataforma mobile acessível e intuitiva.
 
-### Processo 1 – NOME DO PROCESSO
+#### Processo 1 - Cadastro Consumidor Final
+![cadastro-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/f93e1012-e02f-4870-b498-6052519406a5)
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
+#### Processo 2 - Cardápio
+![cardapio-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/cbb47801-0456-4133-bf48-e8304385defb)
 
-![Processo 1](img/02-bpmn-proc1.png)
+#### Processo 3 - Carrinho
+![carrinho-cf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/9703f44d-a860-4c24-9bb2-bda16d5c103b)
 
-### Processo 2 – NOME DO PROCESSO
-
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
-
-![Processo 2](img/02-bpmn-proc2.png)
+#### Processo 4 - Home Page
+![home-page](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/34d7af23-c18b-45fb-a1f1-65dba804034c)
 
 ## Indicadores de Desempenho
 
