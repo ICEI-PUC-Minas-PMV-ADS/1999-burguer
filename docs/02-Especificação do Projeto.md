@@ -141,20 +141,28 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID      | Descrição do Requisito         | Prioridade |
 | ------- | -------------------------------- | ---------- |
-| RNF-001 | O sistema irá criptografar a senha do usuário | ALTA       |
+| RNF-001 | O sistema deve criptografar a senha do usuário | ALTA       |
 | RNF-002 | A aplicação web deve ser compatível com os principais navegadores da web, como Chrome, Firefox, Safari e Edge. | MÉDIA     |
 | RNF-003 | A interface da aplicação web deve ser responsiva, adaptando-se automaticamente a diferentes tamanhos de tela | ALTA       |
 | RNF-004 | A tela de pedidos será composta por uma lista de pedidos organizados em blocos com as informações dos pedidos | MÉDIA     |
+| RNF-005 | O sistema back-end API deve ser desenvolvida na linguagem NodeJS | ALTA |
+| RNF-006 | O sistema front-end Web deve ser desenvolvido na linguagm TypeScript com utilização do framework Angular | ALTA |
+| RNF-007 | O sistema front-end Mobile deve ser desenvolvido na linguagem Flutter | ALTA |
+| RNF-008 | O sistema front-end Mobile deve estar compatível com sistemas operacionais Android e iOS | BAIXA |
+| RNF-009 | O sistema front-end Web deve estar compatível com navegadores Chrome e Safari | MÉDIA |
+| RNF-010 | As interfaces precisam estar compatíveis com práticas de acessibilidade | BAIXA |
+| RNF-011 | Os sitemas devem estar compatíveis com a LGPD, Lei Geral de Proteção de Dados | BAIXA |
+| RNF-012 | O sistema deve criptografar os dados sensíveis dos usuários | MÉDIA      |
 
 ### Requisitos Não Funcionais API
 
 | ID      | Descrição do Requisito         | Prioridade |
 | ------- | -------------------------------- | ---------- |
-| RNF-001 | A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida | ALTA       |
-| RNF-002 | O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade | MÉDIA     |
-| RNF-003 | A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | MÉDIA       |
-| RNF-004 | Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | ALTA     |
-| RNF-005 | A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | ALTA     |
+| RNF-013 | A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida | ALTA       |
+| RNF-014 | O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade | MÉDIA     |
+| RNF-015 | A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | MÉDIA       |
+| RNF-016 | Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | ALTA     |
+| RNF-017 | A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | ALTA     |
 
 ## Restrições
 
