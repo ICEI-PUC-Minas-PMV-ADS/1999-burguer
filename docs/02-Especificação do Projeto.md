@@ -137,7 +137,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-039 | A aplicação mobile deverá possuir uma tela para manuteção do cadastro do usuário | MÉDIA |
 
 
-### Requisitos Não Funcionais Web
+### Requisitos Não Funcionais Web e Mobile
 
 | ID      | Descrição do Requisito         | Prioridade |
 | ------- | -------------------------------- | ---------- |
@@ -145,24 +145,24 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-002 | A aplicação web deve ser compatível com os principais navegadores da web, como Chrome, Firefox, Safari e Edge. | MÉDIA     |
 | RNF-003 | A interface da aplicação web deve ser responsiva, adaptando-se automaticamente a diferentes tamanhos de tela | ALTA       |
 | RNF-004 | A tela de pedidos será composta por uma lista de pedidos organizados em blocos com as informações dos pedidos | MÉDIA     |
-| RNF-005 | O sistema back-end API deve ser desenvolvida na linguagem NodeJS | ALTA |
-| RNF-006 | O sistema front-end Web deve ser desenvolvido na linguagm TypeScript com utilização do framework Angular | ALTA |
-| RNF-007 | O sistema front-end Mobile deve ser desenvolvido na linguagem Flutter | ALTA |
-| RNF-008 | O sistema front-end Mobile deve estar compatível com sistemas operacionais Android e iOS | BAIXA |
-| RNF-009 | O sistema front-end Web deve estar compatível com navegadores Chrome e Safari | MÉDIA |
-| RNF-010 | As interfaces precisam estar compatíveis com práticas de acessibilidade | BAIXA |
-| RNF-011 | Os sitemas devem estar compatíveis com a LGPD, Lei Geral de Proteção de Dados | BAIXA |
-| RNF-012 | O sistema deve criptografar os dados sensíveis dos usuários | MÉDIA      |
+| RNF-005 | O sistema front-end Web deve ser desenvolvido na linguagm TypeScript com utilização do framework Angular | ALTA |
+| RNF-006 | O sistema front-end Mobile deve ser desenvolvido na linguagem Flutter | ALTA |
+| RNF-007 | O sistema front-end Mobile deve estar compatível com sistemas operacionais Android e iOS | BAIXA |
+| RNF-008 | O sistema front-end Web deve estar compatível com navegadores Chrome e Safari | MÉDIA |
+| RNF-009 | As interfaces precisam estar compatíveis com práticas de acessibilidade | BAIXA |
+| RNF-010 | Os sitemas devem estar compatíveis com a LGPD, Lei Geral de Proteção de Dados | BAIXA |
+| RNF-011 | O sistema deve criptografar os dados sensíveis dos usuários | MÉDIA      |
 
 ### Requisitos Não Funcionais API
 
 | ID      | Descrição do Requisito         | Prioridade |
 | ------- | -------------------------------- | ---------- |
-| RNF-013 | A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida | ALTA       |
-| RNF-014 | O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade | MÉDIA     |
-| RNF-015 | A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | MÉDIA       |
-| RNF-016 | Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | ALTA     |
-| RNF-017 | A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | ALTA     |
+| RNF-012 | A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida | ALTA       |
+| RNF-013 | O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade | MÉDIA     |
+| RNF-014 | A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | MÉDIA       |
+| RNF-015 | Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | ALTA     |
+| RNF-016 | A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | ALTA     |
+| RNF-017 | O sistema back-end API deve ser desenvolvida na linguagem NodeJS | ALTA     |
 
 ## Restrições
 
@@ -182,7 +182,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ![Matriz de Rastreabilidade Web](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/264edd86-a648-4ffa-afd8-f1840c72fd66)
 
-![Matriz de Rastreabilidade API](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/9f504d6c-0dc0-4941-88ac-41e8d2c120e4)
+![Matriz de Rastreabilidade API](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/6c6d0360-92d0-4e32-95df-b2bbe4aeb486)
 
 > **Links Úteis**:
 >
