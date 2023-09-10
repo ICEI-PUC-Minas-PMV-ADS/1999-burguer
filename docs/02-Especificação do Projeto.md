@@ -146,6 +146,15 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-003 | A interface da aplicação web deve ser responsiva, adaptando-se automaticamente a diferentes tamanhos de tela | ALTA       |
 | RNF-004 | A tela de pedidos será composta por uma lista de pedidos organizados em blocos com as informações dos pedidos | MÉDIA     |
 
+### Requisitos Não Funcionais API
+
+| ID      | Descrição do Requisito         | Prioridade |
+| ------- | -------------------------------- | ---------- |
+| RNF-001 | A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida | ALTA       |
+| RNF-002 | O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade | MÉDIA     |
+| RNF-003 | A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | MÉDIA       |
+| RNF-004 | Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | ALTA     |
+| RNF-005 | A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | ALTA     |
 
 ## Restrições
 
@@ -165,6 +174,8 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 # Matriz de Rastreabilidade Web
 
 ![Matriz de Rastreabilidade Web](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/264edd86-a648-4ffa-afd8-f1840c72fd66)
+
+![Matriz de Rastreabilidade API](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/9f504d6c-0dc0-4941-88ac-41e8d2c120e4)
 
 > **Links Úteis**:
 >
