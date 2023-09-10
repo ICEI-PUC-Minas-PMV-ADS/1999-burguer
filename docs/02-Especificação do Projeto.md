@@ -171,9 +171,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 | ID | Restrição                                             |
 | -- | ------------------------------------------------------- |
 | 01 | O projeto deverá ser entregue até o final do semestre |
-| 02 | Não pode ser desenvolvido um módulo de backend        |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
+| 02 | O backend deve ser desenvolvido como uma API REST, integrando o front-end web e mobile com o banco de dados |
+| 03 | Construir aplicações únicas para front-end mobile e front-end web |
 
 ## Diagrama de Casos de Uso
 
