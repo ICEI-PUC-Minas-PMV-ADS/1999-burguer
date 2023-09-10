@@ -182,7 +182,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ![Matriz de Rastreabilidade Web](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/264edd86-a648-4ffa-afd8-f1840c72fd66)
 
-![Matriz de Rastreabilidade API](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/6c6d0360-92d0-4e32-95df-b2bbe4aeb486)
+# Matriz de Rastreabilidade API
+
+![Matriz de Rastreabilidade  - API](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/ee8c1dbc-7f18-409d-9d9d-ea02acdccc74)
 
 > **Links Úteis**:
 >
