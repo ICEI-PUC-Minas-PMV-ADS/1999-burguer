@@ -186,11 +186,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ![Matriz de Rastreabilidade  - API](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/ee8c1dbc-7f18-409d-9d9d-ea02acdccc74)
 
-> **Links Úteis**:
->
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
+# Matriz de Rastreabilidade Mobile
+
+![Matriz de Rastreabilidade  - Mobile](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/ccc080ba-d5f0-4a64-a757-369112a28858)
+
 
 # Gerenciamento de Projeto
 
