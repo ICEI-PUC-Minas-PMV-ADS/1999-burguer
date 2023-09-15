@@ -1,4 +1,4 @@
-import { setLocale } from 'yup';
+import { setLocale } from 'yup'
 
 setLocale({
     mixed: {
@@ -40,5 +40,5 @@ setLocale({
     },
     object: {
         noUnknown: 'Deve ser passado um valor definido',
-    }
-});
+    },
+})

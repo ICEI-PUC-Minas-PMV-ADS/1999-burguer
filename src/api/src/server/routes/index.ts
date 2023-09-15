@@ -1,9 +1,10 @@
-import { Router } from "express";
+import { Router } from 'express';
 
 const router = Router()
 
 //Loja
-router.get('/store-data')
+router.get('/store-data/:id')                   //  A API deverá fornecer um endpoint GET para retornar dados da loja
+router.put('/store-data/:id')                   //  A API deverá fornecer um endpoint PUT para atualizar dados da loja
 
 //Pedidos
 router.get('/order/:id')                        //  A API deverá fornecer um endpoint GET para retornar detalhes de um pedido
@@ -13,7 +14,7 @@ router.put('/order/:id')                        //  A API deverá fornecer um en
 router.post('/order/:id')                       //  A API deverá fornecer um endpoint POST para inserir os dados básicos para realização do pedido
 
 //PedidosProdutos
-router.get('/order-products/:id')               //  A API deverá fornecer um endpoint GET para retornar produtos de um pedido
+router.get('/order-products/:order-id')         //  A API deverá fornecer um endpoint GET para retornar produtos de um pedido
 
 //Produtos
 router.get('/products')                         //  A API deverá fornecer um endpoint GET para retornar todos os produtos cadastrados
