@@ -15,18 +15,20 @@ model loja {
 }
 
 model pedido {
-  id             Int              @id @default(autoincrement())
-  data_inclusao  DateTime?        @default(now()) @db.Timestamp(6)
-  usuario_id     Int
-  total          Decimal          @db.Decimal(9, 2)
-  endereco       String           @db.VarChar(255)
-  numero         String           @db.VarChar(255)
-  bairro         String           @db.VarChar(255)
-  cidade         String           @db.VarChar(255)
-  cep            String           @db.VarChar(255)
-  uf             String           @db.VarChar(255)
-  usuario        usuario          @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  pedido_produto pedido_produto[]
+  id               Int              @id @default(autoincrement())
+  data_inclusao    DateTime         @default(now()) @db.Timestamp(6)
+  usuario_id       Int
+  total            Decimal          @db.Decimal(9, 2)
+  endereco         String           @db.VarChar(255)
+  numero           String           @db.VarChar(255)
+  bairro           String           @db.VarChar(255)
+  cidade           String           @db.VarChar(255)
+  cep              String           @db.VarChar(255)
+  uf               String           @db.VarChar(255)
+  status           Boolean
+  data_finalizacao DateTime         @db.Timestamp(6)
+  usuario          usuario          @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  pedido_produto   pedido_produto[]
 }
 
 model pedido_produto {
@@ -45,12 +47,13 @@ model produto {
   descricao      String           @db.VarChar
   valor          Decimal          @db.Decimal(9, 2)
   nome           String           @db.VarChar
+  status         Boolean
   pedido_produto pedido_produto[]
 }
 
 model usuario {
   id               Int      @id @default(autoincrement())
-  email            String   @db.VarChar
+  email            String   @unique(map: "usuario_un") @db.VarChar
   nome             String   @db.VarChar
   endereco         String   @db.VarChar
   numero           String   @db.VarChar
@@ -61,7 +64,7 @@ model usuario {
   complemento      String?  @db.VarChar
   ponto_referencia String?  @db.VarChar
   telefone         String   @db.VarChar
-  funcionario      Boolean?
+  funcionario      Boolean
   senha            String   @db.VarChar
   pedido           pedido[]
 }

@@ -5,7 +5,7 @@ import { Prisma } from '@prisma/client'
 export const getAll = async (
     page: number,
     limit: number,
-    filter: string,
+    filter: boolean,
     id = 0
 ): Promise<IPedido[] | Error> => {
     try {
@@ -13,22 +13,20 @@ export const getAll = async (
         limit = Number(limit)
 
         const skip = (page - 1) * limit
-        const where: Prisma.pedidoWhereInput = {}
-
-        if (filter) {
-            where.nome = {
-                contains: filter,
-            }
-        }
+        const cidade: Prisma.pedidoWhereInput = {}
 
         if (id > 0) {
-            where.id = id
+            cidade.id = id
         }
 
         const result = await database.pedido.findMany({
             skip: skip,
             take: limit,
-            where: where,
+            where: {
+                status: {
+                    equals: filter
+                }
+            },
         })
 
         if (result.length === 0) {

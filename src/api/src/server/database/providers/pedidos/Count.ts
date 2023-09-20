@@ -1,17 +1,13 @@
 import { database } from '../..'
 
-export const count = async (filter: string = ''): Promise<number | Error> => {
+export const count = async (filter: boolean): Promise<number | Error> => {
     try {
-        const where = filter
-            ? {
-                nome: {
-                    contains: filter,
+        const totalCount = await database.pedido.count({
+            where: {
+                status: {
+                    equals: filter
                 },
             }
-            : {}
-
-        const totalCount = await database.pedido.count({
-            where,
         })
 
         if (!totalCount) {

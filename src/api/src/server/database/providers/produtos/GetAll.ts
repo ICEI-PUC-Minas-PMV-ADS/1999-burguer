@@ -5,7 +5,7 @@ import { Prisma } from '@prisma/client'
 export const getAll = async (
     page: number,
     limit: number,
-    filter: string,
+    filter: boolean,
     id = 0
 ): Promise<IProduto[] | Error> => {
     try {
@@ -16,8 +16,8 @@ export const getAll = async (
         const where: Prisma.produtoWhereInput = {}
 
         if (filter) {
-            where.nome = {
-                contains: filter,
+            where.status = {
+                equals: filter,
             }
         }
 

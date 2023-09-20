@@ -2,7 +2,7 @@ import { RequestHandler } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { JWTService } from '../services';
 
-export const ensureAuth: RequestHandler = (request, response, next) => {
+export const authValidator: RequestHandler = (request, response, next) => {
     const {authorization} = request.headers
     if (!authorization){
         return response.status(StatusCodes.UNAUTHORIZED).json({errors: {

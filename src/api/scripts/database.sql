@@ -13,6 +13,7 @@ CREATE TABLE teste.produto (
 	descricao varchar NOT NULL,
 	valor numeric(9, 2) NOT NULL,
 	nome varchar NOT NULL,
+    status bool NOT NULL,
 	CONSTRAINT produto_pkey PRIMARY KEY (id)
 );
 
@@ -29,9 +30,10 @@ CREATE TABLE teste.usuario (
 	complemento varchar NULL,
 	ponto_referencia varchar NULL,
 	telefone varchar NOT NULL,
-	funcionario bool NULL,
+	funcionario bool NOT NULL,
 	senha varchar NOT NULL,
 	CONSTRAINT usuario_pkey PRIMARY KEY (id)
+    CONSTRAINT usuario_un UNIQUE (email)
 );
 
 CREATE TABLE teste.pedido (
@@ -45,6 +47,8 @@ CREATE TABLE teste.pedido (
 	cidade varchar(255) NOT NULL,
 	cep varchar(255) NOT NULL,
 	uf varchar(255) NOT NULL,
+    status bool NOT NULL,
+	data_finalizacao timestamp NOT NULL,
 	CONSTRAINT pedido_pkey PRIMARY KEY (id),
 	CONSTRAINT pedido_usuario_id_fkey FOREIGN KEY (usuario_id) REFERENCES teste.usuario(id)
 );

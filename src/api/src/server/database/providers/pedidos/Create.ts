@@ -1,17 +1,14 @@
-import { IPedido } from '../../models'
-import { database } from '../..'
+import { IPedido } from '../../models';
+import { database } from '../..';
 
-export const create = async (
-    order: Omit<IPedido, 'id'>
-): Promise<Object | Error> => {
+export const create = async ( order: Omit<IPedido, 'id'> ): Promise<Object | Error> => {
     try {
-        const createdPedido = await database.pedido.create({
-            data: order,
-        })
-        return createdPedido
+        return await database.pedido.create({
+            data: order
+        });
     } catch (error) {
-        return Error('Error ao cadastrar o registro')
+        return Error('Error ao cadastrar o registro');
     } finally {
-        await database.$disconnect()
+        await database.$disconnect();
     }
-}
+};

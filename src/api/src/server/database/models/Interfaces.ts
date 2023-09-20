@@ -9,15 +9,17 @@ export interface ILoja{
 
 export interface IPedido {
     id: number
-    data_inclusao: string
+    data_inclusao: Date | string
     usuario_id: number
-    total: number
+    total: Decimal | number
     endereco: string
-    numero: number
+    numero: string
     bairro: string
     cidade: string
-    cep: number
+    cep: string
     uf: string
+    status: boolean
+    data_finalizacao: Date | string
 }
 
 export interface IPedidoProduto {
@@ -33,7 +35,8 @@ export interface IProduto {
     id: number
     nome: string
     descricao: string
-    valor: number
+    valor: Decimal | number
+    status: boolean
 }
 
 export interface IUsuario {
@@ -42,13 +45,13 @@ export interface IUsuario {
     senha: string
     nome: string
     endereco: string
-    numero: number
+    numero: string
     bairro: string
     cidade: string
-    cep: number
+    cep: string
     uf: string
-    complemento: string
-    ponto_referencia: string
+    complemento: string | null
+    ponto_referencia: string | null
     telefone: string
     funcionario: boolean
 }
