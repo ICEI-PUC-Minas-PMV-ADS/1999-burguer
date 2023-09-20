@@ -1,9 +1,9 @@
-import { ILoja } from '../../models'
+import { IUpdateLoja } from '../../models'
 import { database } from '../..'
 
 export const updateById = async (
     id: number,
-    store: Omit<ILoja, 'id'>
+    store: Omit<IUpdateLoja, 'id'>
 ): Promise<void | Error> => {
     try {
         const result = await database.loja.update({

@@ -1,10 +1,11 @@
 import { Router } from 'express';
+import { LojasController } from '../controllers';
 
 const router = Router()
 
 //Loja
-router.get('/store-data/:id')                   //  A API deverá fornecer um endpoint GET para retornar dados da loja
-router.put('/store-data/:id')                   //  A API deverá fornecer um endpoint PUT para atualizar dados da loja
+router.get('/store-data/:id', LojasController.getStoreDataValidation, LojasController.getStoreData)                         //  A API deverá fornecer um endpoint GET para retornar dados da loja
+router.put('/store-data/:id', LojasController.updateStoreByIdValidation, LojasController.updateStoreById)                   //  A API deverá fornecer um endpoint PUT para atualizar dados da loja
 
 //Pedidos
 router.get('/order/:id')                        //  A API deverá fornecer um endpoint GET para retornar detalhes de um pedido

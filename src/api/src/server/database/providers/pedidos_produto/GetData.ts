@@ -1,7 +1,7 @@
 import { IPedidoProduto } from '../../models'
 import { database } from '../..'
 
-export const getById = async (id: number): Promise<IPedidoProduto | Error> => {
+export const getData = async (id: number): Promise<IPedidoProduto | Error> => {
     try {
         const result = await database.pedido_produto.findUnique({
             where: {

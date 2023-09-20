@@ -1,14 +1,15 @@
+import { Decimal } from "@prisma/client/runtime/library"
 
 export interface ILoja{
     id: number
     nome: string
-    horario_abertura: Date
-    horario_fechamento: Date
+    horario_abertura: string | null
+    horario_fechamento: string | null
 }
 
 export interface IPedido {
     id: number
-    data_inclusao: Date
+    data_inclusao: string
     usuario_id: number
     total: number
     endereco: string
@@ -24,8 +25,8 @@ export interface IPedidoProduto {
     pedido_id: number
     produto_id: number
     quantidade: number
-    valor_unitario: number
-    total: number
+    valor_unitario: Decimal
+    total: Decimal
 }
 
 export interface IProduto {
@@ -56,8 +57,8 @@ export interface IUsuario {
 export interface IUpdateLoja{
     id: number
     nome?: string
-    horario_abertura?: Date
-    horario_fechamento?: Date
+    horario_abertura?: string
+    horario_fechamento?: string
 }
 
 export interface IUpdatePedidoProduto {

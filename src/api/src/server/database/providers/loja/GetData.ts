@@ -1,7 +1,7 @@
 import { ILoja } from '../../models'
 import { database } from '../..'
 
-export const getById = async (id: number): Promise<ILoja | Error> => {
+export const getData = async (id: number): Promise<ILoja | Error> => {
     try {
         const result = await database.loja.findUnique({
             where: {
