@@ -44,12 +44,14 @@ model produto {
   id             Int              @id @default(autoincrement())
   descricao      String?          @db.VarChar
   valor          Decimal?         @db.Decimal(9, 2)
+  nome           String           @db.VarChar
   pedido_produto pedido_produto[]
 }
 
 model usuario {
   id               Int      @id @default(autoincrement())
   email            String?  @db.VarChar
+  senha            String   @db.VarChar
   nome             String?  @db.VarChar
   endereco         String?  @db.VarChar
   numero           String?  @db.VarChar

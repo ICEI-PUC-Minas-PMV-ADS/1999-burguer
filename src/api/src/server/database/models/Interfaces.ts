@@ -52,3 +52,44 @@ export interface IUsuario {
     funcionario: boolean
 }
 
+
+export interface IUpdateLoja{
+    id: number
+    nome?: string
+    horario_abertura?: Date
+    horario_fechamento?: Date
+}
+
+export interface IUpdatePedidoProduto {
+    id: number
+    pedido_id: number
+    produto_id?: number
+    quantidade: number
+    valor_unitario: number
+    total: number
+}
+
+export interface IUpdateProduto {
+    id: number
+    nome?: string
+    descricao?: string
+    valor?: number
+}
+
+export interface IUpdateUsuario {
+    id: number
+    email?: string
+    senha?: string
+    nome?: string
+    endereco?: string
+    numero?: number
+    bairro?: string
+    cidade?: string
+    cep?: number
+    uf?: string
+    complemento?: string
+    ponto_referencia?: string
+    telefone?: string
+    funcionario?: boolean
+}
+

@@ -31,6 +31,7 @@ CREATE TABLE teste.pedido_produto (
 
 CREATE TABLE teste.produto (
 	id serial4 NOT NULL,
+    nome varchar NOT NULL
 	descricao varchar NULL,
 	valor numeric(9, 2) NULL
 );
@@ -38,6 +39,7 @@ CREATE TABLE teste.produto (
 CREATE TABLE teste.usuario (
 	id serial4 NOT NULL,
 	email varchar NULL,
+    senha varchar NOT NULL
 	nome varchar NULL,
 	endereco varchar NULL,
 	numero varchar NULL,

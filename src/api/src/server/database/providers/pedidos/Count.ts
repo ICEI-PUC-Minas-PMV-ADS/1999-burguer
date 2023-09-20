@@ -4,10 +4,10 @@ export const count = async (filter: string = ''): Promise<number | Error> => {
     try {
         const where = filter
             ? {
-                  nome: {
-                      contains: filter,
-                  },
-              }
+                nome: {
+                    contains: filter,
+                },
+            }
             : {}
 
         const totalCount = await database.pedido.count({
