@@ -59,7 +59,7 @@ CREATE TABLE teste.pedido_produto (
 );
 
 INSERT INTO teste.loja (id, nome, horario_abertura, horario_fechamento)
-VALUES (1, 'Loja Matriz', 'Terça a Domingo às 18:00', '00:00');
+VALUES (1, 'Loja Matriz', '18:00', '00:00');
 
 INSERT INTO teste.usuario ( id, nome, email, senha )
 VALUES (1, 'admin', 'admin@admin.com', '$2a$08$vxHO36vOo.aJ5J3dR.qA3O73/7cDIJQ7ZWlyhjMx/tvTV.EwFTmky');

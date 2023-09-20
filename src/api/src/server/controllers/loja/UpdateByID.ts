@@ -15,8 +15,8 @@ export const updateStoreByIdValidation: RequestHandler = validation((getSchema) 
     body: getSchema<IBodyProps>(
         YUP.object().shape({
             nome: YUP.string().optional().min(3),
-            horario_abertura: YUP.string().optional(),
-            horario_fechamento: YUP.string().optional()
+            horario_abertura: YUP.string().optional().min(5),
+            horario_fechamento: YUP.string().optional().min(5)
         })
     ),
     params: getSchema<IParamProps>(
