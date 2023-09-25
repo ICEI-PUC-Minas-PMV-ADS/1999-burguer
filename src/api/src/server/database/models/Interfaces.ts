@@ -97,3 +97,7 @@ export interface IUpdateUsuario {
     funcionario?: boolean
 }
 
+export interface IProduct{
+    id: number
+
+}
