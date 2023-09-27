@@ -1,9 +1,9 @@
-import { IProduto } from '../../models'
+import { IUpdateProduto } from '../../models'
 import { database } from '../..'
 
 export const updateById = async (
     id: number,
-    product: Omit<IProduto, 'id'>
+    product: Omit<IUpdateProduto, 'id'>
 ): Promise<void | Error> => {
     try {
         const result = await database.produto.update({
@@ -14,6 +14,7 @@ export const updateById = async (
                 nome: product.nome,
                 descricao: product.descricao,
                 valor: product.valor,
+                status: product.status
             },
         })
         if (!result) {

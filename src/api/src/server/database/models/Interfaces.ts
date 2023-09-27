@@ -75,9 +75,10 @@ export interface IUpdatePedidoProduto {
 
 export interface IUpdateProduto {
     id: number
-    nome?: string
+    nome?: string | undefined
     descricao?: string
     valor?: number
+    status?: boolean
 }
 
 export interface IUpdateUsuario {
@@ -99,5 +100,8 @@ export interface IUpdateUsuario {
 
 export interface IProduct{
     id: number
-
+    descricao: string
+    valor: number
+    status: boolean
+    nome: string
 }

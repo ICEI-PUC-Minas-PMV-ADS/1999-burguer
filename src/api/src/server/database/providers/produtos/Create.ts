@@ -1,12 +1,10 @@
 import { IProduto } from '../../models'
 import { database } from '../..'
 
-export const create = async (
-    product: Omit<IProduto, 'id'>
-): Promise<Object | Error> => {
+export const create = async (product: Omit<IProduto, 'id'>): Promise<Object | Error> => {
     try {
         return await database.produto.create({
-            data: product,
+            data: product
         })
     } catch (error) {
         return Error('Error ao cadastrar o registro')
