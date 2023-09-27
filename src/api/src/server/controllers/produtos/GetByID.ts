@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validation } from './../../shared/middleware/Validator';
+import { ProdutosProvider } from '../../database/providers/produtos';
 
 
 interface IParamProps {
@@ -18,8 +19,23 @@ export const getAllProductByIdValidation = validation((getSchema) => ({
 // só entra aqui depois do handle request
 export const getAllProductById = async (req: Request<IParamProps>, res: Response) => {
 
-    console.log(req.body);
+    if (!req.params.id) {
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            errors: {
+                default: 'O parâmetro "id" precisa ser informado.'
+            }
+        });
+    }
 
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado');
+    const result = await ProdutosProvider.getById(req.params.id);
+    if (result instanceof Error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors: {
+                default: result.message
+            }
+        });
+    }
+
+    return res.status(StatusCodes.OK).json(result);
 
 };
