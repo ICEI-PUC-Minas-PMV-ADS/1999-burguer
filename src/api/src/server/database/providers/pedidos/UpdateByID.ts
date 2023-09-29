@@ -1,33 +1,31 @@
-import { IPedido } from '../../models'
-import { database } from '../..'
+import { IPedido } from '../../models';
+import { database } from '../..';
 
 export const updateById = async (
     id: number,
-    order: Omit<IPedido, 'id'>
+    data: Pick<IPedido, 'status'>
 ): Promise<void | Error> => {
     try {
+
         const result = await database.pedido.update({
             where: {
                 id: Number(id),
             },
-            data: {
-                data_inclusao: order.data_inclusao,
-                usuario_id: order.usuario_id,
-                total: order.total,
-                endereco: order.endereco,
-                numero: order.numero,
-                bairro: order.bairro,
-                cidade: order.cidade,
-                cep: order.cep,
-                uf: order.uf,
-            },
-        })
+            data
+        });
+
         if (!result) {
-            return new Error('Registro não encontrado')
+            throw new Error('Pedido não encontrado!');
         }
-    } catch (error) {
-        return new Error('Erro ao buscar registro')
+
+    } catch (err: any) {
+
+        return new Error(`${err.message}`);
+
     } finally {
-        database.$disconnect()
+
+        await database.$disconnect();
+
     }
+
 }
