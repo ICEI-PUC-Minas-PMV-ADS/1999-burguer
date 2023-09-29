@@ -1,44 +1,35 @@
-import { IPedido } from '../../models'
-import { database } from '../..'
-import { Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client';
+import { IPedido } from '../../models';
+import { database } from '../..';
 
 export const getAll = async (
     page: number,
     limit: number,
-    filter: boolean,
-    id = 0
+    where: Prisma.pedidoWhereInput
 ): Promise<IPedido[] | Error> => {
+
     try {
-        page = Number(page)
-        limit = Number(limit)
-
-        const skip = (page - 1) * limit
-        const cidade: Prisma.pedidoWhereInput = {}
-
-        if (id > 0) {
-            cidade.id = id
-        }
 
         const result = await database.pedido.findMany({
-            skip: skip,
+            skip: (page - 1) * limit,
             take: limit,
-            where: {
-                status: {
-                    equals: filter
-                }
-            },
-        })
+            where
+        });
 
-        if (result.length === 0) {
-            throw new Error(
-                'Não foram encontrados registros com os filtros atuais'
-            )
+        if (!result) {
+            throw new Error('Pedidos não encontrados!');
         }
 
-        return result
-    } catch (error) {
-        throw new Error('Erro ao buscar registro')
+        return result;
+
+    } catch (err: any) {
+
+        return new Error(`${err.message}`);
+
     } finally {
-        await database.$disconnect()
+
+        await database.$disconnect();
+
     }
+
 }
