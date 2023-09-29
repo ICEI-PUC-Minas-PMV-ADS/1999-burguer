@@ -59,8 +59,8 @@ export interface IUsuario {
     cidade: string
     cep: string
     uf: string
-    complemento: string | null
-    ponto_referencia: string | null
+    complemento?: string | null
+    ponto_referencia?: string | null
     telefone: string
     funcionario: boolean
 }
@@ -113,4 +113,9 @@ export interface IProduct{
     valor: number
     status: boolean
     nome: string
+}
+
+export interface ILogin{
+    email: string
+    senha: string
 }

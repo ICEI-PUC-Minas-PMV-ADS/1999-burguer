@@ -2,12 +2,12 @@ import { testServer } from '../../jest.setup'
 import { StatusCodes } from 'http-status-codes'
 
 
-describe('Produtos - GetAll', () => {
+describe('register - GetAll', () => {
 
-    it('Buscar todos os produtos', async () => {
+    it('Buscar todos os usuários', async () => {
 
         const resBuscada = await testServer
-            .get('/products')
+            .get('/register')
             .send();
 
         expect(resBuscada.statusCode).toEqual(StatusCodes.OK);

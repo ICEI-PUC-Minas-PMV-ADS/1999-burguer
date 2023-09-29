@@ -1,6 +1,4 @@
 import { Router } from 'express';
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { LojasController, PedidosController, PedidosProdutoController, ProdutosController, UsuariosController } from '../controllers';
 
 const router = Router()
@@ -26,11 +24,11 @@ router.put('/product/:id', ProdutosController.updateProductByIdValidation, Produ
 router.delete('/product/:id', ProdutosController.deleteProductByIdValidation, ProdutosController.deleteProductById)          //  A API deverá fornecer um endpoint DELETE para excluir um produto
 
 // //Usuarios
-// router.get('/user/:id', UsuariosController, UsuariosController)                         //  A API deverá fornecer um endpoint GET para retornar dados do usuário
-// router.put('/user/:id', UsuariosController, UsuariosController)                         //  A API deverá fornecer um endpoint PUT para atualizar dados do usuário
-// router.delete('/user:id', UsuariosController, UsuariosController)                       //  A API deverá fornecer um endpoint DELETE para excluir o registro da pessoa
-// router.post('/login', UsuariosController, UsuariosController)                           //  A API deverá fornecer um endpoint POST para autenticar o login do usuário
-// router.post('/register', UsuariosController, UsuariosController)                        //  A API deverá fornecer um endpoint POST para cadastrar um usuário no banco
+router.get('/user/:id', UsuariosController.getUsuariosDataValidation, UsuariosController.getUsuarioData)                         //  A API deverá fornecer um endpoint GET para retornar dados do usuário
+router.put('/user/:id', UsuariosController.getUsuariosDataValidation, UsuariosController.updateUsuariosById)                         //  A API deverá fornecer um endpoint PUT para atualizar dados do usuário
+router.delete('/user:id', UsuariosController.deleteRegisterValidationByIdValidation, UsuariosController.deleteUsuarioById)                       //  A API deverá fornecer um endpoint DELETE para excluir o registro da pessoa
+router.post('/login', UsuariosController.loginValidation, UsuariosController.login)                           //  A API deverá fornecer um endpoint POST para autenticar o login do usuário
+router.post('/register', UsuariosController.registerValidation, UsuariosController.register)                        //  A API deverá fornecer um endpoint POST para cadastrar um usuário no banco
 
 
 export { router }

@@ -33,7 +33,7 @@ CREATE TABLE teste.usuario (
 	funcionario bool NOT NULL,
 	senha varchar NOT NULL,
 	CONSTRAINT usuario_pkey PRIMARY KEY (id)
-    CONSTRAINT usuario_un UNIQUE (email)
+    --CONSTRAINT usuario_un UNIQUE (email)
 );
 
 CREATE TABLE teste.pedido (

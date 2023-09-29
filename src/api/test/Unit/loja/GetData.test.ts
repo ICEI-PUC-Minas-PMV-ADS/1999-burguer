@@ -9,7 +9,6 @@ describe('Loja - GetData', () => {
         const output = await testServer
             .get('/store-data/1')
             .send()
-        console.log(output);
         expect(output.statusCode).toEqual(StatusCodes.OK)
         expect(output.body).toHaveProperty('id');
         expect(output.body).toHaveProperty('nome');
