@@ -1,14 +1,30 @@
 import { IPedido } from '../../models';
 import { database } from '../..';
 
-export const create = async ( order: Omit<IPedido, 'id'> ): Promise<Object | Error> => {
+export const create = async (
+    pedido: Omit<IPedido, 'id'>
+): Promise<Object | Error> => {
+
     try {
-        return await database.pedido.create({
-            data: order
+
+        const result = await database.pedido.create({
+            data: pedido
         });
-    } catch (error) {
-        return Error('Error ao cadastrar o registro');
+
+        if (!result) {
+            throw new Error('Pedido não cadastrado!');
+        }
+
+        return result;
+
+    } catch (err: any) {
+
+        return new Error(`${err.message}`);
+
     } finally {
+
         await database.$disconnect();
+
     }
+
 };
