@@ -6,26 +6,26 @@ import { PedidosProdutoProvider } from '../../database/providers/pedidos_produto
 
 
 interface IParamsProps {
-    id?: number
+    pedidoId?: number
 }
 
 export const getOrderProductsDataValidation: RequestHandler = validation((getSchema) => ({
     params: getSchema<IParamsProps>(
         YUP.object().shape({
-            id: YUP.number().integer().required().moreThan(0)
+            pedidoId: YUP.number().integer().required().moreThan(0)
         })
     )
 }))
 
 export const getOrderProductsData = async (request: Request<IParamsProps>, response: Response) => {
-    if (!request.params.id) {
+    if (!request.params.pedidoId) {
         return response.status(StatusCodes.BAD_REQUEST).json({
             errors: {
-                default: 'ID não informado!'
+                default: 'Pedido não informado!'
             }
         })
     }
-    const storeData = await PedidosProdutoProvider.getData(request.params.id)
+    const storeData = await PedidosProdutoProvider.getData(request.params.pedidoId)
     if (storeData instanceof Error){
         return response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {

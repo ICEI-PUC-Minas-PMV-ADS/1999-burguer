@@ -10,11 +10,10 @@ router.get('/store-data/:id', LojasController.getStoreDataValidation, LojasContr
 router.put('/store-data/:id', LojasController.updateStoreByIdValidation, LojasController.updateStoreById)                   //  A API deverá fornecer um endpoint PUT para atualizar dados da loja
 
 //Pedidos
-router.get('/order/:id', PedidosController.getOrderByIdValidation, PedidosController.getOrderById)                          //  A API deverá fornecer um endpoint GET para retornar detalhes de um pedido
-router.get('/orders', PedidosController.getAllOrdersValidation, PedidosController.getAllOrders)                             //	A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados
-//router.post('/order/create', PedidosController.createOrderValidation, PedidosController.createOrder)                      //  A API deverá fornecer um endpoint POST para criar um novo pedido
-//router.put('/order/:id', PedidosController., PedidosController.)                        //  A API deverá fornecer um endpoint PUT para alterar o status do pedido
-//router.post('/order/:id', PedidosController., PedidosController.)                       //  A API deverá fornecer um endpoint POST para inserir os dados básicos para realização do pedido
+router.get('/orders', PedidosController.getAllPedidosValidation, PedidosController.getAllPedidos)                           //	A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados
+router.get('/order/:id', PedidosController.getPedidoByIdValidation, PedidosController.getPedidoById)                        //  A API deverá fornecer um endpoint GET para retornar detalhes de um pedido
+router.post('/order/create', PedidosController.createPedidoValidation, PedidosController.createPedido)                      //  A API deverá fornecer um endpoint POST para criar um novo pedido
+router.put('/order/:id', PedidosController.updatePedidoByIdValidation, PedidosController.updatePedidoById)                  //  A API deverá fornecer um endpoint PUT para alterar o status do pedido
 
 //PedidosProdutos
 router.get('/order-products/:order-id', PedidosProdutoController.getOrderProductsDataValidation, PedidosProdutoController.getOrderProductsData)         //  A API deverá fornecer um endpoint GET para retornar produtos de um pedido

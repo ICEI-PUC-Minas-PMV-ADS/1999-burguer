@@ -1,20 +1,30 @@
 import { IPedidoProduto } from '../../models'
 import { database } from '../..'
 
-export const getData = async (id: number): Promise<IPedidoProduto | Error> => {
+export const getData = async (pedidoId: number): Promise<IPedidoProduto[] | Error> => {
+
     try {
-        const result = await database.pedido_produto.findUnique({
+
+        const result = await database.pedido_produto.findMany({
             where: {
-                id: Number(id),
-            },
-        })
+                pedido_id: Number(pedidoId),
+            }
+        });
+
         if (!result) {
-            return new Error('Registro não encontrado')
+            throw new Error('Produtos do pedido não encontrados');
         }
-        return result
-    } catch (error) {
-        return new Error('Erro ao buscar registro')
+
+        return result;
+
+    } catch (err: any) {
+
+        return new Error(`${err.message}`);
+
     } finally {
-        await database.$disconnect()
+
+        await database.$disconnect();
+
     }
+
 }

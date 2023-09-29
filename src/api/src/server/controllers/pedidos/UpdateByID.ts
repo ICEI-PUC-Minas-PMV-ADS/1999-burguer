@@ -2,28 +2,37 @@ import { Request, RequestHandler, Response } from 'express';
 import { validation } from '../../shared/middleware';
 import * as YUP from 'yup';
 import { StatusCodes } from 'http-status-codes';
+import { IPedido, ePedidoStatus } from '../../database/models';
 import { PedidosProvider } from '../../database/providers/pedidos';
 
-interface IParamProps {
-    id?: number
+interface IParamsProps {
+    id?: number;
 }
 
-export const getPedidoByIdValidation: RequestHandler = validation((getSchema) => ({
-    params: getSchema<IParamProps>(
+interface IBodyProps extends Pick<IPedido, 'status'> { }
+
+export const updatePedidoByIdValidation: RequestHandler = validation((getSchema) => ({
+    params: getSchema<IParamsProps>(
         YUP.object().shape({
             id: YUP.number().integer().required().moreThan(0)
+        })
+    ),
+    body: getSchema<IBodyProps>(
+        YUP.object().shape({
+            status: YUP.boolean().required()
         })
     )
 }))
 
-export const getPedidoById = async (
-    req: Request<IParamProps>,
+export const updatePedidoById = async (
+    req: Request<IParamsProps, {}, IBodyProps, {}>,
     res: Response
 ) => {
 
     const params = req.params;
+    const body = req.body;
 
-    if (!params) {
+    if (!body || !params) {
 
         return res
             .status(StatusCodes.BAD_REQUEST)
@@ -36,7 +45,6 @@ export const getPedidoById = async (
     }
 
     if (!params.id) {
-
         return res
             .status(StatusCodes.BAD_REQUEST)
             .json({
@@ -44,10 +52,13 @@ export const getPedidoById = async (
                     default: 'Pedido não informado.'
                 }
             });
-
     }
 
-    let result = PedidosProvider.getById(params.id);
+    const data: Pick<IPedido, 'status'> = {
+        status: body.status
+    };
+
+    let result = PedidosProvider.updateById(params.id, data);
 
     if (result instanceof Error) {
 

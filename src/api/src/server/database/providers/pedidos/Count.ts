@@ -1,23 +1,26 @@
+import { Prisma } from '@prisma/client';
 import { database } from '../..'
 
-export const count = async (filter: boolean): Promise<number | Error> => {
+export const count = async (
+    where: Prisma.pedidoWhereInput
+): Promise<number | Error> => {
+
     try {
-        const totalCount = await database.pedido.count({
-            where: {
-                status: {
-                    equals: filter
-                },
-            }
-        })
 
-        if (!totalCount) {
-            return new Error('Nenhum registro encontrado')
-        }
+        const count = await database.pedido.count({
+            where
+        });
 
-        return totalCount
-    } catch (error) {
-        return new Error('Erro ao buscar registros')
+        return count;
+
+    } catch (err: any) {
+
+        return new Error(`${err.message}`);
+
     } finally {
-        database.$disconnect()
+
+        await database.$disconnect();
+
     }
+
 }
