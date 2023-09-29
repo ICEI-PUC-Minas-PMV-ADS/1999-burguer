@@ -5,11 +5,11 @@ import { validation } from './../../shared/middleware/Validator';
 import {IProduto } from '../../database/models';
 import { ProdutosProvider } from '../../database/providers/produtos';
 
+interface IBodyProps extends Omit<IProduto, 'id'> {}
 
 
 export const createProductValidation = validation((getSchema) => ({
-    body: getSchema<IProduto>(yup.object().shape({
-        id: yup.number().integer().required().moreThan(0),
+    body: getSchema<IBodyProps>(yup.object().shape({
         nome: yup.string().required().min(5),
         descricao: yup.string().required().min(10),
         valor: yup.number().required().moreThan(0),
@@ -19,7 +19,7 @@ export const createProductValidation = validation((getSchema) => ({
 
 
 // só entra aqui depois do handle request
-export const createProduct = async (req: Request<{}, {}, IProduto>, res: Response) => {
+export const createProduct = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
 
     const result = await ProdutosProvider.create(req.body);
     if(result instanceof Error){

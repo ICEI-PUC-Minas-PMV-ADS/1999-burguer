@@ -9,7 +9,7 @@ interface IParamProps {
     id?: number;
 }
 
-export const getAllProductByIdValidation = validation((getSchema) => ({
+export const getByProductByIdValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(yup.object().shape({
         id: yup.number().integer().required().moreThan(0),
     }))
@@ -17,7 +17,7 @@ export const getAllProductByIdValidation = validation((getSchema) => ({
 
 
 // só entra aqui depois do handle request
-export const getAllProductById = async (req: Request<IParamProps>, res: Response) => {
+export const getProductById = async (req: Request<IParamProps>, res: Response) => {
 
     if (!req.params.id) {
         return res.status(StatusCodes.BAD_REQUEST).json({

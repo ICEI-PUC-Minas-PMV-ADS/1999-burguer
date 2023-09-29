@@ -11,12 +11,13 @@ export const updateById = async (
                 id: Number(id),
             },
             data: {
-                nome: product.nome,
                 descricao: product.descricao,
                 valor: product.valor,
+                nome: product.nome,
                 status: product.status
             },
         })
+        
         if (!result) {
             return new Error('Registro não encontrado')
         }

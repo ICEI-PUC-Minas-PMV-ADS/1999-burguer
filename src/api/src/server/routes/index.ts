@@ -21,7 +21,7 @@ router.get('/order-products/:order-id', PedidosProdutoController.getOrderProduct
 
 //Produtos
 router.get('/products', ProdutosController.getAllProductValidation, ProdutosController.getAllProduct)                        //  A API deverá fornecer um endpoint GET para retornar todos os produtos cadastrados
-router.get('/product/:id', ProdutosController.getAllProductByIdValidation, ProdutosController.getAllProductByIdValidation)   //  A API deverá fornecer um endpoint GET para retornar dados de um único produto
+router.get('/product/:id', ProdutosController.getByProductByIdValidation, ProdutosController.getProductById)   //  A API deverá fornecer um endpoint GET para retornar dados de um único produto
 router.post('/product/create', ProdutosController.createProductValidation, ProdutosController.createProduct)                 //  A API deverá fornecer um endpoint POST para criar um novo produto
 router.put('/product/:id', ProdutosController.updateProductByIdValidation, ProdutosController.updateProductById)             //  A API deverá fornecer um endpoint PUT para atualizar o produto
 router.delete('/product/:id', ProdutosController.deleteProductByIdValidation, ProdutosController.deleteProductById)          //  A API deverá fornecer um endpoint DELETE para excluir um produto
