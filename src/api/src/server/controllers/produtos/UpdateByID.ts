@@ -25,6 +25,7 @@ export const updateProductByIdValidation = validation((getSchema) => ({
 
 
 export const updateProductById = async (req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+
     if (!req.params.id) {
         return res.status(StatusCodes.BAD_REQUEST).json({
             errors: {
@@ -41,5 +42,7 @@ export const updateProductById = async (req: Request<IParamProps, {}, IBodyProps
             }
         });
     }
+    return res.status(StatusCodes.ACCEPTED).send(result);
+
 };
 
