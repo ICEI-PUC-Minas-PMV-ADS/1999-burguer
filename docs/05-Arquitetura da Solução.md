@@ -7,24 +7,28 @@ Definição de como o software é estruturado em termos dos componentes que faze
 ![Arquitetura da Solução](img/arqproj.jpeg)
 
 ## Diagrama de Classes
+
+O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas.
+
 ![diagrama-classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/7cbc6dec-b135-43a3-b770-ae998ac99d2b)
 Figura - Diagrama de classes
 
 ## Modelo ER
+
+O Modelo ER representa através de um diagrama como as entidades se relacionam entre si na aplicação.
+
 ![modelo-er](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/84eeea7f-012c-4c28-93d0-6e1f454c6170)
 Figura - Modelo ER
 
 ## Esquema Relacional
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
- 
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
 
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
+
 
 ## Modelo Físico
 
-Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do banco de dados. Este arquivo deverá ser incluído dentro da pasta src\bd.
+O modelo físico do projeto encontra-se em um arquivo banco.sql hospedado dentro da pasta: 
 
 ## Tecnologias Utilizadas
 
