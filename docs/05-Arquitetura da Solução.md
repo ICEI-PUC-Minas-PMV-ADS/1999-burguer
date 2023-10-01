@@ -29,7 +29,8 @@ O Esquema Relacional corresponde à representação dos dados em tabelas juntame
 
 ## Modelo Físico
 
-O modelo físico do projeto encontra-se em um arquivo banco.sql hospedado dentro da pasta: 
+O modelo físico do projeto encontra-se em um arquivo banco.sql hospedado dentro da pasta: "src/api/scripts/database.sql"
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/blob/main/src/api/scripts/database.sql
 
 ## Tecnologias Utilizadas
 
