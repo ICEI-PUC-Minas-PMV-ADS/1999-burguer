@@ -24,6 +24,7 @@ Figura - Modelo ER
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
 
+![esquema-relacional](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/d546dfcc-a028-4f82-b8b1-ac8435d7a775)
 
 
 ## Modelo Físico
