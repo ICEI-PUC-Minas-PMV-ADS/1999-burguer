@@ -53,7 +53,7 @@ describe('Pedido - Create', () => {
 
         const output = await testServer
             .post('/order/create')
-            .set({ Authorization: `Bearer ${accessToken}` })
+            .set('Authorization', `Bearer ${accessToken}`)
             .send(data)
 
         expect(output.statusCode).toEqual(StatusCodes.OK);

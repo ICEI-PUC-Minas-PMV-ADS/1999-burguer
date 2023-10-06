@@ -2,21 +2,33 @@ import { testServer } from '../../jest.setup'
 import { StatusCodes } from 'http-status-codes'
 
 describe('Produto - GetById', () => {
-    it('Busca produto por id', async () => {
 
-        /*  const input = await testServer
-            .post('/product/create')
-            .send(
-                {
-                    nome: 'X-burguer',
-                    descricao: 'Ovo, Pão, Presunto, Hambúrguer, Alface, Batata Palha, Molho Especial',
-                    valor: 28.50,
-                    status: true
-                }
-            ); */
+    let accessToken = ''
+    beforeAll(async() => {
+        const signInResponse = await testServer.post('/login').send({
+            email: 'admin@admin.com',
+            senha: 'administrador'
+        })
+        accessToken = signInResponse.body.accessToken
+    })
+
+    it('Tenta pegar todos os registro de um produto sem autenticação', async () => {
+        const output = await testServer
+            .get('/products/1')
+            .send()
+
+        expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
+        expect(output.body).toHaveProperty('errors.default')
+
+    })
+
+
+
+    it('Busca produto por id', async () => {
 
         const output = await testServer
             .get('/product/1')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send();
 
 
