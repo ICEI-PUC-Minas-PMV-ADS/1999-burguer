@@ -16,7 +16,7 @@ describe('Register - Update', () => {
 
         const resAtualizada = await testServer
             .put('/register/1')
-            .send({endereco: 'X-qualquercoisa' });
+            .send({endereco: 'rua Isabel' });
 
         expect(resAtualizada.statusCode).toEqual(StatusCodes.ACCEPTED);
     });

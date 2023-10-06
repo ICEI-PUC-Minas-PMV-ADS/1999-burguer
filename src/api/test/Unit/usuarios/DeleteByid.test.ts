@@ -1,8 +1,8 @@
 import { testServer } from '../../jest.setup';
 import { StatusCodes } from 'http-status-codes';
 
-describe('DeleteByID', () => {
-    
+describe('DeleteByid', () => {
+
     it('Deve apagar um usuario por id', async () => {
 
 
