@@ -4,7 +4,38 @@ import { StatusCodes } from 'http-status-codes'
 
 describe('Pedido - Create', () => {
 
+    let accessToken = ''
+    beforeAll(async() => {
+        const signInResponse = await testServer.post('/login').send({
+            email: 'admin@admin.com',
+            senha: 'administrador'
+        })
+
+        accessToken = signInResponse.body.accessToken
+    })
+
     it('Criar pedido válido (1)', async () => {
+
+        it('Tenta criar um registro de pedidos sem autenticação', async () => {
+            const output = await testServer
+                .post('/order/create')
+                .send( {
+                    data_inclusao: '2023-09-28 22:18:52 -03:00',
+                    usuario_id: 1,
+                    total: 345.12,
+                    endereco: 'Av Dom José Gaspar',
+                    numero: '500',
+                    bairro: 'Coração Eucarístico',
+                    cidade: 'Belo Horizonte',
+                    cep: '30535-901',
+                    uf: 'MG',
+                    status: true,
+                    data_finalizacao: '2023-09-28 22:18:52 -03:00'
+                })
+
+            expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
+            expect(output.body).toHaveProperty('errors.default')
+        })
 
         const data = {
             data_inclusao: '2023-09-28 22:18:52 -03:00',
@@ -21,7 +52,8 @@ describe('Pedido - Create', () => {
         };
 
         const output = await testServer
-            .post('/order')
+            .post('/order/create')
+            .set({ Authorization: `Bearer ${accessToken}` })
             .send(data)
 
         expect(output.statusCode).toEqual(StatusCodes.OK);
@@ -48,7 +80,8 @@ describe('Pedido - Create', () => {
         };
 
         const output = await testServer
-            .post('/order')
+            .post('/order/create')
+            .set({ Authorization: `Bearer ${accessToken}` })
             .send(data)
 
         expect(output.statusCode).toEqual(StatusCodes.OK);
@@ -62,6 +95,7 @@ describe('Pedido - Create', () => {
 
         const output = await testServer
             .post('/order')
+            .set({ Authorization: `Bearer ${accessToken}` })
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.BAD_REQUEST);

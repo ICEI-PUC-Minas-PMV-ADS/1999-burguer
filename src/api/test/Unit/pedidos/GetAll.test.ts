@@ -4,10 +4,30 @@ import { StatusCodes } from 'http-status-codes'
 
 describe('Pedido - GetAll', () => {
 
+    let accessToken = ''
+    beforeAll(async() => {
+        const signInResponse = await testServer.post('/login').send({
+            email: 'admin@admin.com',
+            senha: 'administrador'
+        })
+        accessToken = signInResponse.body.accessToken
+    })
+
+    it('Tenta pegar todos os registro sem autenticação', async () => {
+        const output = await testServer
+            .get('/orders')
+            .send()
+
+        expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
+        expect(output.body).toHaveProperty('errors.default')
+
+    })
+
     it('Get lista de pedidos', async () => {
 
         const output = await testServer
             .get('/orders?page=1&limit=25')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.OK);
@@ -24,6 +44,7 @@ describe('Pedido - GetAll', () => {
 
         const output = await testServer
             .get('/orders?page=1')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.OK);
@@ -40,6 +61,7 @@ describe('Pedido - GetAll', () => {
 
         const output = await testServer
             .get('/orders')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.BAD_REQUEST);

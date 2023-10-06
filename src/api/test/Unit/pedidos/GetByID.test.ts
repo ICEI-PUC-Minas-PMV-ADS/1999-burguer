@@ -4,6 +4,25 @@ import { StatusCodes } from 'http-status-codes'
 
 describe('Pedido - GetByID', () => {
 
+
+    let accessToken = ''
+    beforeAll(async() => {
+        const signInResponse = await testServer.post('/login').send({
+            email: 'admin@admin.com',
+            senha: 'administrador'
+        })
+        accessToken = signInResponse.body.accessToken
+    })
+
+    it('Tenta pegar um registro com ID sem autenticação', async () => {
+        const output = await testServer
+            .get('/order/1')
+
+        expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
+        expect(typeof output.body).toEqual('object')
+
+    })
+
     let listagem;
     let pedido;
 
@@ -11,6 +30,7 @@ describe('Pedido - GetByID', () => {
 
         listagem = await testServer
             .get('/orders?page=1&limit=1')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send();
 
         if (listagem?.body.rows?.length) {
@@ -35,6 +55,7 @@ describe('Pedido - GetByID', () => {
 
         const output = await testServer
             .get(`/order/${pedido.id}`)
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.OK);

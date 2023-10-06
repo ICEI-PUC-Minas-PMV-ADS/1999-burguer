@@ -4,6 +4,25 @@ import { StatusCodes } from 'http-status-codes'
 
 describe('Pedido - UpdateByID', () => {
 
+    let accessToken = ''
+    beforeAll(async() => {
+        const signInResponse = await testServer.post('/login').send({
+            email: 'admin@admin.com',
+            senha: 'administrador'
+        })
+        accessToken = signInResponse.body.accessToken
+    })
+
+    it('Tenta atualizar um sem autenticação', async () => {
+        const output = await testServer
+            .put('/order/1')
+            .send({ endereco: 'Belo Horizonte' })
+
+        expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
+        expect(typeof output.body).toEqual('object')
+    })
+
+
     let listagem;
     let pedido;
 
@@ -15,6 +34,7 @@ describe('Pedido - UpdateByID', () => {
 
         listagem = await testServer
             .get('/orders?page=1&limit=1')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send();
 
         if (listagem?.body.rows?.length) {
@@ -39,6 +59,7 @@ describe('Pedido - UpdateByID', () => {
 
         const output = await testServer
             .put(`/order/${pedido.id}`)
+            .set('Authorization', `Bearer ${accessToken}`)
             .send(novosDados)
 
         expect(output.statusCode).toEqual(StatusCodes.OK);
@@ -49,6 +70,7 @@ describe('Pedido - UpdateByID', () => {
 
         const output = await testServer
             .get(`/order/${pedido.id}`)
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.OK);
