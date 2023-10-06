@@ -1,10 +1,17 @@
 /*import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import { UsuariosProvider } from '../../database/providers/usuarios'
+import * as PasswordCrypto from './PasswordCrypto';
+import { JWTService } from '../services';
 
+interface IBodyProps {
+    email: string;
+    senha: string;
+  }
 
 describe('Login', () => {
     it('Deve retornar um token JWT ao fazer login com sucesso', async () => {
-    // Mock dos dados da requisição
+
         const mockRequest = {
             body: {
                 email: 'test@example.com',
