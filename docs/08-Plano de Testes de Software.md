@@ -1,19 +1,21 @@
 # Plano de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+Assim como nas outras partes do projeto, o plano de testes será separado por aplicação entregue durante as etapas do projeto.
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
+## Plano de testes API
 
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
- 
-## Ferramentas de Testes (Opcional)
+Para realizarmos os testes na API criamos uma estrutura que facilita a nossa entrega, em que há uma estrutura de testes unitários responsáveis por validar todos os endpoints, controllers e providers em um ambiente específico.
 
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+Esse ambiente foi todo configurado através do docker, assim, simulamos um ambiente de produção localmente e o deploy só ocorrerá caso os testes passem com sucesso.
+
+Os testes estão sendo desenvolvidos utilizando o framework Jest, ótimo para realizar testes de unidade/integração em JavaScript. A estrutura do teste sempre vai ser um Describe (Switch de testes) e It (Casos de teste). Buscamos priorizar os "Caminhos felizes" e também tratamos algumas exceções que foram determinadas na criação dos controllers.
+
+Os testes rodam num ambiente Docker, onde temos um banco de dados virtual. 
+
+Com este setup conseguimos preparar tudo antes de realizar o deploy. Assim, os testes validam tudo que precisamos ao invés de fazer essas ações em produção.
+
+![CTAPI1](./img/CT1-1.png)
+![CTAPI2](./img/CT1-2.png)
+![CTAPI3](./img/CT1-3.png)
+![CTAPI4](./img/CT1-4.png)
+![CTAPI5](./img/CT1-5.png)
