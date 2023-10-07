@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes'
 describe('Registrar - Usuário', () => {
     it('Deve criar um usuário', async () => {
         const output = await testServer
-            .post('/register')
+            .post('/api/v1/register')
             .send(
                 {
                     email: 'jose123@gmail.com',

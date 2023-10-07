@@ -7,7 +7,7 @@ describe('Loja - GetData', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -18,7 +18,7 @@ describe('Loja - GetData', () => {
 
     it('Tenta resgatar informações sem autenticação',async ( ) => {
         const output = await testServer
-            .get('/store-data/1')
+            .get('/api/v1/store-data/1')
 
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
@@ -27,7 +27,7 @@ describe('Loja - GetData', () => {
 
     it('Tenta resgatar informações da loja matriz', async() => {
         const output = await testServer
-            .get('/store-data/1')
+            .get('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
         expect(output.statusCode).toEqual(StatusCodes.OK)
@@ -39,7 +39,7 @@ describe('Loja - GetData', () => {
 
     it('Tenta resgatar informações da loja não existente', async() => {
         const output = await testServer
-            .get('/store-data/3')
+            .get('/api/v1/store-data/3')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
@@ -49,7 +49,7 @@ describe('Loja - GetData', () => {
 
     it('Tenta resgatar informações da loja passando um texto', async () => {
         const output = await testServer
-            .get('/store-data/loja-matriz')
+            .get('/api/v1/store-data/loja-matriz')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
         expect(output.statusCode).toEqual(StatusCodes.BAD_REQUEST)

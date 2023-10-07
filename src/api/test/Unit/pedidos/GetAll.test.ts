@@ -6,7 +6,7 @@ describe('Pedido - GetAll', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -15,7 +15,7 @@ describe('Pedido - GetAll', () => {
 
     it('Tenta pegar todos os registro sem autenticação', async () => {
         const output = await testServer
-            .get('/orders')
+            .get('/api/v1/orders')
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -26,7 +26,7 @@ describe('Pedido - GetAll', () => {
     it('Get lista de pedidos', async () => {
 
         const output = await testServer
-            .get('/orders?page=1&limit=25')
+            .get('/api/v1/orders?page=1&limit=25')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
@@ -43,7 +43,7 @@ describe('Pedido - GetAll', () => {
     it('Get lista de pedidos pag 2', async () => {
 
         const output = await testServer
-            .get('/orders?page=2&limit=25')
+            .get('/api/v1/orders?page=2&limit=25')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
@@ -60,7 +60,7 @@ describe('Pedido - GetAll', () => {
     it('Get lista de pedidos sem limit', async () => {
 
         const output = await testServer
-            .get('/orders?page=1')
+            .get('/api/v1/orders?page=1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
@@ -77,7 +77,7 @@ describe('Pedido - GetAll', () => {
     it('Get lista de pedidos sem parâmetros', async () => {
 
         const output = await testServer
-            .get('/orders')
+            .get('/api/v1/orders')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 

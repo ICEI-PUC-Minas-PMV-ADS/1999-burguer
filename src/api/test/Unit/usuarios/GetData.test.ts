@@ -6,7 +6,7 @@ describe('Usuario - GetData', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -15,7 +15,7 @@ describe('Usuario - GetData', () => {
 
     it('Tenta resgatar informações do usuário', async() => {
         const output = await testServer
-            .get('/user/1')
+            .get('/api/v1/user/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
         expect(output.statusCode).toEqual(StatusCodes.OK)
@@ -36,7 +36,7 @@ describe('Usuario - GetData', () => {
 
     it('Tenta resgatar informações do usuario não existente', async() => {
         const output = await testServer
-            .get('/user/6')
+            .get('/api/v1/user/9999')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 

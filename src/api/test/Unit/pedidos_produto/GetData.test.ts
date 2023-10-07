@@ -6,7 +6,7 @@ describe('Pedido Produto - GetData', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -15,14 +15,14 @@ describe('Pedido Produto - GetData', () => {
 
     it('Tenta resgatar informações de um pedido sem autenticação', async() => {
         const output = await testServer
-            .get('/order-products/1')
+            .get('/api/v1/order-products/1')
             .send()
         expect(output.statusCode).toBe(StatusCodes.UNAUTHORIZED)
     })
 
     it('Tenta resgatar informações de um pedido', async() => {
         const output = await testServer
-            .get('/order-products/1')
+            .get('/api/v1/order-products/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
         expect(output.statusCode).toBe(StatusCodes.OK)
@@ -38,7 +38,7 @@ describe('Pedido Produto - GetData', () => {
 
     it('Tenta resgatar informações de um pedido não existente', async() => {
         const output = await testServer
-            .get('/order-products/2')
+            .get('/api/v1/order-products/2')
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
         expect(output.statusCode).toBe(StatusCodes.INTERNAL_SERVER_ERROR)

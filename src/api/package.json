@@ -38,8 +38,9 @@
   "scripts": {
     "lint": "eslint . --ext .ts",
     "start": "ts-node-dev src/index",
-    "build": "tsc",
-    "start-production": ".build/index.js",
+    "build": "prisma generate && tsc",
+    "start-production": "node dist/index.js",
+    "postinstall": "prisma generate",
     "test": "jest",
     "docker-init": "docker compose up -d",
     "docker-exit": "docker compose down"

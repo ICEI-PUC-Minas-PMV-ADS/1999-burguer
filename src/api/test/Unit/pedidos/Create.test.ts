@@ -6,7 +6,7 @@ describe('Pedido - Create', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -16,7 +16,7 @@ describe('Pedido - Create', () => {
 
     it('Tenta criar um registro de pedidos sem autenticação', async () => {
         const output = await testServer
-            .post('/order/create')
+            .post('/api/v1/order/create')
             .send( {
                 data_inclusao: '2023-09-28 22:18:52 -03:00',
                 usuario_id: 1,
@@ -49,7 +49,7 @@ describe('Pedido - Create', () => {
         };
 
         const output = await testServer
-            .post('/order/create')
+            .post('/api/v1/order/create')
             .set('Authorization', `Bearer ${accessToken}`)
             .send(data)
 
@@ -76,7 +76,7 @@ describe('Pedido - Create', () => {
         };
 
         const output = await testServer
-            .post('/order/create')
+            .post('/api/v1/order/create')
             .set({ Authorization: `Bearer ${accessToken}` })
             .send(data)
 
@@ -90,7 +90,7 @@ describe('Pedido - Create', () => {
     it('Criar pedido sem dados', async () => {
 
         const output = await testServer
-            .post('/order/create')
+            .post('/api/v1/order/create')
             .set({ Authorization: `Bearer ${accessToken}` })
             .send()
 

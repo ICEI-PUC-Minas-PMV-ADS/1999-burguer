@@ -6,7 +6,7 @@ describe('Produtos - GetAll', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -15,7 +15,7 @@ describe('Produtos - GetAll', () => {
 
     it('Tenta pegar todos os registro de produtos sem autenticação', async () => {
         const output = await testServer
-            .get('/products')
+            .get('/api/v1/products')
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -27,7 +27,7 @@ describe('Produtos - GetAll', () => {
     it('Buscar todos os produtos', async () => {
 
         const resBuscada = await testServer
-            .get('/products')
+            .get('/api/v1/products')
             .set('Authorization', `Bearer ${accessToken}`)
             .send();
 

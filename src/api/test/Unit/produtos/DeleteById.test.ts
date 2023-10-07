@@ -5,7 +5,7 @@ describe('DeleteByID', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -15,7 +15,7 @@ describe('DeleteByID', () => {
 
     it('Tenta deletar um produto sem autenticação', async () => {
         const response = await testServer
-            .delete('/product/1')
+            .delete('/api/v1/product/1')
             .send()
 
         expect(response.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -24,7 +24,7 @@ describe('DeleteByID', () => {
 
     it('Deve apagar um produto por id', async () => {
         const output = await testServer
-            .delete('/product/3')
+            .delete('/api/v1/product/3')
             .set('Authorization', `Bearer ${accessToken}`)
             .send();
 

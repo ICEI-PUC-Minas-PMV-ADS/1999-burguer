@@ -5,7 +5,7 @@ describe('Create - Produto', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -15,7 +15,7 @@ describe('Create - Produto', () => {
 
     it('Tenta criar um produto sem autenticação', async () => {
         const output = await testServer
-            .post('/product/create')
+            .post('/api/v1/product/create')
             .send({
                 nome: 'X-burguer',
                 descricao: 'Ovo, Pão, Presunto, Hambúrguer, Alface, Batata Palha, Molho Especial',
@@ -31,7 +31,7 @@ describe('Create - Produto', () => {
 
     it('Deve criar um produto', async () => {
         const output = await testServer
-            .post('/product/create')
+            .post('/api/v1/product/create')
             .set('Authorization', `Bearer ${accessToken}`)
             .send(
                 {

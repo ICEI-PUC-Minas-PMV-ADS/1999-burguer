@@ -7,7 +7,7 @@ describe('Update produto', ()=>{
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -16,17 +16,17 @@ describe('Update produto', ()=>{
 
     it('Tenta atualizar um registro de produto sem autenticação', async () => {
         const output = await testServer
-            .put('/product/1')
+            .put('/api/v1/product/1')
             .send({descricao: 'X-qualquercoisa' });
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
         expect(typeof output.body).toEqual('object')
     })
 
-    
+
     it('Atualiza registro', async () => {
         const resAtualizada = await testServer
-            .put('/product/1')
+            .put('/api/v1/product/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({descricao: 'X-qualquercoisa' });
 

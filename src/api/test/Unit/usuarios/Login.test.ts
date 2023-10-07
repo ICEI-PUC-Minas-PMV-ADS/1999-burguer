@@ -6,7 +6,7 @@ describe('Usuario - GetData', () => {
 
     it('Tenta logar com um email e senha válidos', async() => {
         const output = await testServer
-            .post('/login')
+            .post('/api/v1/login')
             .send({
                 email: 'admin@admin.com',
                 senha: 'administrador'

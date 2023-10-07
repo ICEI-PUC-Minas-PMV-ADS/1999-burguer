@@ -7,7 +7,7 @@ describe('Loja - Update', () => {
 
     let accessToken = ''
     beforeAll(async()=>{
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -17,7 +17,7 @@ describe('Loja - Update', () => {
 
     it('Tenta atualizar informações sem autenticação',async ( ) => {
         const output = await testServer
-            .get('/store-data/1')
+            .get('/api/v1/store-data/1')
             .send({nome: 'Loja testes update'})
 
 
@@ -27,7 +27,7 @@ describe('Loja - Update', () => {
 
     it('Deve atualizar o nome de um registro de loja', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ nome: '1999 Burguer - Marajó' })
 
@@ -37,7 +37,7 @@ describe('Loja - Update', () => {
 
     it('Deve atualizar o horario de abertura de um registro de loja', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ horario_abertura: '19:30' })
 
@@ -47,7 +47,7 @@ describe('Loja - Update', () => {
 
     it('Deve atualizar o horario de fechamento de um registro de loja', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ horario_fechamento: '21:45' })
 
@@ -57,7 +57,7 @@ describe('Loja - Update', () => {
 
     it('Deve atualizar um registro de loja passando os três parâmetros', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ nome: '1999 Burguer - Matriz',
                 horario_abertura: '20:30',
@@ -70,7 +70,7 @@ describe('Loja - Update', () => {
 
     it('Tenta atualizar um registro de loja com nome muito curto', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ nome: '19' })
 
@@ -80,7 +80,7 @@ describe('Loja - Update', () => {
 
     it('Tenta criar um registro de loja onde nome é uma string vazia', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ nome: '' })
 
@@ -90,7 +90,7 @@ describe('Loja - Update', () => {
 
     it('Tenta criar um registro de loja onde horario de abertura é uma string vazia', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ horario_abertura: '' })
 
@@ -100,7 +100,7 @@ describe('Loja - Update', () => {
 
     it('Tenta criar um registro de loja onde horario de fechamento é uma string vazia', async () => {
         const output = await testServer
-            .put('/store-data/1')
+            .put('/api/v1/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ horario_fechamento: '' })
         expect(output.statusCode).toEqual(StatusCodes.BAD_REQUEST)
@@ -109,7 +109,7 @@ describe('Loja - Update', () => {
 
     it('Tenta atualizar um registro de loja com um ID inexistente' , async () => {
         const output = await testServer
-            .put('/store-data/99999')
+            .put('/api/v1/store-data/99999')
             .set('Authorization', `Bearer ${accessToken}`)
 
 

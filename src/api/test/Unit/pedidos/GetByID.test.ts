@@ -9,13 +9,13 @@ describe('Pedido - GetByID', () => {
     let listagem;
     let pedido;
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
         accessToken = signInResponse.body.accessToken
         listagem = await testServer
-            .get('/orders?page=1&limit=1')
+            .get('/api/v1/orders?page=1&limit=1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send();
 
@@ -26,7 +26,7 @@ describe('Pedido - GetByID', () => {
 
     it('Tenta pegar um registro com ID sem autenticação', async () => {
         const output = await testServer
-            .get('/order/1')
+            .get('/api/v1/order/1')
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
         expect(typeof output.body).toEqual('object')
@@ -48,7 +48,7 @@ describe('Pedido - GetByID', () => {
     it('Get pedido específico', async () => {
 
         const output = await testServer
-            .get(`/order/${pedido.id}`)
+            .get(`/api/v1/order/${pedido.id}`)
             .set('Authorization', `Bearer ${accessToken}`)
             .send()
 

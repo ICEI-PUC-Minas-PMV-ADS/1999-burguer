@@ -16,7 +16,7 @@ describe('Register - Update', () => {
     })
     it('Tenta atualizar um registro de usuário sem autenticação', async () => {
         const output = await testServer
-            .put('/user/1')
+            .put('/api/v1/user/1')
             .send({ endereco: 'rua Isabel' })
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -25,7 +25,7 @@ describe('Register - Update', () => {
 
     it('Atualiza registro', async () => {
         const resAtualizada = await testServer
-            .put('/user/2')
+            .put('/api/v1/user/2')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ nome: 'Isabel' });
 

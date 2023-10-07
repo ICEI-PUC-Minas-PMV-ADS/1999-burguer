@@ -5,7 +5,7 @@ describe('DeleteByid', () => {
 
     let accessToken = ''
     beforeAll(async() => {
-        const signInResponse = await testServer.post('/login').send({
+        const signInResponse = await testServer.post('/api/v1/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
@@ -14,7 +14,7 @@ describe('DeleteByid', () => {
 
     it('Tenta deletar um usuário sem autenticação', async () => {
         const response = await testServer
-            .delete('/user/2')
+            .delete('/api/v1/user/2')
             .send()
 
         expect(response.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -24,7 +24,7 @@ describe('DeleteByid', () => {
 
     it('Deve apagar um usuario por id', async () => {
         const output = await testServer
-            .delete('/user/2')
+            .delete('/api/v1/user/2')
             .set('Authorization', `Bearer ${accessToken}`)
             .send();
 
