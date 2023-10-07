@@ -4,12 +4,13 @@ import * as yup from 'yup';
 import { validation } from './../../shared/middleware/Validator';
 import { ProdutosProvider } from '../../database/providers/produtos';
 import { IUpdateProduto } from '../../database/models';
+import ProductImg from '../../mongo-database/models/ProductImg';
 
 interface IParamProps {
     id?: number;
 }
 
-interface IBodyProps extends Omit<IUpdateProduto, 'id'> {}
+interface IBodyProps extends Omit<IUpdateProduto, 'id'> { }
 
 export const updateProductByIdValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(yup.object().shape({
@@ -17,6 +18,7 @@ export const updateProductByIdValidation = validation((getSchema) => ({
         descricao: yup.string().optional().min(10),
         valor: yup.number().optional().moreThan(0),
         status: yup.boolean().optional(),
+        imagem: yup.string().optional()
     })),
     params: getSchema<IParamProps>(yup.object().shape({
         id: yup.number().integer().required().moreThan(0),
@@ -35,6 +37,7 @@ export const updateProductById = async (req: Request<IParamProps, {}, IBodyProps
     }
 
     const result = await ProdutosProvider.updateById(req.params.id, req.body);
+
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {
@@ -42,6 +45,21 @@ export const updateProductById = async (req: Request<IParamProps, {}, IBodyProps
             }
         });
     }
+
+    if (req.body.imagem) {
+
+        const produtoImg = await ProductImg.findOneAndUpdate({
+            product_id: +result['id']
+        }, {
+            url: req.body.imagem
+        }, {
+            upsert: true
+        });
+
+        result['imagem'] = produtoImg.url;
+
+    }
+
     return res.status(StatusCodes.ACCEPTED).send(result);
 
 };

@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validation } from './../../shared/middleware/Validator';
 import { ProdutosProvider } from '../../database/providers/produtos';
+import ProductImg from '../../mongo-database/models/ProductImg';
 
 
 interface IParamProps {
@@ -18,6 +19,7 @@ export const getByProductByIdValidation = validation((getSchema) => ({
 
 // só entra aqui depois do handle request
 export const getProductById = async (req: Request<IParamProps>, res: Response) => {
+
     if (!req.params.id) {
         return res.status(StatusCodes.BAD_REQUEST).json({
             errors: {
@@ -27,6 +29,7 @@ export const getProductById = async (req: Request<IParamProps>, res: Response) =
     }
 
     const result = await ProdutosProvider.getById(req.params.id);
+
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {
@@ -34,6 +37,10 @@ export const getProductById = async (req: Request<IParamProps>, res: Response) =
             }
         });
     }
+
+    const produtoImg = await ProductImg.findOne({ product_id: +result['id'] });
+
+    result.imagem = produtoImg?.url;
 
     return res.status(StatusCodes.OK).json(result);
 

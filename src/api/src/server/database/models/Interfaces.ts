@@ -41,11 +41,12 @@ export interface IPedidoProduto {
 }
 
 export interface IProduto {
-    id: number
-    nome: string
-    descricao: string
-    valor: Decimal | number
-    status: boolean
+    id: number;
+    nome: string;
+    descricao: string;
+    valor: Decimal | number;
+    status: boolean;
+    imagem?: string;
 }
 
 export interface IUsuario {
@@ -87,7 +88,8 @@ export interface IUpdateProduto {
     nome?: string | undefined
     descricao?: string
     valor?: number
-    status?: boolean
+    status?: boolean;
+    imagem?: string;
 }
 
 export interface IUpdateUsuario {

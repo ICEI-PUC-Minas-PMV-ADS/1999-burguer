@@ -1,7 +1,8 @@
-import express from 'express'
-import { router } from './routes'
-import './shared/services/SetLocaleYup'
-import cors from 'cors'
+import express from 'express';
+import { router } from './routes';
+import './shared/services/SetLocaleYup';
+import cors from 'cors';
+import './mongo-database/index';
 
 const server = express()
 

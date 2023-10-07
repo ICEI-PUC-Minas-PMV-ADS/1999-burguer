@@ -9,5 +9,5 @@ export const ProdutosController = {
     ...DeleteById,
     ...GetAll,
     ...GetById,
-    ...UpdateById,
+    ...UpdateById
 }

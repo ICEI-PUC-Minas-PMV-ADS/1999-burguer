@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validation } from './../../shared/middleware/Validator';
 import { ProdutosProvider } from '../../database/providers/produtos';
+import ProductImg from '../../mongo-database/models/ProductImg';
 
 
 interface IParamProps {
@@ -29,6 +30,7 @@ export const deleteProductById = async (req: Request<IParamProps>, res: Response
     }
 
     const result = await ProdutosProvider.deleteById(req.params.id);
+
     if(result instanceof Error){
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors:{
@@ -36,6 +38,8 @@ export const deleteProductById = async (req: Request<IParamProps>, res: Response
             }
         })
     }
+
+    await ProductImg.deleteOne({ product_id: +req.params.id });
 
     return res.status(StatusCodes.NO_CONTENT).send();
 
