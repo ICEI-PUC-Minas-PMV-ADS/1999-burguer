@@ -18,9 +18,9 @@ export const updateById = async (
             throw new Error('Pedido não encontrado!');
         }
 
-    } catch (err: any) {
+    } catch (err) {
 
-        return new Error(`${err.message}`);
+        return new Error(`Erro ao atualizar pedido`);
 
     } finally {
 

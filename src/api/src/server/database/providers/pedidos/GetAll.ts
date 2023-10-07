@@ -22,9 +22,9 @@ export const getAll = async (
 
         return result;
 
-    } catch (err: any) {
+    } catch (err) {
 
-        return new Error(`${err.message}`);
+        return new Error(`Erro ao consultar pedidos`);
 
     } finally {
 

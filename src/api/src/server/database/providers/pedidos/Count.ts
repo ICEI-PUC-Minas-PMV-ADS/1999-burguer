@@ -13,9 +13,9 @@ export const count = async (
 
         return count;
 
-    } catch (err: any) {
+    } catch (err) {
 
-        return new Error(`${err.message}`);
+        return new Error(`Erro ao consultar quantidade pedidos`);
 
     } finally {
 
