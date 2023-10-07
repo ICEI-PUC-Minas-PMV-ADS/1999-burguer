@@ -18,7 +18,6 @@ export const getByProductByIdValidation = validation((getSchema) => ({
 
 // só entra aqui depois do handle request
 export const getProductById = async (req: Request<IParamProps>, res: Response) => {
-
     if (!req.params.id) {
         return res.status(StatusCodes.BAD_REQUEST).json({
             errors: {

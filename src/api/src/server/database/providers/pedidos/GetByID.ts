@@ -21,7 +21,7 @@ export const getById = async (
 
     } catch (err) {
 
-        return new Error(`Erro ao consultar pedido`);
+        return new Error('Erro ao consultar pedido');
 
     } finally {
 

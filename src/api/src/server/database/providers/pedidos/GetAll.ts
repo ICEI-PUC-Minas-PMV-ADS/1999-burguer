@@ -24,7 +24,7 @@ export const getAll = async (
 
     } catch (err) {
 
-        return new Error(`Erro ao consultar pedidos`);
+        return new Error('Erro ao consultar pedidos');
 
     } finally {
 

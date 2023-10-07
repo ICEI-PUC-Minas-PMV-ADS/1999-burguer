@@ -6,12 +6,22 @@ describe('Pedido - GetByID', () => {
 
 
     let accessToken = ''
+    let listagem;
+    let pedido;
     beforeAll(async() => {
         const signInResponse = await testServer.post('/login').send({
             email: 'admin@admin.com',
             senha: 'administrador'
         })
         accessToken = signInResponse.body.accessToken
+        listagem = await testServer
+            .get('/orders?page=1&limit=1')
+            .set('Authorization', `Bearer ${accessToken}`)
+            .send();
+
+        if (listagem?.body.rows?.length) {
+            pedido = listagem.body.rows[0];
+        }
     })
 
     it('Tenta pegar um registro com ID sem autenticação', async () => {
@@ -23,29 +33,13 @@ describe('Pedido - GetByID', () => {
 
     })
 
-    let listagem;
-    let pedido;
-
-    beforeAll(async () => {
-
-        listagem = await testServer
-            .get('/orders?page=1&limit=1')
-            .set('Authorization', `Bearer ${accessToken}`)
-            .send();
-
-        if (listagem?.body.rows?.length) {
-            pedido = listagem.body.rows[0];
-        }
-
-    });
-
     it('Validar lista de pedidos', async () => {
 
         expect(listagem.statusCode).toEqual(StatusCodes.OK);
         expect(listagem.body).toHaveProperty('rows');
         expect(listagem.body).toHaveProperty('count');
         expect(listagem.body.rows.length).toEqual(1);
-        expect(listagem.body.count).toEqual(1);
+        expect(listagem.body.count).toBeGreaterThanOrEqual(1);
         expect(pedido);
         expect(pedido).toHaveProperty('id');
 

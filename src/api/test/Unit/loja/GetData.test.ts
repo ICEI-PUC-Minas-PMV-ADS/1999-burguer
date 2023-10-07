@@ -6,15 +6,15 @@ import { StatusCodes } from 'http-status-codes'
 describe('Loja - GetData', () => {
 
     let accessToken = ''
-    beforeAll(async()=>{
+    beforeAll(async() => {
         const signInResponse = await testServer.post('/login').send({
             email: 'admin@admin.com',
-            senha:'administrator'
-
+            senha: 'administrador'
         })
 
         accessToken = signInResponse.body.accessToken
-    });
+    })
+
 
     it('Tenta resgatar informações sem autenticação',async ( ) => {
         const output = await testServer

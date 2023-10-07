@@ -12,9 +12,9 @@ describe('DeleteByid', () => {
         accessToken = signInResponse.body.accessToken
     })
 
-    it('Tenta deletarum usuário sem autenticação', async () => {
+    it('Tenta deletar um usuário sem autenticação', async () => {
         const response = await testServer
-            .delete('/register/2')
+            .delete('/user/2')
             .send()
 
         expect(response.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -23,10 +23,8 @@ describe('DeleteByid', () => {
 
 
     it('Deve apagar um usuario por id', async () => {
-
-
         const output = await testServer
-            .delete('/register/2')
+            .delete('/user/2')
             .set('Authorization', `Bearer ${accessToken}`)
             .send();
 

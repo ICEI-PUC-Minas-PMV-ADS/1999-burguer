@@ -35,7 +35,7 @@ describe('Create - Produto', () => {
             .set('Authorization', `Bearer ${accessToken}`)
             .send(
                 {
-                    nome: 'X-burguer',
+                    nome: 'X-Ratão',
                     descricao: 'Ovo, Pão, Presunto, Hambúrguer, Alface, Batata Palha, Molho Especial',
                     valor: 28.50,
                     status: true

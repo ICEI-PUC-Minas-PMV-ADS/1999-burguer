@@ -6,7 +6,6 @@ export const count = async (
 ): Promise<number | Error> => {
 
     try {
-
         const count = await database.pedido.count({
             where
         });
@@ -15,7 +14,7 @@ export const count = async (
 
     } catch (err) {
 
-        return new Error(`Erro ao consultar quantidade pedidos`);
+        return new Error('Erro ao consultar quantidade pedidos');
 
     } finally {
 

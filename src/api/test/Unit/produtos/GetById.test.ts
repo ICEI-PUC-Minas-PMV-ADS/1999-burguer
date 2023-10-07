@@ -14,7 +14,7 @@ describe('Produto - GetById', () => {
 
     it('Tenta pegar todos os registro de um produto sem autenticação', async () => {
         const output = await testServer
-            .get('/products/1')
+            .get('/product/1')
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)

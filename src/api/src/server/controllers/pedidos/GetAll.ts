@@ -34,8 +34,7 @@ export const getAllPedidos = async (
 ) => {
 
     const query = req.query;
-
-    if (!query) {
+    if (!query || !Object.keys(query).length) {
 
         return res
             .status(StatusCodes.BAD_REQUEST)
@@ -47,10 +46,10 @@ export const getAllPedidos = async (
 
     }
 
-    let page = Number(query.page || 1);
-    let limit = Number(query.limit || 25);
+    const page = Number(query.page || 1);
+    const limit = Number(query.limit || 25);
 
-    let where: Prisma.pedidoWhereInput = {};
+    const where: Prisma.pedidoWhereInput = {};
 
     if (query.filtros) {
 
@@ -63,7 +62,7 @@ export const getAllPedidos = async (
 
     }
 
-    let rows = PedidosProvider.getAll(page, limit, where);
+    const rows = await PedidosProvider.getAll(page, limit, where);
 
     if (rows instanceof Error) {
 
@@ -77,7 +76,7 @@ export const getAllPedidos = async (
 
     }
 
-    let count = page != 1 ? PedidosProvider.count(where) : 0;
+    const count = page === 1 ? await PedidosProvider.count(where) : 0;
 
     if (count instanceof Error) {
 
@@ -91,8 +90,7 @@ export const getAllPedidos = async (
 
     }
 
-    let result = { rows, count };
-
+    const result = { rows, count };
     return res
         .status(StatusCodes.OK)
         .json(result);

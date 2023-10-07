@@ -2,7 +2,7 @@ import { Request, RequestHandler, Response } from 'express';
 import { validation } from '../../shared/middleware';
 import * as YUP from 'yup';
 import { StatusCodes } from 'http-status-codes';
-import { IPedido, ePedidoStatus } from '../../database/models';
+import { IPedido } from '../../database/models';
 import { PedidosProvider } from '../../database/providers/pedidos';
 
 interface IParamsProps {
@@ -58,7 +58,7 @@ export const updatePedidoById = async (
         status: body.status
     };
 
-    let result = PedidosProvider.updateById(params.id, data);
+    const result = PedidosProvider.updateById(params.id, data);
 
     if (result instanceof Error) {
 

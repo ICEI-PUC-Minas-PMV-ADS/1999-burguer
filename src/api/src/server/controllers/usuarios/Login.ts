@@ -44,7 +44,6 @@ export const login = async (
         })
     }
     const accessToken = JWTService.signIn({ uid: result.id})
-
     if (accessToken === 'JWT_NOT_FOUND') {
         return response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {

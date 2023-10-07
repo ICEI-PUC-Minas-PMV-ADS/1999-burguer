@@ -1,9 +1,9 @@
-import { IUsuario } from '../../models'
+import { IUpdateUsuario } from '../../models'
 import { database } from '../..'
 
 export const updateById = async (
     id: number,
-    user: Omit<IUsuario, 'id'>
+    user: Omit<IUpdateUsuario, 'id'>
 ): Promise<void | Error> => {
     try {
         const result = await database.usuario.update({

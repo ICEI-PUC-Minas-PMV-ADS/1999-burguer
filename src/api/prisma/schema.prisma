@@ -26,20 +26,9 @@ model pedido {
   cep              String           @db.VarChar(255)
   uf               String           @db.VarChar(255)
   status           Boolean
-  data_finalizacao DateTime         @db.Timestamp(6)
+  data_finalizacao DateTime?        @db.Timestamp(6)
   usuario          usuario          @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   pedido_produto   pedido_produto[]
-}
-
-model pedido_produto {
-  id             Int     @id @default(autoincrement())
-  pedido_id      Int
-  produto_id     Int
-  quantidade     Int
-  valor_unitario Decimal @db.Decimal(9, 2)
-  total          Decimal @db.Decimal(9, 2)
-  pedido         pedido  @relation(fields: [pedido_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  produto        produto @relation(fields: [produto_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model produto {
@@ -53,7 +42,7 @@ model produto {
 
 model usuario {
   id               Int      @id @default(autoincrement())
-  email            String   @unique(map: "usuario_un") @db.VarChar
+  email            String   @db.VarChar
   nome             String   @db.VarChar
   endereco         String   @db.VarChar
   numero           String   @db.VarChar
@@ -67,4 +56,15 @@ model usuario {
   funcionario      Boolean
   senha            String   @db.VarChar
   pedido           pedido[]
+}
+
+model pedido_produto {
+  id             Int     @id @default(autoincrement())
+  pedido_id      Int
+  produto_id     Int
+  quantidade     Int
+  valor_unitario Decimal @db.Decimal(9, 2)
+  total          Decimal @db.Decimal(9, 2)
+  pedido         pedido  @relation(fields: [pedido_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_pedido_id_fkey")
+  produto        produto @relation(fields: [produto_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_produto_id_fkey")
 }

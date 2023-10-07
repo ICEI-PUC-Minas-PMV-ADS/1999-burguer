@@ -47,7 +47,7 @@ export const getPedidoById = async (
 
     }
 
-    let result = PedidosProvider.getById(params.id);
+    const result = await PedidosProvider.getById(params.id);
 
     if (result instanceof Error) {
 

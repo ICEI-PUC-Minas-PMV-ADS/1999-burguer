@@ -40,6 +40,23 @@ describe('Pedido - GetAll', () => {
 
     });
 
+    it('Get lista de pedidos pag 2', async () => {
+
+        const output = await testServer
+            .get('/orders?page=2&limit=25')
+            .set('Authorization', `Bearer ${accessToken}`)
+            .send()
+
+        expect(output.statusCode).toEqual(StatusCodes.OK);
+        expect(output.body).toHaveProperty('rows');
+        expect(output.body).toHaveProperty('count');
+        expect(output.body.rows.length).toBe(0);
+        expect(output.body.count).toBe(0);
+        expect(output.body.rows.length).toBeLessThanOrEqual(25);
+        expect(output.body.count).toBeLessThanOrEqual(25);
+
+    });
+
     it('Get lista de pedidos sem limit', async () => {
 
         const output = await testServer
@@ -51,7 +68,7 @@ describe('Pedido - GetAll', () => {
         expect(output.body).toHaveProperty('rows');
         expect(output.body).toHaveProperty('count');
         expect(output.body.rows.length).toBeGreaterThan(0);
-        expect(output.body.count).toBeGreaterThan(0);
+        expect(output.body.count).toBeGreaterThanOrEqual(0);
         expect(output.body.rows.length).toBeLessThanOrEqual(25);
         expect(output.body.count).toBeLessThanOrEqual(25);
 

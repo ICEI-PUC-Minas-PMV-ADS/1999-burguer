@@ -9,8 +9,7 @@ describe('Loja - Update', () => {
     beforeAll(async()=>{
         const signInResponse = await testServer.post('/login').send({
             email: 'admin@admin.com',
-            senha:'administrator'
-
+            senha: 'administrador'
         })
 
         accessToken = signInResponse.body.accessToken
@@ -25,8 +24,6 @@ describe('Loja - Update', () => {
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
         expect(typeof output.body).toEqual('object');
     });
-
-
 
     it('Deve atualizar o nome de um registro de loja', async () => {
         const output = await testServer
@@ -106,12 +103,11 @@ describe('Loja - Update', () => {
             .put('/store-data/1')
             .set('Authorization', `Bearer ${accessToken}`)
             .send({ horario_fechamento: '' })
-
         expect(output.statusCode).toEqual(StatusCodes.BAD_REQUEST)
         expect(output.body).toHaveProperty('errors.body.horario_fechamento')
     })
 
-    it('Tenta criar um registro de loja com um ID inexistente' , async () => {
+    it('Tenta atualizar um registro de loja com um ID inexistente' , async () => {
         const output = await testServer
             .put('/store-data/99999')
             .set('Authorization', `Bearer ${accessToken}`)

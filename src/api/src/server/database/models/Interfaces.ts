@@ -19,7 +19,7 @@ export interface IPedido {
     cep: string
     uf: string
     status: boolean
-    data_finalizacao: Date | string
+    data_finalizacao?: Date | string | null
 }
 
 export enum ePedidoStatus {
@@ -96,10 +96,10 @@ export interface IUpdateUsuario {
     senha?: string
     nome?: string
     endereco?: string
-    numero?: number
+    numero?: string
     bairro?: string
     cidade?: string
-    cep?: number
+    cep?: string
     uf?: string
     complemento?: string
     ponto_referencia?: string

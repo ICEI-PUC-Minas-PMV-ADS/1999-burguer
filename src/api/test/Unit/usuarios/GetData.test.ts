@@ -4,9 +4,19 @@ import { StatusCodes } from 'http-status-codes'
 
 describe('Usuario - GetData', () => {
 
+    let accessToken = ''
+    beforeAll(async() => {
+        const signInResponse = await testServer.post('/login').send({
+            email: 'admin@admin.com',
+            senha: 'administrador'
+        })
+        accessToken = signInResponse.body.accessToken
+    })
+
     it('Tenta resgatar informações do usuário', async() => {
         const output = await testServer
-            .get('/register/1')
+            .get('/user/1')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
         expect(output.statusCode).toEqual(StatusCodes.OK)
         expect(output.body).toHaveProperty('id');
@@ -26,7 +36,8 @@ describe('Usuario - GetData', () => {
 
     it('Tenta resgatar informações do usuario não existente', async() => {
         const output = await testServer
-            .get('/register/3')
+            .get('/user/6')
+            .set('Authorization', `Bearer ${accessToken}`)
             .send()
 
         expect(output.statusCode).toEqual(StatusCodes.NOT_FOUND)

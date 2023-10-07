@@ -10,16 +10,16 @@ export const getData = async (pedidoId: number): Promise<IPedidoProduto[] | Erro
                 pedido_id: Number(pedidoId),
             }
         });
+        if (!result || result.length === 0) {
 
-        if (!result) {
             throw new Error('Produtos do pedido não encontrados');
         }
 
         return result;
 
-    } catch (err: any) {
+    } catch (error) {
 
-        return new Error(`${err.message}`);
+        return new Error('Falha ao buscar registro no banco');
 
     } finally {
 

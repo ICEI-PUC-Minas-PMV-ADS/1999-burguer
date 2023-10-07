@@ -38,7 +38,7 @@ CREATE TABLE teste.usuario (
 
 CREATE TABLE teste.pedido (
 	id serial4 NOT NULL,
-	data_inclusao timestamp NULL DEFAULT now(),
+	data_inclusao timestamp NOT NULL DEFAULT now(),
 	usuario_id int4 NOT NULL,
 	total numeric(9, 2) NOT NULL,
 	endereco varchar(255) NOT NULL,
@@ -48,19 +48,23 @@ CREATE TABLE teste.pedido (
 	cep varchar(255) NOT NULL,
 	uf varchar(255) NOT NULL,
     status bool NOT NULL,
-	data_finalizacao timestamp NOT NULL,
+	data_finalizacao timestamp NULL,
 	CONSTRAINT pedido_pkey PRIMARY KEY (id),
 	CONSTRAINT pedido_usuario_id_fkey FOREIGN KEY (usuario_id) REFERENCES teste.usuario(id)
 );
 
 CREATE TABLE teste.pedido_produto (
-	id serial4 NOT NULL,
-	pedido_id int4 NOT NULL,
-	produto_id int4 NOT NULL,
-	quantidade int4 NOT NULL,
-	valor_unitario numeric(9, 2) NOT NULL,
-	total numeric(9, 2) NOT NULL
+    id serial4 NOT NULL,
+    pedido_id int4 NOT NULL,
+    produto_id int4 NOT NULL,
+    quantidade int4 NOT NULL,
+    valor_unitario numeric(9, 2) NOT NULL,
+    total numeric(9, 2) NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT pedido_pedido_id_fkey FOREIGN KEY (pedido_id) REFERENCES teste.pedido(id),
+    CONSTRAINT pedido_produto_id_fkey FOREIGN KEY (produto_id) REFERENCES teste.produto(id)
 );
+
 
 INSERT INTO teste.loja (id, nome, horario_abertura, horario_fechamento)
 VALUES (1, 'Loja Matriz', '18:00', '00:00');
@@ -71,10 +75,10 @@ INSERT INTO teste.usuario ( id, email, senha, nome, endereco, numero, bairro, ci
 VALUES (1, 'admin@admin.com', '$2a$08$vxHO36vOo.aJ5J3dR.qA3O73/7cDIJQ7ZWlyhjMx/tvTV.EwFTmky', 'admin', 'Rua Nilza Brito', '51', 'vitória', 'Belo Horizonte', '31970755', 'MG', 'praça do ipê', '31988886666', false);
 
 INSERT INTO teste.usuario ( id, email, senha, nome, endereco, numero, bairro, cidade, cep, uf, ponto_referencia, telefone, funcionario )
-VALUES (2, 'user1@teste.com', '$2a$08$vxHO36vOo.aJ5J3dR.qA3O73/7cDIJQ7ZWlyhjMx/tvTV.EwFTmky', 'user1', 'Rua Nilza Brito', '51', 'vitória', 'Belo Horizonte', '31970755', 'MG', 'praça do ipê', '31988886666', false);
+VALUES (2, 'user1@teste.com', 'wqakpoedjsdekpowdeaqskopewqadhiurtygeo', 'user1', 'Rua Nilza Brito', '51', 'vitória', 'Belo Horizonte', '31970755', 'MG', 'praça do ipê', '31988886666', false);
 
 INSERT INTO teste.usuario ( id, email, senha, nome, endereco, numero, bairro, cidade, cep, uf, ponto_referencia, telefone, funcionario )
-VALUES (3, 'user2@teste.com', '$2a$08$vxHO36vOo.aJ5J3dR.qA3O73/7cDIJQ7ZWlyhjMx/tvTV.EwFTmky', 'user2', 'Rua Nilza Brito', '51', 'vitória', 'Belo Horizonte', '31970755', 'MG', 'praça do ipê', '31988886666', false);
+VALUES (3, 'user2@teste.com', 'rehtoiweurhtewrweryrtyjmghsjk', 'user2', 'Rua Nilza Brito', '51', 'vitória', 'Belo Horizonte', '31970755', 'MG', 'praça do ipê', '31988886666', false);
 
 
 /*Produtos*/
@@ -95,5 +99,6 @@ INSERT INTO teste.pedido (id, usuario_id, total, endereco, numero, bairro, cidad
 
 /*Pedido Produto*/
 
-INSERT INTO pedido_produto (id, pedido_id, produto_id, quantidade, valor_unitario, total) VALUES (1, 1, 2, 2, 21.80, 53.60);
+INSERT INTO teste.pedido_produto (id, pedido_id, produto_id, quantidade, valor_unitario, total)
+VALUES (1, 1, 2, 2, 21.80, 53.60);
 

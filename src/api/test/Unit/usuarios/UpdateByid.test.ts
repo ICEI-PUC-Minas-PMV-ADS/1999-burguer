@@ -11,12 +11,12 @@ describe('Register - Update', () => {
             email: 'admin@admin.com',
             senha: 'administrador'
         })
+
         accessToken = signInResponse.body.accessToken
     })
-
     it('Tenta atualizar um registro de usuário sem autenticação', async () => {
         const output = await testServer
-            .put('/register/1')
+            .put('/user/1')
             .send({ endereco: 'rua Isabel' })
 
         expect(output.statusCode).toEqual(StatusCodes.UNAUTHORIZED)
@@ -24,12 +24,10 @@ describe('Register - Update', () => {
     })
 
     it('Atualiza registro', async () => {
-
-
         const resAtualizada = await testServer
-            .put('/register/1')
+            .put('/user/2')
             .set('Authorization', `Bearer ${accessToken}`)
-            .send({endereco: 'rua Isabel' });
+            .send({ nome: 'Isabel' });
 
         expect(resAtualizada.statusCode).toEqual(StatusCodes.ACCEPTED);
     });

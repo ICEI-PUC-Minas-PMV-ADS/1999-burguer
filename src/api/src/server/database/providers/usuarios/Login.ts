@@ -3,7 +3,7 @@ import { database } from '../..'
 
 export const getByEmail = async (email: string): Promise<IUsuario | Error> => {
     try {
-        const result = await database.usuario.findUnique({
+        const result = await database.usuario.findFirst({
             where: {
                 email: email
             }

@@ -27,7 +27,7 @@ export const getUsuarioData = async (request: Request<IParamsProps>, response: R
     }
     const storeData = await UsuariosProvider.getData(request.params.usuarioId)
     if (storeData instanceof Error){
-        return response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        return response.status(StatusCodes.NOT_FOUND).json({
             errors: {
                 default: storeData.message
             }

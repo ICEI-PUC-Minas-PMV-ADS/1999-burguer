@@ -20,7 +20,6 @@ export const createProductValidation = validation((getSchema) => ({
 
 // só entra aqui depois do handle request
 export const createProduct = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
-
     const result = await ProdutosProvider.create(req.body);
     if(result instanceof Error){
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

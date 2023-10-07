@@ -20,7 +20,7 @@ export const updateById = async (
 
     } catch (err) {
 
-        return new Error(`Erro ao atualizar pedido`);
+        return new Error('Erro ao atualizar pedido');
 
     } finally {
 

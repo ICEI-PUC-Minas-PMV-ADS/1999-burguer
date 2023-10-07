@@ -5,7 +5,7 @@ export const create = async (product: Omit<IProduto, 'id'>): Promise<Object | Er
     try {
         return await database.produto.create({
             data: product
-        })
+        });
     } catch (error) {
         return Error('Error ao cadastrar o registro')
     } finally {
