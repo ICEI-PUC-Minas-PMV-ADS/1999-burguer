@@ -9,7 +9,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
     { path: 'cadastroProduto', component: CriacaoProdutoComponent },
-    { path: 'produtos', component: ProdutosComponent },
+    { path: 'listaDeProdutos', component: ProdutosComponent },
 
 ];
 @NgModule({

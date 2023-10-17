@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
@@ -16,14 +16,15 @@ import { HeaderComponent } from './common/components/header/header.component';
     declarations: [
         AppComponent,
         LayoutComponent,
-        HeaderComponent
+        HeaderComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         UsuariosModule,
         ProdutosModule,
-        PedidosModule
+        PedidosModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

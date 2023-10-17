@@ -8,7 +8,7 @@ import { PedidosService } from './pedidos.service';
 
 const routes: Routes = [
 
-    { path: 'pedidos', component: HomePedidosComponent },
+    { path: 'home', component: HomePedidosComponent },
     { path: 'historico-pedidos', component: HistoricoPedidosComponent }
 
 ];
