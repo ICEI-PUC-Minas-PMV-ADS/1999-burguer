@@ -1,0 +1,37 @@
+@import '../../../scss/base/variables';
+
+header {
+  background-color: #ffffff; // Cor de fundo de exemplo
+  border-radius: 10px;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+
+      li {
+        a {
+          text-decoration: none;
+          display: inline-block;
+          padding: 10px 20px; // Espaçamento interno do botão
+          background-color: $laranja; // Cor de fundo do botão
+          color: #fff; // Cor do texto do botão
+          border-radius: 5px; // Borda arredondada do botão
+        }
+        margin: 0 15px; // Espaçamento entre os botões
+      }
+    }
+  }
+}

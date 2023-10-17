@@ -92,14 +92,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-004 | A tela de pedidos será composta por uma listagem de pedidos feitos pelo APP organizados em blocos e com informações como ticket do pedido, lanche, valor                                       | ALTA       |
 | RF-005 | A tela de pedidos terá os botões 'pendente' e 'em andamento', cada um deles exibirá os pedidos com seu respectivo status                                                                       | ALTA       |
 | RF-006 | Os blocos de pedidos em andamento terão um botão de concluído, para enviar o pedido ao histórico e ao cliente                                                                                 | ALTA       |
-| RF-007 | A tela de gerenciar cardápio deverá exibir o cardápio da loja em lista                                                                                                                         | ALTA       |
+| RF-007 | A tela de gerenciar cardápio deverá exibir o cardápio da loja em lista                                                                                                                         | MEDIA       |
 | RF-008 | Na tela de gerenciar cardápio é necessário haver um botão de acrescentar novo item, encaminhando para uma página de cadastro.                                                                | ALTA       |
-| RF-009 | A página de cadastro deve permitir criar um produto com nome, imagem, descrição e preço. Deve haver um botão de públicar o ítem                                                            | ALTA       |
+| RF-009 | A página de cadastro deve permitir criar um produto com nome, imagem, descrição e preço. Deve haver um botão de públicar o ítem                                                            | MÉDIA       |
 | RF-010 | O item gerado deverá conter as opções de: editar, excluir e disponibilizar                                                                                                                     | ALTA       |
-| RF-011 | A tela de histórico de pedidos deverá exibir uma lista em blocos com o nome do cliente, endereço, telefone, ticket do pedido, o que pediu e valor da compra, status concluido e data do pedido | ALTA       |
+| RF-011 | A tela de histórico de pedidos deverá exibir uma lista em blocos com o nome do cliente, endereço, telefone, ticket do pedido, o que pediu e valor da compra, status concluido e data do pedido | MÉDIA       |
 | RF-012 | Deve ser possível inciar o pedido ou cancelar na própria tela de pedidos pendentes na home                                                                                                      | ALTA       |
-| RF-013 | O usuário deverá conseguir editar seus dados no sistema                                                                                                                                         | ALTA       |
-| RF-014 | Ao clicar em editar, o sistema deverá permitir que o usuário altere as informações desejadas no produto                                                                                       | ALTA       |
+| RF-013 | O usuário deverá conseguir editar seus dados no sistema                                                                                                                                         | BAIXA       |
+| RF-014 | Ao clicar em editar, o sistema deverá permitir que o usuário altere as informações desejadas no produto                                                                                       | MÉDIA       |
 
 #### Requisitos Funcionais API
 

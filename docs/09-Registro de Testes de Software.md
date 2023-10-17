@@ -1,12 +1,19 @@
 # Registro de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>, <a href="8-Plano de Testes de Software.md"> Plano de Testes de Software</a>
+# Registros de testes da API
 
-Relatório com as evidências dos testes de software realizados no sistema pela equipe, baseado em um plano de testes pré-definido.
+![Resultado teste 1](./img/Resultado_T1.png)
+![Resultado teste 1](./img/Resultado_T2.png)
+![Resultado teste 1](./img/Resultado_T3.png)
+![Resultado teste 1](./img/Resultado_T4.png)
+![Resultado teste 1](./img/Resultado_T5.png)
+
 
 ## Avaliação
 
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
+Os testes indicaram que teremos que verificar posteriormente o acesso a rotas inexistentes. Uma vez que ao acessar uma rota inexistente o sistema não realiza o bloqueio.
 
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
+Em relação as melhorias, conseguimos implementar tudo que estava proposto e os testes indicaram um resultado positivo em relação a isso.
+
+O Framework utilizado para a realização dos testes foi o jest.
+
