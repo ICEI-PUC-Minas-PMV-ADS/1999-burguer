@@ -1,0 +1,33 @@
+@import '../../../../scss/base/variables';
+
+
+:host{
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: cneter;
+    align-items: center;
+
+    &, label, input{
+      width: 100%;
+    }
+    label{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid $preto;
+
+      svg{
+        width: 30px;
+      }
+    }
+    input{
+      height: 50px;
+      border: none;
+      font-size: 18px;
+      &::placeholder{
+        color: $preto;
+      }
+    }
+  }
+}
