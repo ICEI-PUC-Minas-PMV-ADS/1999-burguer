@@ -6,17 +6,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
     providedIn: 'root'
 })
 export class ApiService {
+
+    public url:  string = "https://project-api-rho.vercel.app/api/v1"
+
+
+
     constructor(private http: HttpClient) { }
 
-    getDadosdaApiComAutenticacao(token: string) {
-        // Define os cabeçalhos de autorização com o token
-        const headers = new HttpHeaders({
-            'Authorization': `Bearer ${token}` // Substitua 'Bearer' pelo tipo de autenticação correto
-        });
-
-        // Faz a solicitação com os cabeçalhos de autorização
-        return this.http.get('https://project-api-rho.vercel.app/api/v1/orders', { headers });
-    }
 }
 
 
