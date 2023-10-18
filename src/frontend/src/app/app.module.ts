@@ -1,32 +1,30 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+
+import { CoreModule } from './common/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { ProdutosModule } from './modules/produtos/produtos.module';
 import { PedidosModule } from './modules/pedidos/pedidos.module';
-import { LayoutComponent } from './common/layout/layout.component';
 import { HeaderComponent } from './common/components/header/header.component';
-
-
-
+import { AuthGuard } from './common/guards/auth.guard';
+import { AuthLayoutComponent } from './common/layouts/auth/auth-layout.component';
+import { NoAuthLayoutComponent } from './common/layouts/no-auth/no-auth-layout.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        LayoutComponent,
+        AuthLayoutComponent,
+        NoAuthLayoutComponent,
         HeaderComponent,
     ],
     imports: [
-        BrowserModule,
+        CoreModule,
         AppRoutingModule,
-        UsuariosModule,
-        ProdutosModule,
-        PedidosModule,
-        HttpClientModule
     ],
-    providers: [],
+    providers: [
+        AuthGuard
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

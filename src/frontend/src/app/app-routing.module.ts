@@ -1,24 +1,49 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Pages
-
-import { LayoutComponent } from './common/layout/layout.component';
+import { AuthLayoutComponent } from './common/layouts/auth/auth-layout.component';
+import { AuthGuard } from './common/guards/auth.guard';
+import { NoAuthLayoutComponent } from './common/layouts/no-auth/no-auth-layout.component';
 
 const routes: Routes = [
     {
-        path: '', component: LayoutComponent, children: [
-
+        path: '',
+        component: AuthLayoutComponent,
+        children: [
             {
-                path: 'usuarios', loadChildren: () => import('./modules/usuarios/usuarios.module').then((m) => m.UsuariosModule)
+                path: '',
+                canActivate: [AuthGuard],
+                loadChildren: () => import('./modules/pedidos/pedidos.module').then((m) => m.PedidosModule)
             },
             {
-                path: 'produtos', loadChildren: () => import('./modules/produtos/produtos.module').then((m) => m.ProdutosModule)
+                path: 'usuarios',
+                canActivate: [AuthGuard],
+                loadChildren: () => import('./modules/usuarios/usuarios.module').then((m) => m.UsuariosModule)
             },
             {
-                path: 'pedidos', loadChildren: () => import('./modules/pedidos/pedidos.module').then((m) => m.PedidosModule)
+                path: 'produtos',
+                canActivate: [AuthGuard],
+                loadChildren: () => import('./modules/produtos/produtos.module').then((m) => m.ProdutosModule)
+            },
+            {
+                path: 'pedidos',
+                canActivate: [AuthGuard],
+                loadChildren: () => import('./modules/pedidos/pedidos.module').then((m) => m.PedidosModule)
             }
         ]
+    },
+    {
+        path: '',
+        component: NoAuthLayoutComponent,
+        children: [
+            {
+                path: 'sessao',
+                loadChildren: () => import('./modules/sessao/sessao.module').then((m) => m.SessaoModule)
+            }
+        ]
+    },
+    {
+        path: '**', redirectTo: ''
     }
 ];
 
