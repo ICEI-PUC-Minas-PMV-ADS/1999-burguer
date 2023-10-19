@@ -12,7 +12,7 @@ export class AuthGuard {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
         // TODO: PARA TESTE
-        return true;
+        //return true;
 
         let token = localStorage.getItem('access_token');
 

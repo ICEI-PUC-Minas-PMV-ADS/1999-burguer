@@ -13,7 +13,7 @@ export class SessaoService {
         private router: Router
     ) { }
 
-    sign(payload: { email: string, password: string }): Observable<any> {
+    sign(payload: { email: string, senha: string }): Observable<any> {
 
         return this._api.crudPost('/login', payload, false);
 

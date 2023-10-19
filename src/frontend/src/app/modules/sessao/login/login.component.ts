@@ -45,14 +45,14 @@ export class LoginComponent {
 
         this.sessaoService.sign({
             email: this.formAuth.value.email,
-            password: this.formAuth.value.password
+            senha: this.formAuth.value.password
         })
         .pipe(takeUntil(this._unsubscribeAll))
         .subscribe({
             next: (res) => {
 
                 localStorage.removeItem('access_token');
-                localStorage.setItem('access_token', res.token);
+                localStorage.setItem('access_token', res.accessToken);
 
                 return this.router.navigate(['pedidos/home']);
 

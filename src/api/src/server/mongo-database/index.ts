@@ -1,13 +1,7 @@
 import mongoose from 'mongoose';
 
-const user = 'carlosmarquesdev';
-const password = 'NBWfOeMZhTqTZ2DU';
-const dbName = '1999Burguer';
-
-const mongoDBUrl = `mongodb+srv://${user}:${password}@cluster0.fvdbal6.mongodb.net/${dbName}?retryWrites=true&w=majority`;
-
 // Conecte-se ao MongoDB
-mongoose.connect(mongoDBUrl);
+mongoose.connect(process.env.MONGO_CONNECTION);
 
 const db = mongoose.connection;
 

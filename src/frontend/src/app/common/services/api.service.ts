@@ -34,7 +34,6 @@ export class ApiService {
     }
 
     crudPost(rota: string, body: any, auth: boolean = true): Observable<any> {
-
         return this.http.post(`${this.apiUrl}${rota}`, body, this.getHeaders(auth));
 
     }
