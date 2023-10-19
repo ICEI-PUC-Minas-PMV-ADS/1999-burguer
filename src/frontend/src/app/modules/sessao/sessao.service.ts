@@ -6,7 +6,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 import { ApiService } from 'src/app/common/services/api.service';
 
 @Injectable()
-export class UsuarioService {
+export class SessaoService {
 
     constructor(
         private _api: ApiService,
