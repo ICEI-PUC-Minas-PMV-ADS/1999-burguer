@@ -12,11 +12,4 @@ export class UsuarioService {
         private _api: ApiService,
         private router: Router
     ) { }
-
-    sign(payload: { email: string, password: string }): Observable<any> {
-
-        return this._api.crudPost('/login', payload, false);
-
-    }
-
 }
