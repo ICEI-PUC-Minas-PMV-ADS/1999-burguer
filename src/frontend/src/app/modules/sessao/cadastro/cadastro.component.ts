@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent {
-
+    admin: { nome: string, email: string, senha: string, confirmarSenha: string } = {
+        nome: '',
+        email: '',
+        senha: '',
+        confirmarSenha: ''
+      };
 }
