@@ -1,4 +1,21 @@
 <div class="containerGeral">
-    <h1>TESTE TEST TESTE</h1>
+    <!-- historico-pedidos.component.html -->
+
+<div class="historico-pedidos">
+    <h1>Histórico de Pedidos</h1>
+    <div class="pedido" *ngFor="let pedido of pedidos">
+      <div class="info">
+        <p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
+        <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
+        <p><strong>Telefone:</strong> {{ pedido.telefone }}</p>
+        <p><strong>Ticket do Pedido:</strong> {{ pedido.ticket }}</p>
+        <p><strong>O que pediu:</strong> {{ pedido.pedido }}</p>
+        <p><strong>Valor da Compra:</strong> R$ {{ pedido.valor }}</p>
+        <p><strong>Status:</strong> {{ pedido.status }}</p>
+        <p><strong>Data do Pedido:</strong> {{ pedido.data }}</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
