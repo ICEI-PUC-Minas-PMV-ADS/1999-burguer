@@ -45,13 +45,13 @@ export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: 
 
     }
 
-    let allImages: IProductImg[] | null = await ProductImg.find({ product_id: { $in: result.map(x => x.id) } });
+    const allImages: IProductImg[] | null = await ProductImg.find({ product_id: { $in: result.map(x => x.id) } });
 
     if (allImages?.length) {
 
-        for(let prod of result) {
+        for(const prod of result) {
 
-            let productImg = allImages.find(x => x.product_id == prod.id);
+            const productImg = allImages.find(x => x.product_id == prod.id);
 
             prod.imagem = productImg?.url;
 
