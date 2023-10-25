@@ -12,4 +12,22 @@ export class UsuarioService {
         private _api: ApiService,
         private router: Router
     ) { }
+
+    exibirUsuario(): Observable<any>{
+        const idUser = localStorage.getItem('user_id')
+        console.log()
+        return this._api.crudGet(`/user/${idUser}`, {}, true)
+    }
+
+    editarUsuario(dadosAtualizados: any): Observable<any> {
+        const idUser = localStorage.getItem('user_id');
+
+
+        const dadosParaEnvio = {
+            email: dadosAtualizados.email,
+            nome: dadosAtualizados.nome
+        };
+
+        return this._api.crudPut(`/user/${idUser}`, dadosParaEnvio, true);
+    }
 }

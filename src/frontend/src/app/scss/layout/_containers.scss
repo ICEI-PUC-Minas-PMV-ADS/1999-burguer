@@ -41,3 +41,20 @@
   border-radius: 10px;
   width: 90%;
 }
+
+
+.containerGeralEdit{
+  width: 1200px;
+  min-height: 800px;
+  padding: 25px 40px;
+
+  background: #fff;
+  box-shadow: 0px 4px 4px #00000040;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

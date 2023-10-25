@@ -13,14 +13,14 @@ export class ApiService {
         private http: HttpClient
     ) { }
 
-    private getHeaders(auth: boolean = false, token?: string) : any {
+    private getHeaders(auth: boolean = false, token?: string): any {
 
         let headers = new HttpHeaders();
 
         headers = headers.set('Content-Type', 'application/json');
 
         if (auth && token) {
-          headers = headers.set('Authorization', `Bearer ${token}`);
+            headers = headers.set('Authorization', `Bearer ${token}`);
         }
 
         return { headers };
@@ -28,8 +28,6 @@ export class ApiService {
     }
 
     crudPost(rota: string, body: any, auth: boolean = true): Observable<any> {
-
-
 
         return this.http.post(`${this.apiUrl}${rota}`, body, this.getHeaders(auth));
 
@@ -43,12 +41,13 @@ export class ApiService {
 
         console.log(header);
         return this.http.get(`${this.apiUrl}${rota}`, header);
-      }
+    }
 
-    crudPut() {
+    crudPut(rota: string, dados: any, auth: boolean): Observable<any> {
+        const token = localStorage.getItem('access_token') || '';
+        const headers = this.getHeaders(auth, token);
 
-
-
+        return this.http.put(`${this.apiUrl}${rota}`, dados, headers);
     }
 
     crudDelete() {
