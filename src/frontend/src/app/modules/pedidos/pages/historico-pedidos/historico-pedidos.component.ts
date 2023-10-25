@@ -27,17 +27,6 @@ export class HistoricoPedidosComponent {
         status: 'Concluído',
         data: '2023-10-15'
       },
-      {
-        cliente: 'Maria Souza',
-        endereco: 'Av. XYZ, 456',
-        telefone: '(31) 93555-7777',
-        ticket: '12347',
-        pedido: 'Hambúrguer simples, milkshake de chocolate',
-        valor: 15.00,
-        status: 'Concluído',
-        data: '2023-10-15'
-      },
-      // Adicione mais pedidos conforme necessário
     ];
   }
 /*
