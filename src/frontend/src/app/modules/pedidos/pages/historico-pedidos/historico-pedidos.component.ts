@@ -1,40 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/common/services/api.service';
+import { Component, OnDestroy} from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { PedidosService } from '../../pedidos.service';
+import { ListaDePedidos } from '../../model/listaDePedidos';
+import { devOnlyGuardedExpression } from '@angular/compiler';
+
 @Component({
     selector: 'app-historico-pedidos',
     templateUrl: './historico-pedidos.component.html',
     styleUrls: ['./historico-pedidos.component.scss']
 })
-export class HistoricoPedidosComponent {
-    pedidos = [
-      {
-        cliente: 'João Silva',
-        endereco: 'Rua ABC, 123',
-        telefone: '(31) 97555-5555',
-        ticket: '12345',
-        pedido: 'Hambúrguer duplo com queijo, batatas fritas, refrigerante',
-        valor: 20.50,
-        status: 'Concluído',
-        data: '2023-10-16'
-      },
-      {
-        cliente: 'Maria Souza',
-        endereco: 'Av. XYZ, 456',
-        telefone: '(31) 98555-7777',
-        ticket: '12346',
-        pedido: 'Hambúrguer simples, milkshake de chocolate',
-        valor: 15.00,
-        status: 'Concluído',
-        data: '2023-10-15'
-      },
-    ];
-  }
-/*
-export class HistoricoPedidosComponent implements OnInit{
+export class HistoricoPedidosComponent implements OnDestroy{
+    private _unsubscribeAll: Subject<void> = new Subject<void>();
+    public historicoPedidos: ListaDePedidos[] = [];
 
-    constructor(private apiService: ApiService) { }
-
-    ngOnInit(): void {
-
+    constructor(
+        private pedidosService: PedidosService
+    ) {
+        this.carregarHistoricoPedidos();
     }
-}*/
+
+    carregarHistoricoPedidos() {
+        const payload = {
+            page: 1
+        };
+
+        this.pedidosService.buscarHistoricoPedidos(payload)
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((historicoPedidos: ListaDePedidos[]) => {
+
+                this.historicoPedidos = this.converterHistoricoPedidoParaArray(historicoPedidos);
+
+                console.log(this.historicoPedidos);
+
+            },
+
+                (err) => {
+                   console.log(err.error);
+                }
+        );
+    }
+    converterHistoricoPedidoParaArray(pedido: any): any[] {
+        const arrayDePedidos = [];
+        for (const propriedade in pedido) {
+            if (pedido.hasOwnProperty(propriedade) && propriedade === 'rows') {
+                arrayDePedidos.push({ propriedade, valor: pedido[propriedade] });
+            }
+        }
+        return arrayDePedidos;
+    }
+    ngOnDestroy(): void {
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    }
+  }
+

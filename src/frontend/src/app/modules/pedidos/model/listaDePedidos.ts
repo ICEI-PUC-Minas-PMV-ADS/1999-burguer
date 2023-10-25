@@ -15,5 +15,12 @@ export interface Pedido {
 
 export interface ListaDePedidos{
     propriedade: string;
-    valor: Pedido[]
+    valor: Pedido[];
+    cliente: string;
+    endereco: string;
+    telefone: string;
+    pedido: string;
+    status: string;
+    data: string;
+    ticket: number;
 }

@@ -4,8 +4,8 @@
       <div class="container" *ngFor="let item of listaPedidos">
 
           <!-- Agora fazemos um segundo *ngFor para percorrer os valores dentro de "valor" -->
-          <div class="containerFilho"  *ngFor="let pedido of item.valor">
-            <div class="containerPedidosBox">
+           <div class="containerFilho"  *ngFor="let pedido of item.valor">
+              <div class="containerPedidosBox">
                 <p><strong>Ticket:</strong> {{ pedido.id }}</p>
                 <p><strong>Bairro:</strong> {{ pedido.bairro }}</p>
                 <p><strong>CEP:</strong> {{ pedido.cep }}</p>

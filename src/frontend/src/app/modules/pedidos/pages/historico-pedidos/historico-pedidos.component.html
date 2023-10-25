@@ -1,10 +1,11 @@
 <div class="containerGeral">
     <!-- historico-pedidos.component.html -->
+    <h1 class="tituloTelas">Histórico de Pedidos</h1>
 
-<div class="historico-pedidos">
-    <h1>Histórico de Pedidos</h1>
-    <div class="pedido" *ngFor="let pedido of pedidos">
-      <div class="info">
+<div class="container" *ngFor="let item of historicoPedidos">
+
+    <div class="pedido" *ngFor="let pedido of historicoPedidos">
+      <div class="containerPedidosBox">
         <p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
         <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
         <p><strong>Telefone:</strong> {{ pedido.telefone }}</p>
