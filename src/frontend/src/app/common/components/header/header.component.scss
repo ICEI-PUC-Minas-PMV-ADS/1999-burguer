@@ -1,37 +1,56 @@
 @import '../../../scss/base/variables';
 
 header {
-  background-color: #ffffff; // Cor de fundo de exemplo
-  border-radius: 10px;
-  width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-
-  nav {
+    position: fixed;
+    top: 0;
     display: flex;
-    flex-direction: row;
+    width: 100%;
+    background-color: #fff;
     justify-content: center;
-    text-align: center;
-    padding: 10px;
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
 
-      li {
-        a {
-          text-decoration: none;
-          display: inline-block;
-          padding: 10px 20px; // Espaçamento interno do botão
-          background-color: $laranja; // Cor de fundo do botão
-          color: #fff; // Cor do texto do botão
-          border-radius: 5px; // Borda arredondada do botão
+    nav {
+        width: 100%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        text-align: center;
+        padding: 10px;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+
+            li {
+                a {
+                    text-decoration: none;
+                    display: inline-block;
+                    padding: 10px 20px; // Espaçamento interno do botão
+                    background-color: $laranja; // Cor de fundo do botão
+                    color: #fff; // Cor do texto do botão
+                    border-radius: 5px; // Borda arredondada do botão
+                }
+
+                margin: 0 15px; // Espaçamento entre os botões
+            }
         }
-        margin: 0 15px; // Espaçamento entre os botões
-      }
     }
-  }
+}
+
+.btn-sessao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+
+    .material-icons {
+        font-size: 40px;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        color: $laranja;
+    }
 }
