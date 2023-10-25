@@ -1,5 +1,60 @@
 <div class="containerGeral">
-    <h1>TESTE TEST TESTE</h1>
-</div>
+    <h1>Manutenção de Cardápio</h1>
 
- 
+    <div class="lista-produtos">
+        <!-- PRODUTO -->
+        <div *ngFor="let prod of produtos" class="bloco-produto">
+            <!-- IMAGEM -->
+            <div class="bloco-imagem">
+                <img *ngIf="prod.imagem" [src]="prod.imagem">
+                <span *ngIf="!prod.imagem" class="material-icons">
+                    image
+                </span>
+            </div>
+    
+            <!-- INFOS -->
+            <div class="bloco-infos">
+                <div class="bloco-nome">
+                    <!-- ID -->
+                    <span class="prod-id">{{ prod.id }}</span>
+                    <span class="traco">-</span>
+                    <!-- NOME -->
+                    <span class="nome">{{ prod.nome }}</span>
+                </div>
+
+                <!-- PRECO -->
+                <div class="bloco-preco">
+                    <span class="subtitulo">Preço:</span>
+                    <span class="valor">{{ prod.valor | currency: 'BRL' }}</span>
+                </div>
+                
+                <!-- DESCRICAO -->
+                <div class="bloco-descricao">
+                    <span class="subtitulo">Ingredientes:</span>
+                    <span class="valor">{{ prod.descricao }}</span>
+                </div>
+    
+                <!-- STATUS -->
+                <div class="bloco-situacao" [ngClass]="{ 'ativo': prod.status }">
+                    <span class="subtitulo">Situação:</span>
+                    <span class="valor">{{ prod.status ? 'Ativo' : 'Inativo' }}</span>
+                </div>
+            </div>
+
+            <!-- BOTOES -->
+            <div class="bloco-botoes">
+                <button class="btn-editar" (click)="editarProduto(prod)" title="Editar">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </button>
+
+                <button class="btn-apagar" (click)="apagarProduto(prod)" title="Apagar">
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+.lista-produtos {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.bloco-produto {
+    display: flex;
+    flex-flow: row;
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+.bloco-imagem {
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-width: 10rem;
+        max-height: 10rem;
+    }
+}
+
+.bloco-infos {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.bloco-nome {
+    display: flex;
+    flex-flow: row;
+    gap: 0.3rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.bloco-preco, .bloco-descricao, .bloco-situacao {
+    display: flex;
+    flex-flow: row;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    .subtitulo {
+        font-weight: 500;
+    }
+}
+
+.bloco-situacao {
+    .valor {
+        font-weight: 700;
+        color: red;
+    }
+
+    &.ativo {
+        .valor {
+            color: green;
+        }
+    }
+}
+
+.bloco-botoes {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+
+    button {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.3rem;
+
+        .material-icons {
+            font-size: 2.2rem;
+        }
+    }
+
+    .btn-editar {
+        
+    }
+
+    .btn-apagar {
+
+    }
+}
