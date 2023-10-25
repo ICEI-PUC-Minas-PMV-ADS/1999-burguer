@@ -1,4 +1,13 @@
-$vermelho:#DD0330;
-$preto: #4A4A4A;
-$branco: #ffffff;
-$laranja: #bc5508;
+:root {
+    --vermelho:#dd0330;
+    --preto: #4a4a4a;
+    --branco: #ffffff;
+    --laranja: #ba5508;
+
+    --vermelho-darken: darken(#dd0330, 0.2);
+
+    --vermelho-rgb: 221, 3, 48;
+    --preto-rgb: 74, 74, 74;
+    --branco-rgb: 255, 255, 255;
+    --laranja-rgb: 186, 85, 8;
+}

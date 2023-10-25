@@ -29,7 +29,7 @@ header {
                     text-decoration: none;
                     display: inline-block;
                     padding: 10px 20px; // Espaçamento interno do botão
-                    background-color: $laranja; // Cor de fundo do botão
+                    background-color: var(--laranja); // Cor de fundo do botão
                     color: #fff; // Cor do texto do botão
                     border-radius: 5px; // Borda arredondada do botão
                 }
@@ -66,6 +66,6 @@ header {
         line-height: 40px;
         width: 40px;
         height: 40px;
-        color: $laranja;
+        color: var(--laranja);
     }
 }

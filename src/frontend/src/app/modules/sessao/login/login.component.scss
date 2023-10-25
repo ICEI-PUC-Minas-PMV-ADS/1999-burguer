@@ -15,7 +15,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-bottom: 1px solid $preto;
+      border-bottom: 1px solid var(--preto);
 
       svg{
         width: 30px;
@@ -26,7 +26,7 @@
       border: none;
       font-size: 18px;
       &::placeholder{
-        color: $preto;
+        color: var(--preto);
       }
     }
   }
