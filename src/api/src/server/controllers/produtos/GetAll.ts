@@ -9,27 +9,38 @@ interface IQueryProps {
     id?: number,
     page?: number,
     limit?: number,
-    filter?: boolean
+    filter?: any
 }
-
 
 export const getAllProductValidation = validation((getSchema) => ({
     query: getSchema<IQueryProps>(yup.object().shape({
         page: yup.number().optional().moreThan(0),
         limit: yup.number().optional(),
         id: yup.number().integer().optional().default(0),
-        filter: yup.boolean().optional(),
+        filter: yup.object().optional(),
     }))
 }));
-
-
-
 
 // só entra aqui depois do handle request
 export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
 
-    const result = await ProdutosProvider.getAll(req.query.page || 1, req.query.limit || 7, req.query.filter || true , Number(req.query.id));
-    const count = await ProdutosProvider.count(req.query.filter || true);
+    const filtros: any = req.query.filter;
+    
+    let where: any = {};
+
+    if (filtros) {
+
+        if (filtros.status !== undefined) {
+            where.status = {
+                equals: filtros.status
+            }
+        }
+
+    }
+
+    const result = await ProdutosProvider.getAll(req.query.page || 1, req.query.limit || 7, filtros);
+
+    const count = req.query.page == 1 ? await ProdutosProvider.count(filtros) : 0;
 
     if (result instanceof Error) {
 
@@ -59,9 +70,9 @@ export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: 
 
     }
 
-    res.setHeader('access-control-expose-headers', 'x-total-count');
-    res.setHeader('x-total-count', count);
+    // res.setHeader('access-control-expose-headers', 'x-total-count');
+    // res.setHeader('x-total-count', count);
 
-    return res.status(StatusCodes.OK).json(result);
+    return res.status(StatusCodes.OK).json({ rows: result, count });
 
 };

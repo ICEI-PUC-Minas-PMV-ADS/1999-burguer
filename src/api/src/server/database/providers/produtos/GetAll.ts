@@ -1,46 +1,39 @@
-import { IProduto } from '../../models'
-import { database } from '../..'
-import { Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client';
+
+import { IProduto } from '../../models';
+import { database } from '../..';
 
 export const getAll = async (
     page: number,
     limit: number,
-    filter: boolean,
-    id = 0
+    where?: any
 ): Promise<IProduto[] | Error> => {
+
     try {
-        page = Number(page)
-        limit = Number(limit)
 
-        const skip = (page - 1) * limit
-        const where: Prisma.produtoWhereInput = {}
+        page = Number(page);
+        limit = Number(limit);
 
-        if (filter) {
-            where.status = {
-                equals: filter,
-            }
-        }
-
-        if (id > 0) {
-            where.id = id
-        }
+        const skip = (page - 1) * limit;
 
         const result = await database.produto.findMany({
             skip: skip,
             take: limit,
-            where: where,
+            where
         })
 
-        if (result.length === 0) {
-            throw new Error(
-                'Não foram encontrados registros com os filtros atuais'
-            )
-        }
+        if (!result?.length) throw new Error('Não foram encontrados registros com os filtros atuais');
 
-        return result
+        return result;
+
     } catch (error) {
+
         throw new Error('Erro ao buscar registro')
+
     } finally {
-        await database.$disconnect()
+
+        await database.$disconnect();
+
     }
+
 }

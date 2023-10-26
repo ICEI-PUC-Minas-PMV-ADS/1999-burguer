@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
     private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
+    // private apiUrl: string = 'http://localhost:3000/api/v1';
 
     constructor(
         private http: HttpClient
@@ -35,7 +36,7 @@ export class ApiService {
 
     }
 
-    crudGet(rota: string, query: any = {}, auth: boolean) {
+    crudGet(rota: string, query: any = {}, auth: boolean): Observable<any> {
 
         const header = this.getHeaders(auth);
 
@@ -45,15 +46,21 @@ export class ApiService {
 
     }
 
-    crudPut(rota: string, dados: any, auth: boolean): Observable<any> {
+    crudGetById(rota: string, id: number, auth: boolean): Observable<any> {
 
-        const headers = this.getHeaders(auth);
-
-        return this.http.put(`${this.apiUrl}${rota}`, dados, headers);
+        return this.http.get(`${this.apiUrl}${rota}/${id}`, this.getHeaders(auth));
 
     }
 
-    crudDelete(rota: string, id: number, auth: boolean) {
+    crudPut(rota: string, id: number, dados: any, auth: boolean): Observable<any> {
+
+        const headers = this.getHeaders(auth);
+
+        return this.http.put(`${this.apiUrl}${rota}/${id}`, dados, headers);
+
+    }
+
+    crudDelete(rota: string, id: number, auth: boolean): Observable<any> {
 
         return this.http.delete(`${this.apiUrl}${rota}/${id}`, this.getHeaders(auth));
 

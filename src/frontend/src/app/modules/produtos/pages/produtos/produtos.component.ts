@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 
-interface iProduto {
-    id: number;
-	descricao: string;
-	valor: number;
-	nome: string;
-	status: boolean;
-    imagem?: string;
-}
+import { iProduto } from '../../model/produto';
+import { ProdutosService } from '../../produtos.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
     selector: 'app-produtos',
@@ -16,58 +13,90 @@ interface iProduto {
 })
 export class ProdutosComponent {
 
-    produtos: Array<iProduto> = [
-        {
-            id: 1,
-            nome: 'Hambúrguer Clássico',
-            descricao: 'Ingredientes: Carne de boi, queijo cheddar, alface, tomate e maionese.',
-            valor: 16.9,
-            status: true,
-            imagem: 'assets/burguer.png'
-        },
-        {
-            id: 2,
-            nome: 'Hambúrguer BBQ Delight',
-            descricao: 'Ingredientes: Carne de boi, bacon crocante, cebola caramelizada, queijo defumado e molho barbecue.',
-            valor: 18.5,
-            status: false,
-            imagem: 'assets/burguer.png'
-        },
-        {
-            id: 3,
-            nome: 'Hambúrguer Vegano Zen',
-            descricao: 'Hambúrguer de feijão preto, abacate, alface, tomate, cebola roxa e maionese vegana.',
-            valor: 17.8,
-            status: true,
-            imagem: 'assets/burguer.png'
-        },
-        {
-            id: 4,
-            nome: 'Hambúrguer Frutos do Mar',
-            descricao: 'Ingredientes: Hambúrguer de camarão, alface, tomate, molho tártaro e abacate.',
-            valor: 19.95,
-            status: true,
-            imagem: 'assets/burguer.png'
-        }
-    ];
+    private _unsubscribeAll: Subject<any> = new Subject<any>();
 
-    constructor() {
+    count: number = 0;
+    produtos: Array<iProduto> = [];
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+
+    constructor(
+        private _router: Router,
+        private _produtosService: ProdutosService
+    ) {
 
     }
 
-    editarProduto(prod: iProduto) {
+    ngOnInit() {
 
-        // CHAMAR TELA PARA EDITAR
-        
+    }
+
+    ngAfterViewInit() {
+
+        this.paginator.page.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => this.getProdutos());
+
+        this.getProdutos();
+
+    }
+
+    ngOnDestroy() {
+
+        this._unsubscribeAll.next(null);
+        this._unsubscribeAll.complete();
+
+    }
+
+    getProdutos() {
+
+        this._produtosService.getListaProdutos({ limit: this.paginator.pageSize, page: this.paginator.pageIndex })
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe({
+                next: res => {
+
+                    this.produtos = res.rows;
+                    if (!this.paginator.pageIndex) this.count = res.count;
+
+                },
+                error: err => {
+
+                    alert(err);
+
+                }
+            })
+
+    }
+
+    adicionarProduto() {
+
+        this._router.navigate(['/produtos/cadastroProduto']);
+
+    }
+
+    editarProduto(id: number) {
+
+        this._router.navigate(['/produtos/cadastroProduto', { id }]);
 
     }
 
     apagarProduto(prod: iProduto) {
 
-        // PERGUNTAR SE VAI APAGAR
-        const result = window.confirm('Apagar o produto do cadastro?');
+        const result = confirm(`Remover o produto "${prod.nome}" do cadastro?`);
+        if (!result) return;
 
-        console.log(result)
+        this._produtosService.apagarProduto(prod.id)
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe({
+                next: res => {
+
+                    this.getProdutos();
+
+                },
+                error: err => {
+
+                    alert(err);
+
+                }
+            });
 
     }
 

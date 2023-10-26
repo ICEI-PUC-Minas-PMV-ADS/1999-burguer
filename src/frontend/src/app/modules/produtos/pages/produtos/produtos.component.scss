@@ -1,3 +1,9 @@
+.linha-adicionar {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
 .lista-produtos {
     display: flex;
     flex-flow: column;
@@ -71,22 +77,16 @@
     display: flex;
     flex-flow: column;
     justify-content: space-around;
+}
 
-    button {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 0.3rem;
+button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.3rem;
+    background-color: var(--laranja);
+    color: white;
 
-        .material-icons {
-            font-size: 2.2rem;
-        }
-    }
-
-    .btn-editar {
-        
-    }
-
-    .btn-apagar {
-
+    .material-icons {
+        font-size: 2.2rem;
     }
 }

@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { getBrPaginatorIntl } from './intl/br.intl';
 
 @NgModule({
     exports: [
@@ -11,6 +12,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         ReactiveFormsModule,
         HttpClientModule,
         MatPaginatorModule
+    ],
+    providers: [
+        { provide: MatPaginatorIntl, useValue: getBrPaginatorIntl() },
     ]
 })
 export class SharedModule { }

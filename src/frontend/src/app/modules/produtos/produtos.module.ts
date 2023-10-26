@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/common/shared.module';
 const routes: Routes = [
     { path: '', redirectTo: 'listaDeProdutos', pathMatch: 'full' },
     { path: 'cadastroProduto', component: CriacaoProdutoComponent },
+    { path: 'cadastroProduto/:id', component: CriacaoProdutoComponent },
     { path: 'listaDeProdutos', component: ProdutosComponent },
 ];
 
