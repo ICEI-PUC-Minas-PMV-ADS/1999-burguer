@@ -51,8 +51,8 @@ export const login = async (
             }
         })
     }
-
     return response.status(StatusCodes.OK).json({
+        userId: result.id,
         accessToken: accessToken,
     })
 }

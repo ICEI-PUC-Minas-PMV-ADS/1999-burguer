@@ -13,7 +13,7 @@ interface IQueryProps {
 
 interface iFiltros {
     id?: number;
-    status?: boolean;
+    status?: number;
     dataInicio?: string;
     dataFim?: string;
 }

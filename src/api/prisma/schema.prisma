@@ -25,8 +25,9 @@ model pedido {
   cidade           String           @db.VarChar(255)
   cep              String           @db.VarChar(255)
   uf               String           @db.VarChar(255)
-  status           Boolean
+  status           Int
   data_finalizacao DateTime?        @db.Timestamp(6)
+  pedido_status    pedido_status    @relation(fields: [status], references: [id_status], onDelete: NoAction, onUpdate: NoAction)
   usuario          usuario          @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   pedido_produto   pedido_produto[]
 }
@@ -67,4 +68,19 @@ model pedido_produto {
   total          Decimal @db.Decimal(9, 2)
   pedido         pedido  @relation(fields: [pedido_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_pedido_id_fkey")
   produto        produto @relation(fields: [produto_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_produto_id_fkey")
+}
+
+model reset_code {
+  id             Int      @id @default(autoincrement())
+  email          String   @db.VarChar(255)
+  reset_code     String   @db.Char(6)
+  requested_date DateTime @db.Timestamp(6)
+  expiring_date  DateTime @db.Timestamp(6)
+  used           Boolean
+}
+
+model pedido_status {
+  id_status  Int      @id
+  dsc_status String   @db.VarChar(255)
+  pedido     pedido[]
 }

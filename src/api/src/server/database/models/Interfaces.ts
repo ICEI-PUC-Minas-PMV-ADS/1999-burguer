@@ -18,7 +18,7 @@ export interface IPedido {
     cidade: string
     cep: string
     uf: string
-    status: boolean
+    status: number
     data_finalizacao?: Date | string | null
 }
 
@@ -120,4 +120,13 @@ export interface IProduct{
 export interface ILogin{
     email: string
     senha: string
+}
+
+export interface IResetCode{
+    id: number,
+    email: string,
+    reset_code: string,
+    requested_date: Date,
+    expiring_date: Date,
+    used: boolean
 }

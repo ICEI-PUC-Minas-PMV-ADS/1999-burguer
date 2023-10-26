@@ -25,11 +25,14 @@ router.put('/product/:id', authValidator, ProdutosController.updateProductByIdVa
 router.delete('/product/:id', authValidator, ProdutosController.deleteProductByIdValidation, ProdutosController.deleteProductById)          //  A API deverá fornecer um endpoint DELETE para excluir um produto
 
 // //Usuarios
-router.get('/user/:usuarioId', authValidator, UsuariosController.getUsuariosDataValidation, UsuariosController.getUsuarioData)                         //  A API deverá fornecer um endpoint GET para retornar dados do usuário
-router.put('/user/:usuarioId', authValidator, UsuariosController.getUsuariosDataValidation, UsuariosController.updateUsuarioById)                         //  A API deverá fornecer um endpoint PUT para atualizar dados do usuário
-router.delete('/user/:id', authValidator, UsuariosController.deleteRegisterValidationByIdValidation, UsuariosController.deleteUsuarioById)                       //  A API deverá fornecer um endpoint DELETE para excluir o registro da pessoa
-router.post('/login', UsuariosController.loginValidation, UsuariosController.login)                           //  A API deverá fornecer um endpoint POST para autenticar o login do usuário
-router.post('/register', UsuariosController.registerValidation, UsuariosController.register)                        //  A API deverá fornecer um endpoint POST para cadastrar um usuário no banco
+router.get('/user/:usuarioId', authValidator, UsuariosController.getUsuariosDataValidation, UsuariosController.getUsuarioData)              //  A API deverá fornecer um endpoint GET para retornar dados do usuário
+router.put('/user/:usuarioId', authValidator, UsuariosController.getUsuariosDataValidation, UsuariosController.updateUsuarioById)           //  A API deverá fornecer um endpoint PUT para atualizar dados do usuário
+router.delete('/user/:id', authValidator, UsuariosController.deleteRegisterValidationByIdValidation, UsuariosController.deleteUsuarioById)  //  A API deverá fornecer um endpoint DELETE para excluir o registro da pessoa
+router.post('/login', UsuariosController.loginValidation, UsuariosController.login)                                                         //  A API deverá fornecer um endpoint POST para autenticar o login do usuário
+router.post('/register', UsuariosController.registerValidation, UsuariosController.register)                                                //  A API deverá fornecer um endpoint POST para cadastrar um usuário no banco
+router.post('/forgot-password/:email', UsuariosController.forgotPasswordValidation, UsuariosController.forgotPassword)                      // Rota de envio do email e geração do código verificador
+router.post('/reset-password', UsuariosController.resetPasswordValidation, UsuariosController.resetPassword)                                // Rota de resetar a senha
+
 
 
 export { router }
