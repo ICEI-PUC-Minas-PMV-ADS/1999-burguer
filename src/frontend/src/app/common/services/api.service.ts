@@ -13,11 +13,13 @@ export class ApiService {
         private http: HttpClient
     ) { }
 
-    private getHeaders(auth: boolean = false, token?: string): any {
+    private getHeaders(auth: boolean = false): any {
 
         let headers = new HttpHeaders();
 
         headers = headers.set('Content-Type', 'application/json');
+
+        const token = localStorage.getItem('access_token') || '';
 
         if (auth && token) {
             headers = headers.set('Authorization', `Bearer ${token}`);
@@ -33,26 +35,27 @@ export class ApiService {
 
     }
 
-
     crudGet(rota: string, query: any = {}, auth: boolean) {
-        const token = localStorage.getItem('access_token') ?? '';
-        const header = this.getHeaders(auth, token);
+
+        const header = this.getHeaders(auth);
+
         header.params = new HttpParams().set('filter', JSON.stringify(query));
 
-        console.log(header);
         return this.http.get(`${this.apiUrl}${rota}`, header);
+
     }
 
     crudPut(rota: string, dados: any, auth: boolean): Observable<any> {
-        const token = localStorage.getItem('access_token') || '';
-        const headers = this.getHeaders(auth, token);
+
+        const headers = this.getHeaders(auth);
 
         return this.http.put(`${this.apiUrl}${rota}`, dados, headers);
+
     }
 
-    crudDelete() {
+    crudDelete(rota: string, id: number, auth: boolean) {
 
-
+        return this.http.delete(`${this.apiUrl}${rota}/${id}`, this.getHeaders(auth));
 
     }
 
