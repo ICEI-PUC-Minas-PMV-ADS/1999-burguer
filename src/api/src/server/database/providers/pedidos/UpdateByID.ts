@@ -11,7 +11,9 @@ export const updateById = async (
             where: {
                 id: Number(id),
             },
-            data
+            data: {
+                status: data.status
+            }
         });
 
         if (!result) {

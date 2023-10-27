@@ -18,7 +18,7 @@ export const createPedidoValidation: RequestHandler = validation((getSchema) => 
             cidade: YUP.string().required().min(2),
             cep: YUP.string().required().length(9),
             uf: YUP.string().required().length(2),
-            status: YUP.boolean().required()
+            status: YUP.number().required()
         })
     )
 }))

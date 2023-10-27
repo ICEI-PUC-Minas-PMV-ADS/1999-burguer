@@ -19,7 +19,7 @@ export const updatePedidoByIdValidation: RequestHandler = validation((getSchema)
     ),
     body: getSchema<IBodyProps>(
         YUP.object().shape({
-            status: YUP.boolean().required()
+            status: YUP.number().required()
         })
     )
 }))

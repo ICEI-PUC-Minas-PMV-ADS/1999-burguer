@@ -20,7 +20,7 @@ export const create = async (
                 cidade: pedido.cidade,
                 cep: pedido.cep,
                 uf: pedido.uf,
-                status: pedido.status
+                status: 0
             }
         });
 

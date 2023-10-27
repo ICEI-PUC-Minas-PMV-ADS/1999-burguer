@@ -22,14 +22,6 @@ export interface IPedido {
     data_finalizacao?: Date | string | null
 }
 
-export enum ePedidoStatus {
-    AGUARDANDO = 0,
-    PREPARANDO = 1,
-    PRONTO_RETIRADA = 2,
-    EM_ROTA = 3,
-    FINALIZADO = 4,
-    CANCELADO = 99
-}
 
 export interface IPedidoProduto {
     id: number
