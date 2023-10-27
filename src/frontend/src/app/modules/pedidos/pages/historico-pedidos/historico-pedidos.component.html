@@ -4,16 +4,15 @@
 
 <div class="container" *ngFor="let item of historicoPedidos">
 
-    <div class="pedido" *ngFor="let pedido of historicoPedidos">
+    <div class="pedido" *ngFor="let pedido of item.valor">
       <div class="containerPedidosBox">
-        <p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
-        <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
-        <p><strong>Telefone:</strong> {{ pedido.telefone }}</p>
-        <p><strong>Ticket do Pedido:</strong> {{ pedido.ticket }}</p>
-        <p><strong>O que pediu:</strong> {{ pedido.pedido }}</p>
-        <p><strong>Valor da Compra:</strong> R$ {{ pedido.valor }}</p>
+        <p><strong>Ticket:</strong> {{ pedido.id }}</p>
+        <p><strong>Data:</strong> {{ pedido.data_inclusao }}</p>
+        <p><strong>Endereço:</strong> {{ pedido.endereco }}, {{ pedido.numero }} - {{ pedido.bairro }} </p>
+        <p><strong>Cidade:</strong> {{ pedido.cidade }} - {{ pedido.uf }}</p>
+        <p><strong>CEP:</strong> {{ pedido.cep }}</p>
         <p><strong>Status:</strong> {{ pedido.status }}</p>
-        <p><strong>Data do Pedido:</strong> {{ pedido.data }}</p>
+        <p><strong>Total:</strong> R$ {{ pedido.total }}</p>
       </div>
     </div>
   </div>

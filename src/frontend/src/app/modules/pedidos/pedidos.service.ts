@@ -19,8 +19,10 @@ export class PedidosService {
         return this._api.crudGet('/orders', payload, true)
     }
 
-    buscarHistoricoPedidos(payload: any): Observable<any> {
-        return this._api.crudGet(`/historico-pedidos`,payload, true );
+    buscarHistoricoPedidos(payload: {}): Observable<any> {
+        console.log(payload)
+        console.log()
+        return this._api.crudGet(`/orders`,payload, true )
       }
 
 }
