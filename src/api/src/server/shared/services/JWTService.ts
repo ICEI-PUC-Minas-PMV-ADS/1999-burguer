@@ -9,7 +9,7 @@ const signIn = (data: IJWTData): string | 'JWT_NOT_FOUND' => {
     if (!process.env.JWT_SECRET) {
         return 'JWT_NOT_FOUND'
     }
-    return JWT.sign(data, process.env.JWT_SECRET, { expiresIn: '24h' })
+    return JWT.sign(data, process.env.JWT_SECRET, { expiresIn: '999d' })
 }
 
 const verify = (
