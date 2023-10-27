@@ -36,10 +36,15 @@
     width: 100%;
     min-height: 120px;
     padding: 15px 20px;
-    background-color: #d9913d;
+    background-color: var(--laranja);
     margin-top: 10px;
     border-radius: 10px;
     width: 90%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--branco);
+    align-content: center;
+    
 }
 
 

@@ -4,6 +4,11 @@ import { ApiService } from "src/app/common/services/api.service";
 
 @Injectable()
 export class PedidosService {
+
+    atualizarStatusPedido(id: any, status: any) {
+        return this._api.crudGet(`/order/${id}`, {}, true)
+    }
+    
     constructor(
         private _api: ApiService
     ) { }

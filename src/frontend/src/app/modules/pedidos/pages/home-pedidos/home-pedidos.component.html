@@ -1,29 +1,46 @@
 <div class="containerGeral">
     <h1 class="tituloTelas">Pedidos</h1>
+    <div class="filtroStatus">
+        <button status="pendente">Pendentes</button>
+        <button status="andamento" >Em Andamento</button>
+        <button status="cancelado">Cancelados</button>
+    </div>
 
-      <div class="container" *ngFor="let item of listaPedidos">
 
-          <!-- Agora fazemos um segundo *ngFor para percorrer os valores dentro de "valor" -->
-           <div class="containerFilho"  *ngFor="let pedido of item.valor">
-              <div class="containerPedidosBox">
-                <p><strong>Ticket:</strong> {{ pedido.id }}</p>
-                <p><strong>Bairro:</strong> {{ pedido.bairro }}</p>
-                <p><strong>CEP:</strong> {{ pedido.cep }}</p>
-                <p><strong>Cidade:</strong> {{ pedido.cidade }}</p>
-                <p><strong>Data de Finalização:</strong> {{ pedido.data_finalizacao }}</p>
-                <p><strong>Data de Inclusão:</strong> {{ pedido.data_inclusao }}</p>
-                <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
-                <p><strong>Número:</strong> {{ pedido.numero }}</p>
-                <p><strong>Status:</strong> {{ pedido.status }}</p>
-                <p><strong>Total:</strong> {{ pedido.total }}</p>
-                <p><strong>UF:</strong> {{ pedido.uf }}</p>
-                <button (click)="aceitarPedido()">Aceitar pedido</button>
-              </div>
 
-            </div>
+    <div class="container" *ngFor="let item of listaPedidos">
+        <!-- Agora fazemos um segundo *ngFor para percorrer os valores dentro de "valor" -->
+        <div class="containerFilho" *ngFor="let pedido of item.valor">
+            <div class="containerPedidosBox">
+                <div class="text">
+                    <div>
+                        <p><strong>Ticket:</strong> {{ pedido.id }}</p>
+                        <p><strong>Bairro:</strong> {{ pedido.bairro }}</p>
+                        <p><strong>CEP:</strong> {{ pedido.cep }}</p>
+                        <p><strong>Cidade:</strong> {{ pedido.cidade }}</p>
+                        <p><strong>Data de Finalização:</strong> {{ pedido.data_finalizacao }}</p>
 
+                    </div>
+                    <div>
+                        <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
+                        <p><strong>Número:</strong> {{ pedido.numero }}</p>
+                        <p><strong>Status:</strong>{{getStatusText(pedido.status)}} </p>
+                        <p><strong>Total:</strong> {{ pedido.total }}</p>
+                        <p><strong>UF:</strong> {{ pedido.uf }}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="containerBotoes">
+                        <button (click)="alterarStatusPedido(pedido)"> {{ getStatusButtonText(pedido.status) }} </button>
+                        <button (click)="cancelarPedido(pedido)"> Cancelar </button>
+                    </div>
+                </div>
+
+<!-- Dentro do loop *ngFor para exibir os pedidos -->
 
         </div>
+
+        </div>
+    </div>
+
 </div>
-
-

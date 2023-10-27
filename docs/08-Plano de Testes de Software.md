@@ -19,3 +19,16 @@ Com este setup conseguimos preparar tudo antes de realizar o deploy. Assim, os t
 ![CTAPI3](./img/CT1-3.png)
 ![CTAPI4](./img/CT1-4.png)
 ![CTAPI5](./img/CT1-5.png)
+
+## Plano de testes FrontEnd
+
+Os testes de FrontEnd foram testes funcionais e manuais, de forma a verificarmos a funcionalidade do que foi criado. 
+
+O objetivo foi verificar as ações realizadas e como elas afetariam a autenticação e o banco de dados, uma vez que as telas foram montadas, na parte de exibição de dados, cadastro e etc com consulta direta na API desenvolvida.
+
+
+![CTFRONT1](./img/ct01-front.png)
+![CTFRONT2](./img/ct02-front.png)
+![CTFRONT3](./img/ct03-front.png)
+![CTFRONT4](./img/ct04-front.png)
+![CTFRONT5](./img/ct05-front.png)
