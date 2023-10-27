@@ -51,9 +51,9 @@ export class LoginComponent {
         .subscribe({
             next: (res) => {
 
-                localStorage.removeItem('access_token');
-                localStorage.setItem('access_token', res.accessToken);
-                localStorage.setItem('user_id', res.userId)
+                localStorage.removeItem('1999Burger.access_token');
+                localStorage.setItem('1999Burger.access_token', res.accessToken);
+                localStorage.setItem('1999Burger.user_id', res.userId)
                 return this.router.navigate(['pedidos/home']);
 
             },

@@ -14,7 +14,7 @@ export class AuthGuard {
         // TODO: PARA TESTE
         //return true;
 
-        let token = localStorage.getItem('access_token');
+        let token = localStorage.getItem('1999Burger.access_token');
 
         if (token) {
 

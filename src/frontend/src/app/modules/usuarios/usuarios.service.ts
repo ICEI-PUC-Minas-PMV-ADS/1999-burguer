@@ -14,13 +14,13 @@ export class UsuarioService {
     ) { }
 
     exibirUsuario(): Observable<any>{
-        const idUser = localStorage.getItem('user_id')
+        const idUser = localStorage.getItem('1999Burger.user_id')
         console.log()
         return this._api.crudGet(`/user/${idUser}`, {}, true)
     }
 
     editarUsuario(dadosAtualizados: any): Observable<any> {
-        const idUser = localStorage.getItem('user_id');
+        const idUser = localStorage.getItem('1999Burger.user_id');
 
 
         const dadosParaEnvio = {

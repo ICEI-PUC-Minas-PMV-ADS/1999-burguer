@@ -20,7 +20,7 @@ export class ApiService {
 
         headers = headers.set('Content-Type', 'application/json');
 
-        const token = localStorage.getItem('access_token') || '';
+        const token = localStorage.getItem('1999Burger.access_token') || '';
 
         if (auth && token) {
             headers = headers.set('Authorization', `Bearer ${token}`);
