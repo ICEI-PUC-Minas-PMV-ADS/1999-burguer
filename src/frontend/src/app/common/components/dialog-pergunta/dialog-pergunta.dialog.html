@@ -1,0 +1,15 @@
+<div mat-dialog-title fxLayout="row" fxLayoutAlign="space-between center">
+    {{title}}
+    <button tabindex="-1" mat-icon-button (click)="cancel()" title="Fechar">
+        <div class="icon-cancelar"></div>
+    </button>
+</div>
+
+<mat-dialog-content>
+    <div [innerHTML]="message"></div>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="space-between center">
+    <button mat-raised-button class="cor-principal" (click)="ok('false')" id="butCancelar">{{buttonCancel}}</button>
+    <button mat-raised-button (click)="ok('true')" id="butConfimar">{{buttonOk}}</button>
+</mat-dialog-actions>

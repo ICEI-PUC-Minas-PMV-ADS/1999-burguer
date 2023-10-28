@@ -7,6 +7,7 @@ import { HeaderComponent } from './common/components/header/header.component';
 import { AuthGuard } from './common/guards/auth.guard';
 import { AuthLayoutComponent } from './common/layouts/auth/auth-layout.component';
 import { NoAuthLayoutComponent } from './common/layouts/no-auth/no-auth-layout.component';
+import { DialogsModule } from './common/dialogs.module';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { NoAuthLayoutComponent } from './common/layouts/no-auth/no-auth-layout.c
     ],
     imports: [
         CoreModule,
+        DialogsModule,
         AppRoutingModule,
     ],
     providers: [
