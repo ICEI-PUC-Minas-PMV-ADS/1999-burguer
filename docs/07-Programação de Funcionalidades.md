@@ -48,6 +48,28 @@ Nesta seção serão apresentadas as telas desenvolvidas para cada uma das funci
 - listaDePedidos.ts
 - pedidos.module.ts
 
+## Histórico de Pedidos
+
+![HOME](./img/HistoricoPedidos.png)
+
+### Requisitos atendidos
+
+- RF011
+
+### Artefatos da funcionalidade
+
+- historico-pedidos.component.html
+- historico-pedidos.component.ts
+- historico-pedidos.component.scss
+- Pasta SCSS
+- api.service.ts
+- pedidos.service.ts
+- header.component.html
+- header.component.scss
+- header.component.ts
+- Pasta layouts
+- listaDePedidos.ts
+- pedidos.module.ts
 
 ## Edição de usuário
 
