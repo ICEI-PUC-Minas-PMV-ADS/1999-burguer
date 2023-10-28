@@ -58,7 +58,7 @@ export const updatePedidoById = async (
         status: body.status
     };
 
-    const result = PedidosProvider.updateById(params.id, data);
+    const result = await PedidosProvider.updateById(+params.id, data);
 
     if (result instanceof Error) {
 

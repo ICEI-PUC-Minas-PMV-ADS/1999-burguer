@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-    private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
-    // private apiUrl: string = 'http://localhost:3000/api/v1';
+    //private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
+    private apiUrl: string = 'http://localhost:3000/api/v1';
 
     constructor(
         private http: HttpClient
@@ -53,7 +53,6 @@ export class ApiService {
     }
 
     crudPut(rota: string, id: number, dados: any, auth: boolean): Observable<any> {
-
         const headers = this.getHeaders(auth);
 
         return this.http.put(`${this.apiUrl}${rota}/${id}`, dados, headers);

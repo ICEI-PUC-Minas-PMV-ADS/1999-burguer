@@ -8,22 +8,22 @@ import { Prisma } from '@prisma/client';
 interface IQueryProps {
     page?: number;
     limit?: number;
-    filtros?: iFiltros;
+    filter?: string;
 }
 
-interface iFiltros {
+/* interface iFiltros {
     id?: number;
     status?: number;
     dataInicio?: string;
     dataFim?: string;
-}
+} */
 
 export const getAllPedidosValidation: RequestHandler = validation((getSchema) => ({
     query: getSchema<IQueryProps>(
         YUP.object().shape({
             page: YUP.number().optional().moreThan(0),
             limit: YUP.number().optional().moreThan(0),
-            filtros: YUP.object().optional()
+            filter: YUP.string().optional()
         })
     )
 }))
@@ -46,19 +46,21 @@ export const getAllPedidos = async (
 
     }
 
-    const page = Number(query.page || 1);
-    const limit = Number(query.limit || 25);
+    const filtros = query.filter ? JSON.parse(query.filter) : null
+
+    const page = Number(filtros.page || 0);
+    const limit = Number(filtros.limit || 25);
 
     const where: Prisma.pedidoWhereInput = {};
 
-    if (query.filtros) {
+    if (filtros.filter) {
 
-        if (query.filtros.id) where.id = query.filtros.id;
-        if (query.filtros.status) where.status = query.filtros.status;
+        if (filtros.filter.id) where.id = filtros.filter.id;
+        if (filtros.filter.status != undefined) where.status = filtros.filter.status;
 
-        if (query.filtros.dataInicio && query.filtros.dataFim) where.data_inclusao = { in: [query.filtros.dataInicio, query.filtros.dataFim] };
-        else if (query.filtros.dataInicio) where.data_inclusao = { gte: query.filtros.dataInicio };
-        else if (query.filtros.dataFim) where.data_inclusao = { lte: query.filtros.dataFim };
+        if (filtros.filter.dataInicio && filtros.filter.dataFim) where.data_inclusao = { in: [filtros.filter.dataInicio, filtros.dataFim] };
+        else if (filtros.filter.dataInicio) where.data_inclusao = { gte: filtros.filter.dataInicio };
+        else if (filtros.filter.dataFim) where.data_inclusao = { lte: filtros.filter.dataFim };
 
     }
 

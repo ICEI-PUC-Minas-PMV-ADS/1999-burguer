@@ -7,7 +7,7 @@ export interface Pedido {
     data_inclusao: string;
     endereco: string;
     numero: string;
-    status: boolean;
+    status: number;
     total: string;
     uf: string;
     usuario_id: number;

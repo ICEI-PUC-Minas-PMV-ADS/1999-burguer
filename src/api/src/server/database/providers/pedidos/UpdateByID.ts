@@ -17,7 +17,7 @@ export const updateById = async (
         });
 
         if (!result) {
-            throw new Error('Pedido não encontrado!');
+            return new Error('Pedido não encontrado!');
         }
 
     } catch (err) {

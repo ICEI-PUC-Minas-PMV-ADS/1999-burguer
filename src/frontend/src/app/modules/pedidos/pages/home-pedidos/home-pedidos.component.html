@@ -1,16 +1,27 @@
 <div class="containerGeral">
     <h1 class="tituloTelas">Pedidos</h1>
-    <div class="filtroStatus">
-        <button status="pendente">Pendentes</button>
-        <button status="andamento" >Em Andamento</button>
-        <button status="cancelado">Cancelados</button>
+
+    <div class="bloco-pesquisa">
+        <mat-form-field class="form-situacao">
+            <mat-select placeholder="Situação" [(ngModel)]="filtros.status" name="status">
+                <mat-option [value]="0">Pendentes</mat-option>
+                <mat-option [value]="1">Em Andamento</mat-option>
+                <mat-option [value]="3">Cancelados</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button class="btn-pesquisar" (click)="pesquisar()" title="Pesquisar">
+            <span class="material-icons">
+                search
+            </span>
+        </button>
     </div>
 
 
 
-    <div class="container" *ngFor="let item of listaPedidos">
+    <div class="container">
         <!-- Agora fazemos um segundo *ngFor para percorrer os valores dentro de "valor" -->
-        <div class="containerFilho" *ngFor="let pedido of item.valor">
+        <div class="containerFilho" *ngFor="let pedido of listaPedidos">
             <div class="containerPedidosBox">
                 <div class="text">
                     <div>
@@ -25,22 +36,22 @@
                         <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
                         <p><strong>Número:</strong> {{ pedido.numero }}</p>
                         <p><strong>Status:</strong>{{getStatusText(pedido.status)}} </p>
-                        <p><strong>Total:</strong> {{ pedido.total }}</p>
+                        <p><strong>Total:</strong> {{pedido.total | currency:'BRL'}}</p>
                         <p><strong>UF:</strong> {{ pedido.uf }}</p>
                     </div>
                 </div>
                 <div>
                     <div class="containerBotoes">
-                        <button (click)="alterarStatusPedido(pedido)"> {{ getStatusButtonText(pedido.status) }} </button>
-                        <button (click)="cancelarPedido(pedido)"> Cancelar </button>
+                        <button *ngIf="pedido.status === 0" (click)="confirmarPedido(pedido)"> Confirmar pedido </button>
+                        <button *ngIf="pedido.status === 1"(click)="concluirPedido(pedido)"> Concluir pedido </button>
+                        <button *ngIf="pedido.status !== 2"(click)="cancelarPedido(pedido)"> Cancelar </button>
                     </div>
                 </div>
 
-<!-- Dentro do loop *ngFor para exibir os pedidos -->
 
         </div>
 
         </div>
     </div>
-
+    <mat-paginator class="paginator" [length]="count" [pageSize]="10" [pageSizeOptions]="[10, 20]"></mat-paginator>
 </div>

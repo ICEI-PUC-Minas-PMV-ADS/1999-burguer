@@ -11,14 +11,10 @@ export const getAll = async (
     try {
 
         const result = await database.pedido.findMany({
-            skip: (page - 1) * limit,
+            skip: Math.floor(page * limit),
             take: limit,
             where
         });
-
-        if (!result) {
-            throw new Error('Pedidos não encontrados!');
-        }
 
         return result;
 
