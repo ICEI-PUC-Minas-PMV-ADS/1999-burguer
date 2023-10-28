@@ -1,14 +1,10 @@
 import { database } from '../..'
 
-export const count = async (filter: boolean): Promise<number | Error> => {
+export const count = async (where: any): Promise<number | Error> => {
     try {
 
         const totalCount = await database.produto.count({
-            where: {
-                status: {
-                    equals: filter,
-                }
-            }
+            where
         })
         if (!totalCount) {
             return new Error('Nenhum registro encontrado')

@@ -6,10 +6,10 @@ import { ProdutosProvider } from '../../database/providers/produtos';
 import ProductImg, { IProductImg } from '../../mongo-database/models/ProductImg';
 
 interface IQueryProps {
-    id?: number,
-    page?: number,
-    limit?: number,
-    filter?: any
+    id?: number;
+    page?: number;
+    limit?: number;
+    filter?: string;
 }
 
 export const getAllProductValidation = validation((getSchema) => ({
@@ -17,14 +17,14 @@ export const getAllProductValidation = validation((getSchema) => ({
         page: yup.number().optional().moreThan(0),
         limit: yup.number().optional(),
         id: yup.number().integer().optional().default(0),
-        filter: yup.object().optional(),
+        filter: yup.string().optional(),
     }))
 }));
 
 // só entra aqui depois do handle request
 export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
 
-    const filtros: any = req.query.filter;
+    const filtros: any = req.query.filter ? JSON.parse(req.query.filter) : { page: 0, limit: 10 };
     
     let where: any = {};
 
@@ -38,9 +38,9 @@ export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: 
 
     }
 
-    const result = await ProdutosProvider.getAll(req.query.page || 1, req.query.limit || 7, filtros);
+    const result = await ProdutosProvider.getAll(filtros.page, filtros.limit, where);
 
-    const count = req.query.page == 1 ? await ProdutosProvider.count(filtros) : 0;
+    const count = !filtros.page ? await ProdutosProvider.count(where) : 0;
 
     if (result instanceof Error) {
 
@@ -69,9 +69,6 @@ export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: 
         }
 
     }
-
-    // res.setHeader('access-control-expose-headers', 'x-total-count');
-    // res.setHeader('x-total-count', count);
 
     return res.status(StatusCodes.OK).json({ rows: result, count });
 
