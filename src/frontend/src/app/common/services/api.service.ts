@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-    //private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
-    private apiUrl: string = 'http://localhost:3000/api/v1';
+    private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
+    // private apiUrl: string = 'http://localhost:3000/api/v1';
 
     constructor(
         private http: HttpClient
@@ -65,4 +65,7 @@ export class ApiService {
 
     }
 
+    crudPostParams(rota: string, params: any, auth: boolean = true): Observable<any> {
+        return this.http.post(`${this.apiUrl}${rota}/${params}`, null, this.getHeaders());
+    }
 }

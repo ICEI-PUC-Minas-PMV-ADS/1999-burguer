@@ -3,19 +3,19 @@ import { Router, RouterModule, Routes } from '@angular/router';
 
 import { SharedModule } from 'src/app/common/shared.module';
 import { LoginComponent } from './login/login.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { EsqueciMinhaSenhaComponent } from './esqueci-minha-senha/esqueci-minha-senha.component';
 import { SessaoService } from './sessao.service';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'cadastro', component: CadastroComponent },
+    { path: 'esqueci-minha-senha', component: EsqueciMinhaSenhaComponent },
 ];
 
 @NgModule({
     declarations: [
         LoginComponent,
-        CadastroComponent,
+        EsqueciMinhaSenhaComponent,
     ],
     imports: [
         SharedModule,

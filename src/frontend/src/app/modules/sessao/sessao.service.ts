@@ -19,4 +19,12 @@ export class SessaoService {
 
     }
 
+    forgotPassword(payload: { email: string }) {
+        return this._api.crudPostParams('/forgot-password', payload.email, false);
+    }
+
+    resetPassword(payload: {email:string, code: number, password: string}){
+        return this._api.crudPost('/reset-password', payload, false);
+    }
+
 }
