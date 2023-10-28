@@ -5,6 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { iProduto } from '../../model/produto';
 import { ProdutosService } from '../../produtos.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { DialogService } from 'src/app/common/services/dialog.service';
 
 @Component({
     selector: 'app-produtos',
@@ -22,6 +23,7 @@ export class ProdutosComponent {
 
     constructor(
         private _router: Router,
+        private _dialog: DialogService,
         private _produtosService: ProdutosService
     ) {
 
@@ -59,10 +61,17 @@ export class ProdutosComponent {
                 },
                 error: err => {
 
-                    alert(err);
+                    this._dialog.error(err, 'Erro ao buscar produtos');
 
                 }
             })
+
+    }
+
+    pesquisar() {
+
+        this.paginator.firstPage();
+        this.getProdutos();
 
     }
 
@@ -93,7 +102,7 @@ export class ProdutosComponent {
                 },
                 error: err => {
 
-                    alert(err);
+                    this._dialog.error(err, 'Erro ao apagar produto');
 
                 }
             });
