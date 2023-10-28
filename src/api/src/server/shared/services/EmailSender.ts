@@ -19,7 +19,6 @@ export class Mail {
                     rejectUnauthorized: false,
                 },
             });
-            console.log('oi')
             const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: this.to,

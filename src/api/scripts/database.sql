@@ -49,8 +49,7 @@ CREATE TABLE teste.pedido (
     status int4 NOT NULL,
     data_finalizacao timestamp NULL,
     CONSTRAINT pedido_pkey PRIMARY KEY (id),
-    CONSTRAINT pedido_usuario_id_fkey FOREIGN KEY (usuario_id) REFERENCES teste.usuario(id),
-    CONSTRAINT pedido_status_fkey FOREIGN KEY (status) REFERENCES teste.pedido_status(id_status)
+    CONSTRAINT pedido_usuario_id_fkey FOREIGN KEY (usuario_id) REFERENCES teste.usuario(id)
 );
 
 CREATE TABLE teste.pedido_produto (

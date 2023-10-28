@@ -66,10 +66,11 @@ export const resetPassword = async (request: Request<{}, IBodyProps>, response: 
         return response.status(StatusCodes.OK).json(
             { default: 'Senha alterada com sucesso!'}
         )
+    } else {
+        return response.status(StatusCodes.BAD_REQUEST).json({
+            errors: {
+                default: 'Ocorreu um erro na troca de senha'
+            }
+        })
     }
-    return response.status(StatusCodes.BAD_REQUEST).json({
-        errors: {
-            default: 'Ocorreu um erro na troca de senha'
-        }
-    })
 }
