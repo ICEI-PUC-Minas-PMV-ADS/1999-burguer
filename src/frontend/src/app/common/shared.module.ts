@@ -9,19 +9,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+
 
 @NgModule({
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        CurrencyMaskModule,
         HttpClientModule,
         MatPaginatorModule,
         MatDialogModule,
         MatButtonModule,
         MatFormFieldModule,
         MatSnackBarModule,
-        MatSelectModule
+        MatSelectModule,
+        MatCheckboxModule,
+        MatInputModule,
     ],
     providers: [
         { provide: MatPaginatorIntl, useValue: getBrPaginatorIntl() },

@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-    private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
-    // private apiUrl: string = 'http://localhost:3000/api/v1';
+    // private apiUrl: string = 'https://1999-burguer-api.vercel.app/api/v1';
+    private apiUrl: string = 'http://localhost:3000/api/v1';
 
     constructor(
         private http: HttpClient
