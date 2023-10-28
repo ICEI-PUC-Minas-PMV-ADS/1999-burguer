@@ -28,7 +28,7 @@ export const getProductById = async (req: Request<IParamProps>, res: Response) =
         });
     }
 
-    const result = await ProdutosProvider.getById(req.params.id);
+    const result = await ProdutosProvider.getById(+req.params.id);
 
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
@@ -38,7 +38,7 @@ export const getProductById = async (req: Request<IParamProps>, res: Response) =
         });
     }
 
-    const produtoImg = await ProductImg.findOne({ product_id: +result['id'] });
+    const produtoImg = await ProductImg.findOne({ product_id: +req.params.id });
 
     result.imagem = produtoImg?.url;
 
