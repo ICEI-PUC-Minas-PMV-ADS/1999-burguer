@@ -1,8 +1,17 @@
 .linha-botoes {
     display: flex;
     width: 100%;
-    justify-content: end;
+    justify-content: space-between;
     gap: 1rem;
+}
+
+.bloco-pesquisa {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-situacao {
+    width: 6rem;
 }
 
 .lista-produtos {

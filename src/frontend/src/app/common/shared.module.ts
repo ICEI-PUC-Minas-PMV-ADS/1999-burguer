@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     exports: [
@@ -19,7 +20,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatDialogModule,
         MatButtonModule,
         MatFormFieldModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatSelectModule
     ],
     providers: [
         { provide: MatPaginatorIntl, useValue: getBrPaginatorIntl() },

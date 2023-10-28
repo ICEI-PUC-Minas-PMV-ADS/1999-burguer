@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, finalize, takeUntil } from 'rxjs';
+import { MatPaginator } from '@angular/material/paginator';
 
 import { iProduto } from '../../model/produto';
 import { ProdutosService } from '../../produtos.service';
-import { MatPaginator } from '@angular/material/paginator';
 import { DialogService } from 'src/app/common/services/dialog.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-produtos',
@@ -19,12 +20,19 @@ export class ProdutosComponent {
     count: number = 0;
     produtos: Array<iProduto> = [];
 
+    filtros = {
+        status: 0
+    };
+
+    execReq: boolean = false;
+
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(
         private _router: Router,
         private _dialog: DialogService,
-        private _produtosService: ProdutosService
+        private _produtosService: ProdutosService,
+        private _spinner: NgxSpinnerService
     ) {
 
     }
@@ -50,8 +58,19 @@ export class ProdutosComponent {
 
     getProdutos() {
 
-        this._produtosService.getListaProdutos({ limit: this.paginator.pageSize, page: this.paginator.pageIndex })
-            .pipe(takeUntil(this._unsubscribeAll))
+        if (this.execReq) return;
+        this.execReq = true;
+
+        this._spinner.show();
+
+        const params = {
+            limit: this.paginator.pageSize,
+            page: this.paginator.pageIndex,
+            filter: this.trataFiltros()
+        };
+
+        this._produtosService.getListaProdutos(params)
+            .pipe(takeUntil(this._unsubscribeAll), finalize(() => { this.execReq = false; this._spinner.hide(); }))
             .subscribe({
                 next: res => {
 
@@ -64,7 +83,7 @@ export class ProdutosComponent {
                     this._dialog.error(err, 'Erro ao buscar produtos');
 
                 }
-            })
+            });
 
     }
 
@@ -72,6 +91,16 @@ export class ProdutosComponent {
 
         this.paginator.firstPage();
         this.getProdutos();
+
+    }
+
+    trataFiltros(): any {
+
+        let filtros: any = {};
+
+        filtros.status = this.filtros.status ? this.filtros.status == 1 : undefined;
+
+        return filtros;
 
     }
 

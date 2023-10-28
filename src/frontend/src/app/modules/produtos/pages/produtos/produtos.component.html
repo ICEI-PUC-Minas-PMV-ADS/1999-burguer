@@ -2,11 +2,21 @@
     <h1>Manutenção de Cardápio</h1>
 
     <div class="linha-botoes">
-        <button class="btn-pesquisar" (click)="pesquisar()" title="Pesquisar">
-            <span class="material-icons">
-                search
-            </span>
-        </button>
+        <div class="bloco-pesquisa">
+            <mat-form-field class="form-situacao">
+                <mat-select placeholder="Situação" [(ngModel)]="filtros.status">
+                    <mat-option [value]="0">Todas</mat-option>
+                    <mat-option [value]="1">Ativo</mat-option>
+                    <mat-option [value]="2">Inativo</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <button class="btn-pesquisar" (click)="pesquisar()" title="Pesquisar">
+                <span class="material-icons">
+                    search
+                </span>
+            </button>
+        </div>
 
         <button class="btn-adicionar" (click)="adicionarProduto()" title="Adicionar produto">
             <span class="material-icons">
