@@ -28,11 +28,11 @@ export const getAllProduct = async (req: Request<{}, {}, {}, IQueryProps>, res: 
     
     let where: any = {};
 
-    if (filtros) {
+    if (filtros.filter) {
 
-        if (filtros.status !== undefined) {
+        if (filtros.filter.status !== undefined) {
             where.status = {
-                equals: filtros.status
+                equals: filtros.filter.status
             }
         }
 
