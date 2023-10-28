@@ -36,7 +36,7 @@ export const updateProductById = async (req: Request<IParamProps, {}, IBodyProps
         });
     }
 
-    const result = await ProdutosProvider.updateById(req.params.id, req.body);
+    const result = await ProdutosProvider.updateById(+req.params.id, req.body);
 
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
@@ -49,18 +49,16 @@ export const updateProductById = async (req: Request<IParamProps, {}, IBodyProps
     if (req.body.imagem) {
 
         const produtoImg = await ProductImg.findOneAndUpdate({
-            product_id: +result['id']
+            product_id: +req.params.id
         }, {
             url: req.body.imagem
         }, {
             upsert: true
         });
 
-        result['imagem'] = produtoImg.url;
-
     }
 
-    return res.status(StatusCodes.ACCEPTED).send(result);
+    return res.status(StatusCodes.ACCEPTED).send();
 
 };
 

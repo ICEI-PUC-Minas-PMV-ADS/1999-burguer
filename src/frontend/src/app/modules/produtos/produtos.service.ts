@@ -18,7 +18,7 @@ export class ProdutosService {
 
     getProduto(produtoId: number): Observable<any> {
 
-        return this._api.crudGetById('/products', produtoId, true);
+        return this._api.crudGetById('/product', produtoId, true);
 
     }
 

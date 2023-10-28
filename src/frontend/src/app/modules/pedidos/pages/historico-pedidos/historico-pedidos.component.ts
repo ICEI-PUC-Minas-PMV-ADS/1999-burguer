@@ -1,57 +1,83 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, finalize, takeUntil } from 'rxjs';
+import { MatPaginator } from '@angular/material/paginator';
+import { Pedido } from '../../model/listaDePedidos';
 import { PedidosService } from '../../pedidos.service';
 import { ListaDePedidos } from '../../model/listaDePedidos';
 import { devOnlyGuardedExpression } from '@angular/compiler';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
     selector: 'app-historico-pedidos',
     templateUrl: './historico-pedidos.component.html',
     styleUrls: ['./historico-pedidos.component.scss']
 })
-export class HistoricoPedidosComponent implements OnDestroy{
-    private _unsubscribeAll: Subject<void> = new Subject<void>();
-    public historicoPedidos: ListaDePedidos[] = [];
+export class HistoricoPedidosComponent {
+    [x: string]: any;
+
+private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+    count: number = 0;
+    pedido: Array<Pedido> = [];
+
+    filtros = {
+        status: 0
+    };
+
+    execReq: boolean = false;
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    _pedidosService: any;
+    _spinner: any;
+
 
     constructor(
-        private pedidosService: PedidosService
+        private _router: Router,
     ) {
-        this.carregarHistoricoPedidos();
+
+    }
+    ngOnInit() {
+
     }
 
-    carregarHistoricoPedidos() {
-        const payload = {
-            page: 1
+    getHistoricoPedidos() {
+
+        if (this.execReq) return;
+        this.execReq = true;
+
+        this._spinner.show();
+
+        const params = {
+            limit: this.paginator.pageSize,
+            page: this.paginator.pageIndex,
+            filter: this.trataFiltros()
         };
 
-        this.pedidosService.buscarHistoricoPedidos(payload)
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((historicoPedidos: ListaDePedidos[]) => {
+        this._pedidosService.getHistoricoPedidos(params)
+        .pipe(takeUntil(this._unsubscribeAll), finalize(() => { this.execReq = false; this._spinner.hide(); }))
+        .subscribe({
+            next: res => {
 
-                this.historicoPedidos = this.converterHistoricoPedidoParaArray(historicoPedidos);
-
-                console.log(this.historicoPedidos);
+                this.pedido = res.rows;
+                if (!this.paginator.pageIndex) this.count = res.count;
 
             },
+            error: err => {
 
-                (err) => {
-                   console.log(err.error);
-                }
-        );
-    }
-    converterHistoricoPedidoParaArray(pedido: any): any[] {
-        const arrayDePedidos = [];
-        for (const propriedade in pedido) {
-            if (pedido.hasOwnProperty(propriedade) && propriedade === 'rows') {
-                arrayDePedidos.push({ propriedade, valor: pedido[propriedade] });
+                this['_dialog'].error(err, 'Erro ao buscar pedido');
+
             }
-        }
-        return arrayDePedidos;
+        });
     }
-    ngOnDestroy(): void {
-        this._unsubscribeAll.next();
-        this._unsubscribeAll.complete();
-    }
-  }
+    trataFiltros(): any {
+
+        let filtros: any = {};
+
+        filtros.status = this.filtros.status ? this.filtros.status == 2 : undefined;
+
+        return filtros;
+    };
+}
 

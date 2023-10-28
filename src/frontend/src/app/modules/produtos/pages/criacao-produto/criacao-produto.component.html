@@ -1,51 +1,49 @@
 <div class="containerGeral">
-    <!-- criacao-produto.component.html -->
-    <div class="criacao-produto">
-        <h2>Cadastro de Produto</h2>
-        <form (ngSubmit)="criarOuEditarProduto()">
-          <div class="form-group">
-            <label for="nome">Nome do Produto:</label>
-            <input type="text" id="nome" name="nome" [(ngModel)]="produto.nome" required>
-          </div>
-          <div class="form-group">
-            <label for="imagem">Imagem do Produto:</label>
-            <input type="file" id="imagem" name="imagem" (change)="onImagemSelecionada($event)" accept="image/*" style="display: none;">
-            <button type="button" class="btn-selecionar-imagem" (click)="selecionarImagem()">Selecionar Imagem</button>
-            <img [src]="produto.imagem" alt="Imagem do Produto" *ngIf="produto.imagem" class="imagem-miniatura">
-          </div>
-          <div class="form-group">
-            <label for="descricao">Descrição do Produto:</label>
-            <textarea id="descricao" name="descricao" [(ngModel)]="produto.descricao" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="valor">Valor do Produto:</label>
-            <input type="number" id="valor" name="valor" [(ngModel)]="produto.valor" required>
-          </div>
-          <button type="submit" class="btn-criar">{{ modoEdicao ? 'Salvar Edição' : 'Criar' }}</button>
-          <div class="produtos-cadastrados">
-            <h2>Produtos Cadastrados</h2>
-            <ul>
-              <li *ngFor="let prod of produtos; let i = index">
-                <div class="produto-item">
-                  <div class="produto-imagem">
-                    <img [src]="prod.imagem" alt="Imagem do Produto" class="imagem-miniatura">
-                  </div>
-                  <div class="produto-detalhes">
-                    <h3>{{ prod.nome }}</h3>
-                    <p>{{ prod.descricao | slice:0:50 }}{{ prod.descricao.length > 50 ? '...' : '' }}</p>
-                    <p><strong>Valor: R$ {{ prod.valor | number:'1.2-2' }}</strong></p>
-                  </div>
-                  <div class="produto-botoes">
-                    <button (click)="editarProduto(i)">Editar</button>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </form>
+    <h1>{{ produtoId ? 'Editar' : 'Cadastrar' }} Produto</h1>
 
+    <form class="bloco-form" [formGroup]="formDados">
+        <div class="form-inputs">
+            <mat-form-field *ngIf="produtoId" class="form-id">
+                <mat-label>ID</mat-label>
+                <input matInput formControlName="id" readonly>
+            </mat-form-field>
 
+            <mat-checkbox formControlName="status">Produto Ativo</mat-checkbox>
 
+            <mat-form-field class="form">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" maxlength="80">
+                <mat-error *ngIf="formDados.get('nome').hasError('required') && formDados.get('nome').touched" class="mat-text-warn">Preenchimento obrigatório.</mat-error>
+            </mat-form-field>
 
+            <mat-form-field class="form">
+                <mat-label>Descrição</mat-label>
+                <input matInput formControlName="descricao" maxlength="150" minlength="10">
+                <mat-error *ngIf="formDados.get('descricao').hasError('required') && formDados.get('descricao').touched" class="mat-text-warn">Preenchimento obrigatório.</mat-error>
+                <mat-error *ngIf="formDados.get('descricao').hasError('minlength') && formDados.get('descricao').touched" class="mat-text-warn">Mínimo 10 caracteres.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form">
+                <mat-label>Valor</mat-label>
+                <input matInput currencyMask maxlength="12" formControlName="valor">
+                <mat-error *ngIf="formDados.get('valor').hasError('required') && formDados.get('valor').touched" class="mat-text-warn">Preenchimento obrigatório.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form">
+                <mat-label>URL Imagem</mat-label>
+                <input matInput formControlName="imagem" maxlength="400">
+                <mat-error *ngIf="formDados.get('imagem').hasError('required') && formDados.get('imagem').touched" class="mat-text-warn">Preenchimento obrigatório.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="botoes">
+            <button mat-stroked-button color="primary" (click)="voltar()">
+                Voltar
+            </button>
+
+            <button mat-raised-button color="primary" (click)="submitForm()">
+                Salvar
+            </button>
+        </div>
+    </form>
 </div>
-

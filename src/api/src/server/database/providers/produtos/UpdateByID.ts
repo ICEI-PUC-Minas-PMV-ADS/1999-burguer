@@ -6,6 +6,7 @@ export const updateById = async (
     product: Omit<IUpdateProduto, 'id'>
 ): Promise<void | Error> => {
     try {
+        
         const result = await database.produto.update({
             where: {
                 id: Number(id),
@@ -21,9 +22,15 @@ export const updateById = async (
         if (!result) {
             return new Error('Registro não encontrado')
         }
+
     } catch (error) {
+
         return new Error('Erro ao buscar registro')
+
     } finally {
+
         database.$disconnect()
+
     }
+
 }

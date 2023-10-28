@@ -6,7 +6,6 @@ import { ApiService } from "src/app/common/services/api.service";
 export class PedidosService {
 
 
-
     constructor(
         private _api: ApiService
     ) { }
@@ -16,9 +15,9 @@ export class PedidosService {
         return this._api.crudGet('/orders', dados, true)
     }
 
-    buscarHistoricoPedidos(payload: {}): Observable<any> {
+    buscarHistoricoPedidos(dados: {id: string; data_inclusao: string; endereco: string; numero: number; bairro: string; cidade: string; UF: string; cep: string; status: number; total: number}): Observable<any> {
 
-        return this._api.crudGet(`/orders`,payload, true )
+        return this._api.crudGet(`/orders`, dados, true );
       }
 
     atualizarStatusPedido(id: number, status: number): Observable<any> {
