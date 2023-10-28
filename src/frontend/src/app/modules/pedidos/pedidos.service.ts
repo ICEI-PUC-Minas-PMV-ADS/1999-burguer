@@ -8,7 +8,7 @@ export class PedidosService {
     atualizarStatusPedido(id: any, status: any) {
         return this._api.crudGet(`/order/${id}`, {}, true)
     }
-    
+
     constructor(
         private _api: ApiService
     ) { }
@@ -19,10 +19,9 @@ export class PedidosService {
         return this._api.crudGet('/orders', payload, true)
     }
 
-    buscarHistoricoPedidos(payload: {}): Observable<any> {
-        console.log(payload)
-        console.log()
-        return this._api.crudGet(`/orders`,payload, true )
+    buscarHistoricoPedidos(dados: {id: string; data_inclusao: string; endereco: string; numero: number; bairro: string; cidade: string; UF: string; cep: string; status: number; total: number}): Observable<any> {
+
+        return this._api.crudGet(`/orders`, dados, true );
       }
 
 }

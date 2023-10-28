@@ -1,21 +1,41 @@
 <div class="containerGeral">
-    <!-- historico-pedidos.component.html -->
     <h1 class="tituloTelas">Histórico de Pedidos</h1>
-
-<div class="container" *ngFor="let item of historicoPedidos">
-
-    <div class="pedido" *ngFor="let pedido of item.valor">
-      <div class="containerPedidosBox">
-        <p><strong>Ticket:</strong> {{ pedido.id }}</p>
-        <p><strong>Data:</strong> {{ pedido.data_inclusao }}</p>
-        <p><strong>Endereço:</strong> {{ pedido.endereco }}, {{ pedido.numero }} - {{ pedido.bairro }} </p>
-        <p><strong>Cidade:</strong> {{ pedido.cidade }} - {{ pedido.uf }}</p>
-        <p><strong>CEP:</strong> {{ pedido.cep }}</p>
-        <p><strong>Status:</strong> {{ pedido.status }}</p>
-        <p><strong>Total:</strong> R$ {{ pedido.total }}</p>
-      </div>
+    <div class="containerPedidosBox">
+    <div *ngFor="let prod of pedido">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Endereço</th>
+              <th>Numero</th>
+              <th>Bairro</th>
+              <th>Cidade</th>
+              <th>UF</th>
+              <th>CEP</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedido">
+              <td>{{ pedido.id }}</td>
+              <td>{{ pedido.data_inclusao }}</td>
+              <td>{{ pedido.status }}</td>
+              <td>{{ pedido.endereco }}</td>
+              <td>{{ pedido.numero }}</td>
+              <td>{{ pedido.bairro }}</td>
+              <td>{{ pedido.cidade }}</td>
+              <td>{{ pedido.uf }}</td>
+              <td>{{ pedido.cep }}</td>
+              <td>{{ pedido.total }}</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
+
   </div>
 
+    <mat-paginator class="paginator" [length]="count" [pageSize]="10" [pageSizeOptions]="[10, 20]"></mat-paginator>
 </div>
 
