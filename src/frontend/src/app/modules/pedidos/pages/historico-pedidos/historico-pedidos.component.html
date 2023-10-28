@@ -1,8 +1,12 @@
 <div class="containerGeral">
     <h1 class="tituloTelas">Histórico de Pedidos</h1>
-    <div class="containerPedidosBox">
+
+
+<div class="container">
         <div class="containerFilho" *ngFor="let pedido of pedidosConcluidos">
-            <div class="text">
+            <div>
+        <div class="box">
+                <div class="text">
                 <div>
                     <p><strong>Ticket:</strong> {{ pedido.id }}</p>
                     <p><strong>Bairro:</strong> {{ pedido.bairro }}</p>
@@ -19,9 +23,10 @@
 
                 </div>
             </div>
-         </div>
+        </div>
+        </div>
   </div>
-
+</div>
     <mat-paginator class="paginator" [length]="count" [pageSize]="10" [pageSizeOptions]="[10, 20]"></mat-paginator>
 </div>
 
