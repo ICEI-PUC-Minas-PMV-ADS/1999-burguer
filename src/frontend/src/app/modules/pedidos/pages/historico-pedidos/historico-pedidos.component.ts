@@ -1,12 +1,13 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, OnDestroy, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, finalize, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { Pedido } from '../../model/listaDePedidos';
 import { PedidosService } from '../../pedidos.service';
 import { ListaDePedidos } from '../../model/listaDePedidos';
 import { devOnlyGuardedExpression } from '@angular/compiler';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { DialogService } from 'src/app/common/services/dialog.service';
+
 
 
 @Component({
@@ -14,70 +15,78 @@ import { NgxSpinnerService } from 'ngx-spinner';
     templateUrl: './historico-pedidos.component.html',
     styleUrls: ['./historico-pedidos.component.scss']
 })
-export class HistoricoPedidosComponent {
-    [x: string]: any;
-
-private _unsubscribeAll: Subject<any> = new Subject<any>();
-
-    count: number = 0;
-    pedido: Array<Pedido> = [];
+export class HistoricoPedidosComponent implements OnDestroy {
+    private _unsubscribeAll: Subject<void> = new Subject<void>();
+    public pedidosConcluidos: Pedido[] = [];
 
     filtros = {
-        status: 0
+      status: 2 // Define o filtro para "Concluído"
     };
 
-    execReq: boolean = false;
+    count: number = 0;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
-    _pedidosService: any;
-    _spinner: any;
 
+    constructor(private pedidosService: PedidosService, private _dialog: DialogService) {}
 
-    constructor(
-        private _router: Router,
-    ) {
-
-    }
     ngOnInit() {
 
     }
 
-    getHistoricoPedidos() {
+    ngAfterViewInit() {
+      this.paginator.page.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => this.carregarPedidos());
+      this.carregarPedidos();
+    }
 
-        if (this.execReq) return;
-        this.execReq = true;
+    carregarPedidos() {
+      const payload = {
+        limit: this.paginator.pageSize,
+        page: this.paginator.pageIndex,
+        filter: this.trataFiltros()
+      };
 
-        this._spinner.show();
-
-        const params = {
-            limit: this.paginator.pageSize,
-            page: this.paginator.pageIndex,
-            filter: this.trataFiltros()
-        };
-
-        this._pedidosService.getHistoricoPedidos(params)
-        .pipe(takeUntil(this._unsubscribeAll), finalize(() => { this.execReq = false; this._spinner.hide(); }))
+      this.pedidosService.exibirPedidos(payload)
+        .pipe(takeUntil(this._unsubscribeAll))
         .subscribe({
-            next: res => {
-
-                this.pedido = res.rows;
-                if (!this.paginator.pageIndex) this.count = res.count;
-
-            },
-            error: err => {
-
-                this['_dialog'].error(err, 'Erro ao buscar pedido');
-
-            }
+          next: res => {
+            // Filtra apenas os pedidos com status "Concluído"
+            this.pedidosConcluidos = res.rows.filter(pedido => pedido.status === 2);
+            if (!this.paginator.pageIndex) this.count = res.count;
+          },
+          error: err => {
+            this._dialog.error(err, 'Erro ao buscar pedidos');
+          }
         });
     }
+
+    getStatusText(status: number | boolean): string {
+      switch (status) {
+        case 0:
+          return 'Pendente';
+        case 1:
+          return 'Em Andamento';
+        case 2:
+          return 'Concluído';
+        case 3:
+          return 'Cancelado';
+        default:
+          return 'Status Desconhecido';
+      }
+    }
+
     trataFiltros(): any {
+      let filtros: any = {};
+      filtros.status = this.filtros.status;
+      return filtros;
+    }
 
-        let filtros: any = {};
+    pesquisar() {
+      this.paginator.firstPage();
+      this.carregarPedidos();
+    }
 
-        filtros.status = this.filtros.status ? this.filtros.status == 2 : undefined;
-
-        return filtros;
-    };
-}
-
+    ngOnDestroy(): void {
+      this._unsubscribeAll.next();
+      this._unsubscribeAll.complete();
+    }
+  }

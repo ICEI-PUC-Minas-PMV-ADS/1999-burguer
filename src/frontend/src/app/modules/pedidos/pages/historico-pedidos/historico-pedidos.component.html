@@ -1,39 +1,25 @@
 <div class="containerGeral">
     <h1 class="tituloTelas">Histórico de Pedidos</h1>
     <div class="containerPedidosBox">
-    <div *ngFor="let prod of pedido">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Data</th>
-              <th>Status</th>
-              <th>Endereço</th>
-              <th>Numero</th>
-              <th>Bairro</th>
-              <th>Cidade</th>
-              <th>UF</th>
-              <th>CEP</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedido">
-              <td>{{ pedido.id }}</td>
-              <td>{{ pedido.data_inclusao }}</td>
-              <td>{{ pedido.status }}</td>
-              <td>{{ pedido.endereco }}</td>
-              <td>{{ pedido.numero }}</td>
-              <td>{{ pedido.bairro }}</td>
-              <td>{{ pedido.cidade }}</td>
-              <td>{{ pedido.uf }}</td>
-              <td>{{ pedido.cep }}</td>
-              <td>{{ pedido.total }}</td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
+        <div class="containerFilho" *ngFor="let pedido of pedidosConcluidos">
+            <div class="text">
+                <div>
+                    <p><strong>Ticket:</strong> {{ pedido.id }}</p>
+                    <p><strong>Bairro:</strong> {{ pedido.bairro }}</p>
+                    <p><strong>Cidade:</strong> {{ pedido.cidade }}</p>
+                    <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
+                    <p><strong>Número:</strong> {{ pedido.numero }}</p>
+                    <p><strong>CEP:</strong> {{ pedido.cep }}</p>
+                    <p><strong>UF:</strong> {{ pedido.uf }}</p>
+                </div>
+                <div>
+                    <p><strong>Data de Finalização:</strong> {{ pedido.data_finalizacao }}</p>
+                    <p><strong>Status:</strong>{{getStatusText(pedido.status)}} </p>
+                    <p><strong>Total:</strong> {{pedido.total | currency:'BRL'}}</p>
 
+                </div>
+            </div>
+         </div>
   </div>
 
     <mat-paginator class="paginator" [length]="count" [pageSize]="10" [pageSizeOptions]="[10, 20]"></mat-paginator>
