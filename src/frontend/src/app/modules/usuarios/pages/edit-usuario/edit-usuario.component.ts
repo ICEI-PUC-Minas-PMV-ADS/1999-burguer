@@ -34,7 +34,6 @@ export class EditUsuarioComponent implements OnInit {
 
     onSubmit() {
         const dadosAtualizados = this.userForm.value;
-        console.log(dadosAtualizados)
         this._api.editarUsuario(dadosAtualizados).subscribe(
             (response) => {
                 this.router.navigate(['pedidos/home']);

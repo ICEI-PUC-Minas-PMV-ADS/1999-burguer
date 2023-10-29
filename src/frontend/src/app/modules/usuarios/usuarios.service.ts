@@ -28,6 +28,6 @@ export class UsuarioService {
             nome: dadosAtualizados.nome
         };
 
-        return this._api.crudPut(`/user/`, +idUser, dadosParaEnvio, true);
+        return this._api.crudPut(`/user`, +idUser, dadosParaEnvio, true);
     }
 }
