@@ -1,0 +1,169 @@
+<mxfile host="65bd71144e">
+    <diagram id="hafGD2FYq9tdRyy5QDzc" name="Página-1">
+        <mxGraphModel dx="802" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="21" value="" style="edgeStyle=none;html=1;fontColor=#000000;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="13" target="20" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Tela Esqueci Minha Senha" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontStyle=0;gradientColor=#d5739d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="21" y="217" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" parent="1" source="20" target="26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Colher e-mail" style="whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontColor=#000000;fontStyle=0;gradientColor=#d5739d;" parent="1" vertex="1">
+                    <mxGeometry x="101" y="127" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" parent="1" source="26" target="30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Verificar se dados inseridos são válidos" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="251" y="127" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Sim" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#FFFFFF;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="30" target="36" edge="1">
+                    <mxGeometry x="-0.2" relative="1" as="geometry">
+                        <mxPoint x="521" y="157" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="Não" style="edgeStyle=none;html=1;fontColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=69.375;entryDy=60;entryPerimeter=0;" parent="1" source="30" target="34" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="581" y="117" as="targetPoint"/>
+                        <mxPoint x="441" y="107" as="sourcePoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="Dados válidos?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="401" y="117" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Mensagem dados inválidos" style="shape=display;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="373.5" y="17" width="135" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#FFFFFF;" parent="1" target="37" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="561" y="227" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;startArrow=classic;startFill=1;" edge="1" parent="1" source="36" target="49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Clicou em Solicitar código de verificação" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="521" y="187" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Sim" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="37" target="53" edge="1">
+                    <mxGeometry x="-0.3684" relative="1" as="geometry">
+                        <mxPoint x="501" y="317" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="581" y="297"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                        <mxPoint x="640" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#FFFFFF;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="37" target="44" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="386" y="267" as="targetPoint"/>
+                        <mxPoint x="440" y="300" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="Não" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;" parent="43" vertex="1" connectable="0">
+                    <mxGeometry x="0.0118" y="4" relative="1" as="geometry">
+                        <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="Código Solicitado?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="441" y="257" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Mensagem falha ao solicitar código" style="shape=display;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="251" y="237" width="135" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="170" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Navegar p/ tela&lt;br&gt;Login" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="6" y="360" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="53" target="55">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Colher código de verificação" style="whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontColor=#000000;fontStyle=0;gradientColor=#d5739d;" vertex="1" parent="1">
+                    <mxGeometry x="521" y="337" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="55" target="57">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="Clicou em Confirmar código digitado" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="521" y="430" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;startArrow=classic;startFill=1;" edge="1" parent="1" source="57" target="59">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Não" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#FFFFFF;startArrow=none;startFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="57" target="62">
+                    <mxGeometry x="-0.2" relative="1" as="geometry">
+                        <mxPoint x="410" y="380" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="Sim" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontColor=#FFFFFF;startArrow=none;startFill=0;" edge="1" parent="1" source="57" target="63">
+                    <mxGeometry x="-0.234" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="57" value="Código Válido?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="418" y="420" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="525" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="Mensagem falha ao validar código" style="shape=display;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="306" y="330" width="135" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#FFFFFF;startArrow=none;startFill=0;" edge="1" parent="1" source="63" target="65">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="Colher Nova Senha e Confirmação de Senha" style="whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontColor=#000000;fontStyle=0;gradientColor=#d5739d;" vertex="1" parent="1">
+                    <mxGeometry x="251" y="430" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontColor=#FFFFFF;startArrow=none;startFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="65" target="69">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="230" y="570" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="230" y="570"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" value="Clicou em Confirmar alteração de senha" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="258.5" y="540" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="16" y="530" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" style="html=1;entryX=0.96;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFFFF;startArrow=classic;startFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="69" target="67">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="72" value="Não" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontColor=#FFFFFF;startArrow=none;startFill=0;entryX=0;entryY=0;entryDx=69.375;entryDy=60;entryPerimeter=0;" edge="1" parent="1" source="69" target="73">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="Alterou&lt;br&gt;Senha?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="480" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="Sim" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#FFFFFF;startArrow=none;startFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="69" target="52">
+                    <mxGeometry x="0.2396" y="1" relative="1" as="geometry">
+                        <mxPoint x="221" y="457" as="sourcePoint"/>
+                        <mxPoint x="181.5" y="397" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" value="Mensagem falha ao alterar senha" style="shape=display;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="330" width="135" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
