@@ -42,4 +42,10 @@ export class EditUsuarioComponent implements OnInit {
                console.log(error)
             }
     )}
+
+    Deslogar(){
+        localStorage.removeItem('1999Burger.access_token');
+        localStorage.removeItem('1999Burger.user_id');
+        this.router.navigate(['sessao/login']);
+    }
 }
