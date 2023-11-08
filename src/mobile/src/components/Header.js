@@ -4,21 +4,21 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 const Header = ({ title }) => {
 
-    const _abrirWhatsapp = () => {
+    const _handleFaleConosco = () => {
         
         const numeroTelefone = '5531991361426';
         const mensagem = 'Olá, gostaria de tirar algumas dúvidas.';
 
         let url = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
 
-        Linking.openURL(url)
+        Linking.openURL(url);
 
     }
 
     return (
         <View style={styles.header}>
             <Image source={require('../../assets/logo.jpg')} style={styles.logo} />
-            <TouchableOpacity title="whatsapp" onPress={_abrirWhatsapp}>
+            <TouchableOpacity title="whatsapp" onPress={_handleFaleConosco}>
                 <FontAwesome5
                     name="whatsapp"
                     style={styles.icone}
