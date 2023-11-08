@@ -23,13 +23,13 @@ const Footer = ({ tabIndex }) => {
                         <FontAwesome5
                             name="hamburger"
                             style={styles.selectedNavigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     ) : (
                         <FontAwesome5
                             name="hamburger"
                             style={styles.navigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     )
                 }
@@ -41,13 +41,13 @@ const Footer = ({ tabIndex }) => {
                         <FontAwesome5
                             name="shopping-cart"
                             style={styles.selectedNavigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     ) : (
                         <FontAwesome5
                             name="shopping-cart"
                             style={styles.navigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     )
                 }
@@ -59,13 +59,13 @@ const Footer = ({ tabIndex }) => {
                         <FontAwesome5
                             name="receipt"
                             style={styles.selectedNavigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     ) : (
                         <FontAwesome5
                             name="receipt"
                             style={styles.navigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     )
                 }
@@ -77,13 +77,13 @@ const Footer = ({ tabIndex }) => {
                         <FontAwesome5
                             name="user-alt"
                             style={styles.selectedNavigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     ) : (
                         <FontAwesome5
                             name="user-alt"
                             style={styles.navigationButtonIcon}
-                            size={26}>
+                            size={36}>
                         </FontAwesome5>
                     )
                 }
@@ -100,7 +100,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         flexDirection: "row",
         justifyContent: "space-around",
-        alignItems: 'center'
+        alignItems: 'center',
+        borderTopWidth: 1,
+        borderTopColor: '#ededed',
     },
     navigationButton: {
         alignItems: 'center',

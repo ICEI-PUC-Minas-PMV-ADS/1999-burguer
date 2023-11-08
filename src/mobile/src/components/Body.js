@@ -11,7 +11,7 @@ export default Body;
 const styles = StyleSheet.create({
     body: {
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#fafafa',
         alignItems: 'center',
         justifyContent: 'center'
     }

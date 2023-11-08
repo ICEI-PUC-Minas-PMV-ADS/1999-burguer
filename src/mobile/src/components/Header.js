@@ -1,23 +1,53 @@
 import React from 'react';
-import { Appbar } from 'react-native-paper';
+import { View, TouchableOpacity, Image, Linking, StyleSheet } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Header = ({ title }) => {
 
+    const _abrirWhatsapp = () => {
+        
+        const numeroTelefone = '5531991361426';
+        const mensagem = 'Olá, gostaria de tirar algumas dúvidas.';
+
+        let url = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
+
+        Linking.openURL(url)
+
+    }
+
     return (
-        <Appbar.Header style={styles.header}>
-            {/* <Appbar.Content title="Fitness Control" titleStyle={styles.title} /> */}
-        </Appbar.Header>
+        <View style={styles.header}>
+            <Image source={require('../../assets/logo.jpg')} style={styles.logo} />
+            <TouchableOpacity title="whatsapp" onPress={_abrirWhatsapp}>
+                <FontAwesome5
+                    name="whatsapp"
+                    style={styles.icone}
+                    size={40}>
+                </FontAwesome5>
+            </TouchableOpacity>
+        </View>
     );
 
 }
 export default Header;
 
-const styles = {
+const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#ffffff'
+        width: '100%',
+        height: 80,
+        paddingHorizontal: '1rem',
+        backgroundColor: '#fff',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#ededed',
     },
-    // title: {
-    //     color: '#ffffff',
-    //     alignSelf: 'center', // centralizar o título
-    // }
-};
+    logo: {
+        maxWidth: '100%',
+        width: '50px',
+        height: '50px',
+        borderRadius: '5px',
+        position: 'relative'
+    }
+});
