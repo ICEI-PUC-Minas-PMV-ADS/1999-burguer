@@ -33,6 +33,7 @@ router.post('/register', UsuariosController.registerValidation, UsuariosControll
 router.post('/forgot-password/:email', UsuariosController.forgotPasswordValidation, UsuariosController.forgotPassword)                      // Rota de envio do email e geração do código verificador
 router.post('/reset-password', UsuariosController.resetPasswordValidation, UsuariosController.resetPassword)                                // Rota de resetar a senha
 
-
+// rotas app
+router.get('/cardapio', ProdutosController.getProdutosCardapio) 
 
 export { router }

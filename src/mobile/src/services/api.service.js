@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
-// const apiUrl = 'http://localhost:3000/api/v1';
+// const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
+const apiUrl = 'http://localhost:3000/api/v1';
 
 const getHeaders = (auth = false) => {
 
@@ -38,23 +38,6 @@ export const crudGet = async (rota, query, auth = true) => {
             });
 
             resolve({ res: result?.data || null });
-
-            // let headers = getHeaders(auth);
-
-            // let params = '';
-
-            // if (query && Object.keys(query)?.length) {
-
-            //     params += `?filter=${JSON.stringify(query)}`
-
-            // }
-
-            // fetch(`${apiUrl}${rota}${params}`, {
-            //     method: 'GET',
-            //     headers
-            // })
-            // .then((response) => response.json())
-            // .then((json) => resolve({ res: json }));
 
         } catch (error) {
 

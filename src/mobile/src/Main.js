@@ -43,11 +43,11 @@ const Main = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Cardapio" component={Cardapio} />
             <Stack.Screen name="Carrinho" component={Carrinho} />
-            <Stack.Screen name="HistoricoPedidos" component={HistoricoPedidos} />
             <Stack.Screen name="Menu" component={Menu} />
             {
                 usuarioLogado ? (
                     <>
+                        <Stack.Screen name="HistoricoPedidos" component={HistoricoPedidos} />
                         <Stack.Screen name="AcompanharPedido" component={AcompanharPedido} />
                         <Stack.Screen name="MeusDados" component={MeusDados} />
                     </>
