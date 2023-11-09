@@ -7,7 +7,7 @@ import './mongo-database/index';
 const server = express()
 
 server.use(cors({
-    // origin: process.env.APPLICATION_URL?.split(';') || []
+    origin: process.env.APPLICATION_URL?.split(';') || []
 }))
 server.use(express.json())
 server.use('/api/v1/', router);
