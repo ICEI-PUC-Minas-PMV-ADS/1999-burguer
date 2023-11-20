@@ -35,6 +35,10 @@ const Menu = () => {
 
     }
 
+    const _handleLogin = () => {
+        navigation.navigate('Login');
+    }
+
     return (
         <>
             <Header>
@@ -76,6 +80,15 @@ const Menu = () => {
                             size={26}>
                         </FontAwesome5>
                         <Text style={styles.texto}>Sair</Text>
+                    </Pressable>
+
+                    <Pressable style={styles.btnNavegacao} onPress={() => _handleLogin()}>
+                        <FontAwesome5
+                            name="sign-out-alt"
+                            style={styles.icon}
+                            size={26}>
+                        </FontAwesome5>
+                        <Text style={styles.texto}>Login</Text>
                     </Pressable>
                 </View>
             </Body>

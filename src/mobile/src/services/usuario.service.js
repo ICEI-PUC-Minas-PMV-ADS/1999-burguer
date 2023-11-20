@@ -18,7 +18,7 @@ export const setUsuarioStorage = async (usuario) => {
 
     await AsyncStorage.setItem(
         'usuario',
-        JSON.stringify(usuario)
+        JSON.stringify(usuario.res)
     );
 
 };

@@ -86,15 +86,15 @@ export const crudPost = async (rota, body, params = '', auth = true) => {
 
         try {
 
-            // let headers = getHeaders(auth);
+            let headers = getHeaders(auth);
 
-            // fetch(`${apiUrl}${rota}${params}`, {
-            //     method: 'POST',
-            //     body,
-            //     headers
-            // })
-            // .then((response) => response.json())
-            // .then((json) => resolve({ res: json }));
+            fetch(`${apiUrl}${rota}${params}`, {
+                method: 'POST',
+                body,
+                headers
+            })
+            .then((response) => response.json())
+            .then((json) => resolve({ res: json }));
 
         } catch (error) {
 
@@ -105,6 +105,43 @@ export const crudPost = async (rota, body, params = '', auth = true) => {
     });
 
 };
+
+
+export const apiLogin = async (rota, body) => {
+    return new Promise((resolve, reject) => {
+        try {
+            fetch(`${apiUrl}${rota}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body)
+            })
+            .then((response) => response.json())
+            .then((json) => resolve({ res: json }));
+        } catch (error) {
+            resolve({ error });
+        }
+    })
+}
+
+export const apiCadastro = async (rota, body) => {
+    return new Promise((resolve, reject) => {
+        try {
+            fetch(`${apiUrl}${rota}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body)
+            })
+            .then((response) => response.json())
+            .then((json) => resolve({ res: json }));
+        } catch (error) {
+            resolve({ error });
+        }
+    })
+}
 
 /**
  * PUT
