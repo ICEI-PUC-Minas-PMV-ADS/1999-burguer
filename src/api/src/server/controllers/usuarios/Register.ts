@@ -20,10 +20,10 @@ export const registerValidation = validation((getSchema) => ({
             numero: YUP.string().required(),
             bairro: YUP.string().required().min(2),
             cidade: YUP.string().required().min(2),
-            cep: YUP.string().required().length(9),
+            cep: YUP.string().required().min(8).max(9),
             uf: YUP.string().required().length(2),
-            complemento: YUP.string().optional().min(5),
-            ponto_referencia: YUP.string().optional(),
+            complemento: YUP.string().optional().min(5).nullable(),
+            ponto_referencia: YUP.string().optional().nullable(),
             telefone: YUP.string().required().length(11),
             funcionario: YUP.boolean().required(),
         })
