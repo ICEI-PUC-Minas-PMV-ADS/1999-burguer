@@ -46,7 +46,8 @@ export const getAllPedidos = async (
 
     }
 
-    const filtros = query.filter ? JSON.parse(query.filter) : null
+    //const filtros = query.filter ? JSON.parse(query.filter) : null
+    const filtros: any = req.query.filter ? JSON.parse(req.query.filter) : { page: 0, limit: 10 };
 
     const page = Number(filtros.page || 0);
     const limit = Number(filtros.limit || 25);
