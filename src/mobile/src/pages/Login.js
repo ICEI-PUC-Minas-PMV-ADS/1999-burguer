@@ -1,7 +1,7 @@
 import { Text } from 'react-native-paper';
 import { AsyncStorage } from '@react-native-async-storage/async-storage'
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, TextInput, TouchableOpacity, Modal } from 'react-native';
+import { View, StyleSheet, Button, TextInput, TouchableOpacity, Modal, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import * as UsuarioService from '../services/usuario.service';
@@ -43,8 +43,13 @@ const Login = () => {
         }
     };
 
-    return (
-        <View style={{marginTop: 250}}>
+    return (        
+        <View style={styles.container}>
+            <Image
+                source={require('../../assets/logo.jpg')}
+                style={styles.logo}
+                resizeMode="contain"
+            />
             <Text style={styles.titulo}>
                 1999 Burguer
             </Text>
@@ -80,17 +85,22 @@ const Login = () => {
                 </TouchableOpacity>
             </View>
 
-            <Button title="Acessar" color="red" onPress={logar} />
+            <TouchableOpacity style={styles.button} onPress={logar}>
+                <Text style={styles.buttonText}>Acessar</Text>
+            </TouchableOpacity>
 
-            <Button title="Cadastrar" color="gray"
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: 'gray', marginTop: 10 }]}
                 onPress={() => { navigation.navigate('Cadastro'); }}
-            />
+            >
+                <Text style={styles.buttonText}>Cadastrar</Text>
+            </TouchableOpacity>
 
             <Modal visible={modalVisible} animationType="fade" transparent={true} onRequestClose={() => setModalVisible(false)}>
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
                         <Text style={styles.modalMessage}>{modalMessage}</Text>
-                        <Button style={styles.modalButton}title="OK" onPress={() => setModalVisible(false)}  color="red"/>
+                        <Button style={styles.modalButton}title="OK" onPress={() => setModalVisible(false)}  color="#EA6419"/>
                     </View>
                 </View>
             </Modal>
@@ -100,6 +110,18 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 20, 
+        backgroundColor: '#FFFFFF', 
+    },
+    logo: {
+        width: 150, 
+        height: 150, 
+        marginBottom: 20, 
+    },
     titulo: {
         fontSize: 30,
         alignItems: 'center',
@@ -133,6 +155,21 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    button: {
+        backgroundColor: '#EA6419',
+        width: '60%', 
+        height: 50, 
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 5,
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 14
     },
     icon: {
         width: '15%',

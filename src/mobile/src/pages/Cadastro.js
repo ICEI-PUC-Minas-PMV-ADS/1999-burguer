@@ -1,10 +1,10 @@
-import { Text } from 'react-native-paper';
+import {  TextInput } from 'react-native-paper';
+import { TouchableOpacity, Text, StyleSheet, Modal, View, Button} from 'react-native';
 
 import Body from '../components/Body';
 import Footer from '../components/Footer';
 import { useState } from 'react';
 import React from 'react';
-import { StyleSheet, Button, TextInput, Modal, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { cadastroUsuario } from '../services/cadastro.service';
 import Login from './Login';
@@ -81,7 +81,7 @@ const Cadastro = () => {
     }
 
     return (
-        <View style={{ marginTop: 250}}>
+        <View style={{ marginTop: 0}}>
             <Text style={styles.titulo}>
                 Cadastro
             </Text>
@@ -182,17 +182,26 @@ const Cadastro = () => {
                 onChangeText={(texto) => setTelefone(texto)}
             />
 
-            <Button
-                title="Cadastrar"
-                color='red'
-                onPress={cadastrar}
-            />
+           <View style={{ marginTop: 0, alignItems: 'center' }}>
+            
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={styles.cadastrarButton}
+                    onPress={cadastrar}
+                >
+                    <Text style={styles.buttonText}>Cadastrar</Text>
+                </TouchableOpacity>
 
-            <Button
-                title="Voltar"
-                color='grey'
-                onPress={() => { navigation.navigate('Login');	}}
-            />
+                <TouchableOpacity
+                    style={styles.voltarButton}
+                    onPress={() => { navigation.navigate('Login'); }}
+                >
+                    <Text style={styles.buttonText}>Voltar</Text>
+                </TouchableOpacity>
+            </View>
+
+            
+        </View>
 
             <Modal
                 visible={modalVisible}
@@ -203,7 +212,7 @@ const Cadastro = () => {
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
                         <Text style={styles.modalMessage}>{modalMessage}</Text>
-                        <Button title="OK" onPress={() => setModalVisible(false)}  color="red"/>
+                        <Button title="OK" onPress={() => setModalVisible(false)}  color="#EA6419"/>
                     </View>
                 </View>
             </Modal>
@@ -224,14 +233,19 @@ const styles = StyleSheet.create({
         height: 40,
         marginVertical: 12,
         borderWidth: 1,
-        padding: 10,
+        padding: 5,
+        borderColor: 'gray', 
+        borderRadius: 5, 
+        color: 'black', 
+        backgroundColor: 'white' 
 
     },
     modalContainer: {
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 0
     },
     modalContent: {
         backgroundColor: 'white',
@@ -240,7 +254,41 @@ const styles = StyleSheet.create({
     },
     modalMessage: {
         marginBottom: 10
-    }
+    },
+
+    buttonText: {
+        color: 'white', 
+        fontWeight: 'bold', 
+        textAlign: 'center', 
+    },    
+    
+    cadastrarButton: {
+        backgroundColor: '#EA6419',
+        borderRadius: 8,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginVertical: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        
+    },
+
+    
+    voltarButton: {
+        backgroundColor: '#EA6419',
+        borderRadius: 8,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginVertical: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        width: '100%',
+    },
 });
 
 export default Cadastro;
