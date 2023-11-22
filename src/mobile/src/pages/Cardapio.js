@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, FlatList, StyleSheet, Image, Pressable, Picker } from 'react-native';
+import { cloneDeep } from 'lodash-es';
+import { FontAwesome5 } from '@expo/vector-icons';
+import Toast from 'react-native-toast-message';
 
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
 import * as ApiService from '../services/api.service';
-import { FontAwesome5 } from '@expo/vector-icons';
+import * as CarrinhoService from '../services/carrinho.service';
 
 const Cardapio = () => {
 
-    const [produtos, setProdutos] = useState([]); 3
-    const [selectedValue, setSelectedValue] = useState('1');
+    const [produtos, setProdutos] = useState([]);
+    const [selectedValue, setSelectedValue] = useState({});
 
     useEffect(() => {
 
@@ -33,9 +36,30 @@ const Cardapio = () => {
 
     }, []);
 
-    const _handleAddCarrinho = (produtoId) => {
+    const _handleAddCarrinho = async (produto) => {
 
-        console.log(produtoId)
+        let quantidade = +(selectedValue[produto.id] || 1);
+
+        setSelectedValue({});
+
+        let prodCarrinho = cloneDeep(produto);
+
+        prodCarrinho.quantidade = quantidade;
+
+        await CarrinhoService.setProdutoCarrinho(prodCarrinho);
+
+        Toast.show({
+            type: 'success',
+            text1: 'Adicionado ao carrinho!',
+            position: 'bottom'
+        });
+
+    }
+
+    const _handleAtualizaValorSelecionado = (produtoId, valor) => {
+
+        if (!selectedValue) selectedValue = {};
+        selectedValue[produtoId] = valor;
 
     }
 
@@ -71,11 +95,12 @@ const Cardapio = () => {
                             <View style={styles.botoes}>
                                 <Picker
                                     style={styles.picker}
-                                    selectedValue={selectedValue}>
+                                    selectedValue={selectedValue[item.id]}
+                                    onValueChange={(itemValue, itemIndex) => _handleAtualizaValorSelecionado(item.id, itemValue)}>
                                     {valoresSelecao}
                                 </Picker>
 
-                                <Pressable style={styles.btnAddCarrinho} onPress={() => _handleAddCarrinho(item.id)}>
+                                <Pressable style={styles.btnAddCarrinho} onPress={() => _handleAddCarrinho(item)}>
                                     <FontAwesome5
                                         style={styles.iconeAddCarrinho}
                                         name="cart-plus">
