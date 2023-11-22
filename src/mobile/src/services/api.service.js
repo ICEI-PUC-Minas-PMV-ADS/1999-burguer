@@ -1,20 +1,22 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 // const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
 const apiUrl = 'http://localhost:3000/api/v1';
 
-const getHeaders = (auth = false) => {
+const getHeaders =  (auth = false) => {
 
     let headers = {};
 
     headers['Content-Type'] = 'application/json';
 
-    const token = ``//localStorage.getItem('1999Burger.access_token') || '';
-
+    //const token = await AsyncStorage.getItem('usuario')
+    const token = JSON.parse(localStorage.getItem('usuario'))
+    
+    
     if (auth && token) {
-        headers['Authorization'] = `Bearer ${token}`;
+        headers['Authorization'] = `Bearer ${token.accessToken}`;
     }
-
     return headers;
 
 }
@@ -23,7 +25,7 @@ const getHeaders = (auth = false) => {
  * GET
  */
 export const crudGet = async (rota, query, auth = true) => {
-
+    
     return new Promise(async (resolve, reject) => {
 
         try {

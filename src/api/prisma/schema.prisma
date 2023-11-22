@@ -26,7 +26,7 @@ model pedido {
   cep              String           @db.VarChar(255)
   uf               String           @db.VarChar(255)
   status           Int
-  data_finalizacao DateTime?        @db.Timestamp(6)
+  data_finalizacao DateTime?         @db.Timestamp(6)
   usuario          usuario          @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   pedido_produto   pedido_produto[]
 }
@@ -42,7 +42,7 @@ model produto {
 
 model usuario {
   id               Int      @id @default(autoincrement())
-  email            String   @db.VarChar
+  email            String   @unique(map: "usuario_un") @db.VarChar
   nome             String   @db.VarChar
   endereco         String   @db.VarChar
   numero           String   @db.VarChar
