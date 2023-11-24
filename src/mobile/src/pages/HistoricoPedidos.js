@@ -63,7 +63,7 @@ const HistoricoPedidos = () => {
                                 <PedidoItem label="Endereço" value={item.endereco} />
                                 <PedidoItem label="Nº" value={item.numero} />
                                 <PedidoItem label="Status" value={item.status === 3 ? 'Concluído' : item.status} />
-                                <PedidoItem label="Total" value={item.total} />
+                                <PedidoItem label="Total" value={`R$${Number(item.total).toFixed(2)}`} />
                             </View>
 
                         </View>
