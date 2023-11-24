@@ -60,14 +60,12 @@ export const crudGetById = async (rota, id, auth = true) => {
 
         try {
 
-            // let headers = getHeaders(auth);
-
-            // fetch(`${apiUrl}${rota}/${id}`, {
-            //     method: 'GET',
-            //     headers
-            // })
-            // .then((response) => response.json())
-            // .then((json) => resolve({ res: json }));
+            fetch(`${apiUrl}${rota}/${id}`, {
+                method: 'GET',
+                headers: getHeaders(auth)
+            })
+            .then((response) => response.json())
+            .then((json) => resolve({ res: json }));
 
         } catch (error) {
 
