@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     inputEmail: {
         fontSize: 18,
         color: '#000000',
-        width: '100%',
+        width: '95%',
         height: 40,
         marginVertical: 12,
         borderWidth: 1,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     inputSenha: {
         fontSize: 18,
         color: '#000000',
-        width: '85%',
+        width: '80%',
         height: 40,
         marginVertical: 12,
         borderWidth: 1,

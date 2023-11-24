@@ -120,7 +120,7 @@ const Cadastro = () => {
 
             <TextInput
                 style={styles.input}
-                placeholder="Numero"
+                placeholder="Número"
                 keyboardType="string"
                 value={numero}
                 onChangeText={(texto) => setNumero(texto)}
@@ -230,14 +230,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     input: {
-        height: 40,
+        width: '80%', 
+        height: 40,   
         marginVertical: 12,
         borderWidth: 1,
-        padding: 5,
-        borderColor: 'gray', 
-        borderRadius: 5, 
-        color: 'black', 
-        backgroundColor: 'white' 
+        paddingHorizontal: 10,
+        borderColor: 'gray',
+        borderRadius: 5,
+        color: 'black',
+        backgroundColor: 'white',
+        alignSelf: 'center' 
 
     },
     modalContainer: {
@@ -260,6 +262,7 @@ const styles = StyleSheet.create({
         color: 'white', 
         fontWeight: 'bold', 
         textAlign: 'center', 
+        fontSize: 14
     },    
     
     cadastrarButton: {
