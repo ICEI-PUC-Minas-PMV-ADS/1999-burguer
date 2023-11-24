@@ -5,7 +5,6 @@ import UsuarioServiceClass from './services/usuario.service';
 import * as UsuarioService from './services/usuario.service';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
-import AcompanharPedido from './pages/AcompanharPedido';
 import Cardapio from './pages/Cardapio';
 import Carrinho from './pages/Carrinho';
 import HistoricoPedidos from './pages/HistoricoPedidos';
@@ -48,7 +47,6 @@ const Main = () => {
                 usuarioLogado ? (
                     <>
                         <Stack.Screen name="HistoricoPedidos" component={HistoricoPedidos} />
-                        <Stack.Screen name="AcompanharPedido" component={AcompanharPedido} />
                         <Stack.Screen name="MeusDados" component={MeusDados} />
                     </>
                 ) : (

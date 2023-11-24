@@ -29,8 +29,6 @@ const HistoricoPedidos = () => {
                         result.res.rows.filter
                             (
                                 item =>
-                                    item.status === 3
-                                    &&
                                     item.usuario_id == usuarioLogado.userId);
 
                     setPedidos(pedidosComStatus3);
@@ -47,7 +45,7 @@ const HistoricoPedidos = () => {
         <>
             <Header>
             </Header>
-
+        
             <Body>
                 <FlatList
                     style={styles.listaPedidos}
@@ -55,22 +53,18 @@ const HistoricoPedidos = () => {
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => (
                         <View style={styles.pedido}>
-                            <View>
-                                <Text style={styles.textosPedido} >Ticket: {item.id}</Text>
-                                <Text style={styles.textosPedido} >Bairro: {item.bairro}</Text>
-                                <Text style={styles.textosPedido} >CEP: {item.cep}</Text>
-                                <Text style={styles.textosPedido}>
-                                    Finalizado em: {new Date(item.data_finalizacao).toLocaleDateString()}
-                                </Text>
+                            <View style={styles.infoContainer}>
+                                <PedidoItem label="Ticket" value={item.id} />
+                                <PedidoItem label="Bairro" value={item.bairro} />
+                                <PedidoItem label="CEP" value={item.cep} />
+                                <PedidoItem label="Finalizado em" value={new Date(item.data_finalizacao).toLocaleDateString()} />
                             </View>
-                            <View style={styles.textosPedido}>
-                                <Text style={styles.textosPedido} >Endereço: {item.endereco}</Text>
-                                <Text style={styles.textosPedido} >Nº: {item.numero}</Text>
-                                <Text style={styles.textosPedido} >Status: {item.status === 3 ? 'Concluído' : item.status}</Text>
-                                <Text style={styles.textosPedido} >Total: {item.total}</Text>
+                            <View style={styles.infoContainer}>
+                                <PedidoItem label="Endereço" value={item.endereco} />
+                                <PedidoItem label="Nº" value={item.numero} />
+                                <PedidoItem label="Status" value={item.status === 3 ? 'Concluído' : item.status} />
+                                <PedidoItem label="Total" value={item.total} />
                             </View>
-
-
 
                         </View>
                     )}
@@ -86,33 +80,58 @@ const HistoricoPedidos = () => {
 }
 export default HistoricoPedidos;
 
+const PedidoItem = ({ label, value }) => (
+    <View style={styles.itemContainer}>
+        <Text style={styles.label}>{label}:</Text>
+        <Text style={styles.textosPedido}>{value}</Text>
+    </View>
+);
 
 const styles = StyleSheet.create({
     listaPedidos: {
         width: '100%',
         marginTop: '1rem',
-        paddingHorizontal: '1rem',
+        paddingHorizontal: '1rem'
     },
     pedido: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'start',
-        gap: '0.75rem',
-        width: '100%',
         backgroundColor: '#fafafa',
-        borderRadius: '5px',
-        marginBottom: '2rem',
-        paddingVertical: '0.5rem',
-        paddingHorizontal: '0.5rem',
+        borderRadius: 5,
+        marginBottom: 20,
+        padding: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 3,
-        backgroundColor: '#ea6419'
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'baseline',
+  
     },
     textosPedido: {
-        fontSize: '16px',
+        fontSize: 16,
         fontWeight: '600',
-        color: 'white'
-    }
+        color: 'black',
+        flexShrink: 1,
+        flex: 1
+
+    },
+
+    itemContainer: {
+        flex: 1,
+        marginBottom: 8,
+        width:'100%'
+        
+    },
+    label: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#EA6419',
+        marginRight: 5
+    },
+
+    infoContainer: {
+        flexDirection: 'column',
+        flex: 1,
+        marginBottom: 8,
+    },
 });
