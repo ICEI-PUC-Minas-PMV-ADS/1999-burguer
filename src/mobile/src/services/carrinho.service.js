@@ -66,6 +66,29 @@ export const setProdutoCarrinho = async (produto) => {
 
 }
 
+export const updateProdutoCarrinho = async (produto) => {
+
+    let carrinho = await getCarrinhoStorage();
+
+    let index = carrinho.produtos.findIndex(x => x.id == produto.id);
+
+    if (index > -1) {
+
+        carrinho.produtos[index] = {
+            ...produto,
+            ...{
+                quantidade: produto.quantidade,
+                total: round((+produto.valor) * produto.quantidade, 2)
+            }
+        };
+    }
+
+    carrinho = await updateTotalCarrinho(carrinho);
+
+    return carrinho;
+
+}
+
 export const removeProdutoCarrinho = async (produto) => {
 
     let carrinho = await getCarrinhoStorage();
@@ -87,8 +110,6 @@ export const removeProdutoCarrinho = async (produto) => {
 export const limparCarrinho = async () => {
 
     await AsyncStorage.removeItem('carrinho');
-
-    console.log('carrinho limpo');
 
 }
 

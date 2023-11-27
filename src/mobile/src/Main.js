@@ -42,19 +42,15 @@ const Main = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Cardapio" component={Cardapio} />
             <Stack.Screen name="Carrinho" component={Carrinho} />
+            <Stack.Screen name="HistoricoPedidos" component={HistoricoPedidos} />
             <Stack.Screen name="Menu" component={Menu} />
+            <Stack.Screen name="MeusDados" component={MeusDados} />
             {
-                usuarioLogado ? (
-                    <>
-                        <Stack.Screen name="HistoricoPedidos" component={HistoricoPedidos} />
-                        <Stack.Screen name="MeusDados" component={MeusDados} />
-                    </>
-                ) : (
-                    <>
-                        <Stack.Screen name="Login" component={Login} />
-                        <Stack.Screen name="Cadastro" component={Cadastro} />
-                    </>
-                )
+                !usuarioLogado &&
+                <>
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="Cadastro" component={Cadastro} />
+                </>
             }
         </Stack.Navigator>
     );

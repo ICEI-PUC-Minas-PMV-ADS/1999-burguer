@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, FlatList, StyleSheet, Image, Pressable, Picker } from 'react-native';
+import { Text, View, FlatList, StyleSheet, Image, Pressable, Picker, ActivityIndicator } from 'react-native';
 import { cloneDeep } from 'lodash-es';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Toast from 'react-native-toast-message';
@@ -7,10 +7,13 @@ import Toast from 'react-native-toast-message';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
+import LoadingAnimation from '../components/Loading';
 import * as ApiService from '../services/api.service';
 import * as CarrinhoService from '../services/carrinho.service';
 
 const Cardapio = () => {
+
+    const [loading, setLoading] = useState(false);
 
     const [produtos, setProdutos] = useState([]);
     const [selectedValue, setSelectedValue] = useState({});
@@ -19,13 +22,23 @@ const Cardapio = () => {
 
         const getLista = async () => {
 
-            const result = await ApiService.crudGet('/cardapio', null);
+            setLoading(true)
+
+            const result = await ApiService.crudGet('/cardapio', null, false);
+
+            setLoading(false)
 
             if (result.error) {
-                console.error('Erro ao carregar os dados', result.error.message)
-            }
 
-            if (result.res?.length) {
+                Toast.show({
+                    type: 'success',
+                    text1: 'Erro ao carregar cardápio!',
+                    text2: `${result.error.message}`,
+                    position: 'bottom'
+                });
+
+            } else if (result.res?.length) {
+
                 setProdutos(result.res);
 
             }
@@ -50,7 +63,7 @@ const Cardapio = () => {
 
         Toast.show({
             type: 'success',
-            text1: 'Adicionado ao carrinho!',
+            text1: `${produto.nome} adicionado!`,
             position: 'bottom'
         });
 
@@ -58,7 +71,7 @@ const Cardapio = () => {
 
     const _handleAtualizaValorSelecionado = (produtoId, valor) => {
 
-        if (!selectedValue) selectedValue = {};
+        if (!selectedValue) setSelectedValue({});
         selectedValue[produtoId] = valor;
 
     }
@@ -70,6 +83,7 @@ const Cardapio = () => {
 
     return (
         <>
+            { loading && <LoadingAnimation/> }
             <Header>
             </Header>
 

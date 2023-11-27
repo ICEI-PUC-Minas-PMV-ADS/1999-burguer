@@ -2,8 +2,10 @@ import { Pressable, StyleSheet, View, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Text } from 'react-native-paper';
+import React, { useEffect, useState } from 'react';
 
 import * as UsuarioService from '../services/usuario.service';
+import UsuarioServiceClass from '../services/usuario.service';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
@@ -12,15 +14,28 @@ const Menu = () => {
 
     const navigation = useNavigation();
 
+    const [usuario, setUsuario] = useState(null);
+
+    useEffect(() => {
+
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
+        setUsuario(usuarioLogado);
+
+    }, []);
+
     const _handleNavigationPress = (destination) => {
 
         navigation.navigate(destination);
 
     };
 
-    const _handleLogout = () => {
+    const _handleLogout = async () => {
 
-        UsuarioService.removeUsuarioStorage();
+        await UsuarioService.removeUsuarioStorage();
+
+        UsuarioServiceClass.usuarioLogadoChangeObservable.next(false);
+
+        navigation.navigate('Cardapio');
 
     }
 
@@ -73,23 +88,28 @@ const Menu = () => {
                         <Text style={styles.texto}>Meus Pedidos</Text>
                     </Pressable>
 
-                    <Pressable style={styles.btnNavegacao} onPress={() => _handleLogout()}>
-                        <FontAwesome5
-                            name="sign-out-alt"
-                            style={styles.icon}
-                            size={26}>
-                        </FontAwesome5>
-                        <Text style={styles.texto}>Sair</Text>
-                    </Pressable>
+                    { usuario && (
+                        <Pressable style={styles.btnNavegacao} onPress={() => _handleLogout()}>
+                            <FontAwesome5
+                                name="sign-out-alt"
+                                style={styles.icon}
+                                size={26}>
+                            </FontAwesome5>
+                            <Text style={styles.texto}>Sair</Text>
+                        </Pressable>
+                    )}
 
-                    <Pressable style={styles.btnNavegacao} onPress={() => _handleLogin()}>
-                        <FontAwesome5
-                            name="sign-out-alt"
-                            style={styles.icon}
-                            size={26}>
-                        </FontAwesome5>
-                        <Text style={styles.texto}>Login</Text>
-                    </Pressable>
+                    { !usuario && (
+                        <Pressable style={styles.btnNavegacao} onPress={() => _handleLogin()}>
+                            <FontAwesome5
+                                name="sign-out-alt"
+                                style={styles.icon}
+                                size={26}>
+                            </FontAwesome5>
+                            <Text style={styles.texto}>Login</Text>
+                        </Pressable>
+                    )}
+                    
                 </View>
             </Body>
 

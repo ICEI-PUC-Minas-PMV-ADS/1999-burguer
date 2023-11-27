@@ -1,35 +1,18 @@
 import { Request, RequestHandler, Response } from 'express';
-import { validation } from '../../shared/middleware';
-import * as YUP from 'yup';
 import { StatusCodes } from 'http-status-codes';
-import { IPedido } from '../../database/models';
+import { IPedido, IPedidoProduto, IUsuario } from '../../database/models';
 import { PedidosProvider } from '../../database/providers/pedidos';
-
-interface IBodyProps extends Omit<IPedido, 'id' | 'data_inclusao' | 'data_finalizacao'> { }
-
-export const createPedidoValidation: RequestHandler = validation((getSchema) => ({
-    body: getSchema<IBodyProps>(
-        YUP.object().shape({
-            usuario_id: YUP.number().integer().required().moreThan(0),
-            total: YUP.number().required().moreThan(0),
-            endereco: YUP.string().required().min(2),
-            numero: YUP.string().required(),
-            bairro: YUP.string().required().min(2),
-            cidade: YUP.string().required().min(2),
-            cep: YUP.string().required().length(9),
-            uf: YUP.string().required().length(2),
-            status: YUP.number().required()
-        })
-    )
-}))
+import { UsuariosProvider } from '../../database/providers/usuarios';
+import { PedidosProdutoProvider } from '../../database/providers/pedidos_produto';
 
 export const createPedido = async (
-    req: Request<{}, {}, IBodyProps>,
+    req: Request,
     res: Response
 ) => {
 
     const body = req.body;
-    if (!body) {
+
+    if (!body || !body.produtos?.length) {
         return res
             .status(StatusCodes.BAD_REQUEST)
             .json({
@@ -40,21 +23,56 @@ export const createPedido = async (
 
     }
 
-    const result = await PedidosProvider.create(body);
-    if (result instanceof Error) {
+    const usuario: IUsuario | Error = await UsuariosProvider.getData(+req.headers.idUsuario);
 
+    if (usuario instanceof Error) {
         return res
             .status(StatusCodes.INTERNAL_SERVER_ERROR)
             .json({
                 errors: {
-                    default: result.message
+                    default: usuario.message
                 }
             });
+    }
 
+    const pedidoCreate: IPedido | any = {
+        usuario_id: usuario.id,
+        total: body.total,
+        endereco: usuario.endereco,
+        numero: usuario.numero,
+        bairro: usuario.bairro,
+        cidade: usuario.cidade,
+        cep: usuario.cep,
+        uf: usuario.uf
+    }
+    
+    const produtosCreate: IPedidoProduto[] | any = [];
+
+    for(let prod of body.produtos) {
+
+        produtosCreate.push({
+            produto_id: prod.id,
+            quantidade: prod.quantidade,
+            valor_unitario: +prod.valor,
+            total: prod.total
+        });
+
+    }
+
+    const pedido: IPedido | Error = await PedidosProvider.create(pedidoCreate, produtosCreate);
+
+    if (pedido instanceof Error) {
+        return res
+            .status(StatusCodes.INTERNAL_SERVER_ERROR)
+            .json({
+                errors: {
+                    default: pedido.message
+                }
+            });
     }
 
     return res
         .status(StatusCodes.OK)
-        .json(result);
+        .json(pedido);
 
 }

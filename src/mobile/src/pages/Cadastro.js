@@ -8,8 +8,11 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { cadastroUsuario } from '../services/cadastro.service';
 import Login from './Login';
+import LoadingAnimation from '../components/Loading';
 
 const Cadastro = () => {
+
+    const [loading, setLoading] = useState(false);
 
     const navigation = useNavigation();
 
@@ -51,18 +54,24 @@ const Cadastro = () => {
     };
 
     const cadastrar = async () => {
+    
         if (!validarEmail(email)) {
             setModalMessage('E-mail inválido. Por favor, insira um e-mail válido.');
             setModalVisible(true);
             return;
         }
-        const senhaValidacao = validarSenha(senha);
+
+        const senhaValidacao = validarSenha(senha)
+        
         if (senhaValidacao !== '') {
             setModalMessage(senhaValidacao);
             setModalVisible(true);
             return;
         }
-       console.log( await cadastroUsuario(
+        
+        setLoading(true);
+
+        await cadastroUsuario(
             nome,
             email,
             senha,
@@ -75,13 +84,17 @@ const Cadastro = () => {
             complemento !== "" ? complemento : null,
             ponto_referencia !== "" ? ponto_referencia : null,            
             telefone
-        ).then());
+        ).then()
+
+        setLoading(false);
 
         navigation.navigate('Login');
+
     }
 
     return (
         <View style={{ marginTop: 0}}>
+            { loading && <LoadingAnimation/> }
             <Text style={styles.titulo}>
                 Cadastro
             </Text>

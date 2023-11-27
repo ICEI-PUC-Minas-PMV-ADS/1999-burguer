@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 // const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
@@ -10,12 +9,10 @@ const getHeaders =  (auth = false) => {
 
     headers['Content-Type'] = 'application/json';
 
-    //const token = await AsyncStorage.getItem('usuario')
-    const token = JSON.parse(localStorage.getItem('usuario'))
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
     
-    
-    if (auth && token) {
-        headers['Authorization'] = `Bearer ${token.accessToken}`;
+    if (auth && usuarioLogado) {
+        headers['Authorization'] = `Bearer ${usuarioLogado.accessToken}`;
     }
     return headers;
 
@@ -80,7 +77,7 @@ export const crudGetById = async (rota, id, auth = true) => {
 /**
  * POST
  */
-export const crudPost = async (rota, body, params = '', auth = true) => {
+export const crudPost = async (rota, body, params, auth = true) => {
 
     return new Promise((resolve, reject) => {
 
@@ -88,9 +85,9 @@ export const crudPost = async (rota, body, params = '', auth = true) => {
 
             let headers = getHeaders(auth);
 
-            fetch(`${apiUrl}${rota}${params}`, {
+            fetch(`${apiUrl}${rota}${params ? `?${params}` : ''}`, {
                 method: 'POST',
-                body,
+                body: JSON.stringify(body),
                 headers
             })
             .then((response) => response.json())

@@ -1,14 +1,18 @@
 import { Text } from 'react-native-paper';
-import { AsyncStorage } from '@react-native-async-storage/async-storage'
 import React, { useState } from 'react';
 import { View, StyleSheet, Button, TextInput, TouchableOpacity, Modal, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
+
 import * as UsuarioService from '../services/usuario.service';
 import UsuarioServiceClass from '../services/usuario.service';
 import { postLogin } from '../services/login.service';
+import LoadingAnimation from '../components/Loading';
 
 const Login = () => {
+
+    const [loading, setLoading] = useState(false);
 
     const navigation = useNavigation();
 
@@ -19,32 +23,59 @@ const Login = () => {
     const [modalMessage, setModalMessage] = useState('');
 
     const logar = async () => {
+
         try {
+
             if (email && senha) {
+
+                setLoading(true);
+
                 let usuarioDados = await postLogin(email, senha);
-                console.log(usuarioDados)
-                console.log(usuarioDados.res.accessToken)
+
+                setLoading(false);
+
                 if (usuarioDados && usuarioDados.res.accessToken) {
-                    UsuarioService.setUsuarioStorage(usuarioDados);
+
+                    await UsuarioService.setUsuarioStorage(usuarioDados);
+
                     UsuarioServiceClass.usuarioLogadoChangeObservable.next(true);
-                    navigation.navigate('Cardapio')
+
+                    Toast.show({
+                        type: 'success',
+                        text1: 'Bem vindo!',
+                        position: 'bottom'
+                    });
+
+                    navigation.navigate('Cardapio');
+
                 } else {
+
                     setModalMessage('Usuário ou senha inválidos!');
                     setModalVisible(true);
+
                 }
+
             } else {
+
                 setModalMessage('Necessário informar usuário e senha!');
                 setModalVisible(true);
+
             }
+
         } catch (err) {
+
             UsuarioService.removeUsuarioStorage();
+
             setModalMessage(err.message);
             setModalVisible(true);
+
         }
+
     };
 
     return (        
         <View style={styles.container}>
+            { loading && <LoadingAnimation/> }
             <Image
                 source={require('../../assets/logo.jpg')}
                 style={styles.logo}

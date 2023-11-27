@@ -11,7 +11,7 @@ router.put('/store-data/:id', authValidator, LojasController.updateStoreByIdVali
 //Pedidos
 router.get('/orders', authValidator, PedidosController.getAllPedidosValidation, PedidosController.getAllPedidos)                           //	A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados
 router.get('/order/:id', authValidator, PedidosController.getPedidoByIdValidation, PedidosController.getPedidoById)                        //  A API deverá fornecer um endpoint GET para retornar detalhes de um pedido
-router.post('/order/create', authValidator, PedidosController.createPedidoValidation, PedidosController.createPedido)                      //  A API deverá fornecer um endpoint POST para criar um novo pedido
+router.post('/order/create', authValidator, PedidosController.createPedido)                      //  A API deverá fornecer um endpoint POST para criar um novo pedido
 router.put('/order/:id', authValidator, PedidosController.updatePedidoByIdValidation, PedidosController.updatePedidoById)                  //  A API deverá fornecer um endpoint PUT para alterar o status do pedido
 
 //PedidosProdutos

@@ -28,8 +28,8 @@ export interface IPedidoProduto {
     pedido_id: number
     produto_id: number
     quantidade: number
-    valor_unitario: Decimal
-    total: Decimal
+    valor_unitario: Decimal | number;
+    total: Decimal | number;
 }
 
 export interface IProduto {
@@ -107,6 +107,7 @@ export interface IProduct{
     valor: number
     status: boolean
     nome: string
+    imagem?: string
 }
 
 export interface ILogin{

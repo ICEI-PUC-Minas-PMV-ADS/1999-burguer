@@ -1,51 +1,80 @@
+import { Text, View, FlatList, StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
+import Toast from 'react-native-toast-message';
+import { useNavigation } from '@react-navigation/native';
+
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
 import * as ApiService from '../services/api.service';
-import * as UsuarioService from '../services/usuario.service'
-import { Text, View, FlatList, StyleSheet } from 'react-native';
-import { useEffect, useState } from 'react';
-
+import LoadingAnimation from '../components/Loading';
 
 const HistoricoPedidos = () => {
+
+    const [loading, setLoading] = useState(false);
+
+    const navigation = useNavigation();
 
     const [pedidos, setPedidos] = useState([])
 
     useEffect(() => {
-        const getLista = async () => {
-            try {
-                const result = await ApiService.crudGet('/orders', {}, true);
-                
-
-                if (result.error) {
-                    console.log('Erro ao carregar os dados', result.error.message);
-                }
-
-                const usuarioLogado = await UsuarioService.getUsuarioStorage()
-
-                if (result.res?.rows.length) {
-
-                    const pedidosComStatus3 =
-                        result.res.rows.filter
-                            (
-                                item =>
-                                    item.usuario_id == usuarioLogado.userId);
-
-                    setPedidos(pedidosComStatus3);
-                }
-            } catch (error) {
-                console.error('Erro ao executar o efeito:', error);
-            }
-        };
 
         getLista();
-    }, [])
+
+    }, []);
+
+    const getLista = async () => {
+
+        try {
+
+            const usuarioLogado = await JSON.parse(localStorage.getItem('usuario'));
+
+            if (!usuarioLogado?.accessToken) {
+
+                Toast.show({
+                    type: 'success',
+                    text1: 'Faça o login para continuar!',
+                    position: 'bottom'
+                });
+
+                navigation.navigate('Login');
+
+                return;
+
+            }
+
+            setLoading(true);
+
+            const result = await ApiService.crudGet('/orders', {}, true);
+
+            setLoading(false);
+
+            if (result.error) {
+                console.log('Erro ao carregar os dados', result.error.message);
+            }
+
+            if (result.res?.rows.length) {
+
+                const pedidosComStatus3 =
+                    result.res.rows.filter
+                        (
+                            item =>
+                                item.usuario_id == usuarioLogado.userId);
+
+                setPedidos(pedidosComStatus3);
+            }
+
+        } catch (error) {
+            console.error('Erro ao executar o efeito:', error);
+        }
+    };
 
     return (
         <>
+            {loading && <LoadingAnimation />}
             <Header>
             </Header>
-        
+
             <Body>
                 <FlatList
                     style={styles.listaPedidos}
@@ -105,7 +134,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'baseline',
-  
+
     },
     textosPedido: {
         fontSize: 16,
@@ -119,8 +148,8 @@ const styles = StyleSheet.create({
     itemContainer: {
         flex: 1,
         marginBottom: 8,
-        width:'100%'
-        
+        width: '100%'
+
     },
     label: {
         fontSize: 16,
