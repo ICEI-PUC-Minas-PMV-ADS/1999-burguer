@@ -11,6 +11,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 Construímos o diagrama de fluxo de interação do usuário com o sistema, permitindo que o design das interações seja bem planejado e gere impacto na qualidade do design dos wireframes.
 
+### Aplicação WEB
 
 
 ![inicio](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/0821417a-f1f4-45a0-a900-379ac7d183af)
@@ -59,9 +60,13 @@ Figura - Tela Produtos
 
 Figura - Tela Cadastro/edição de produtos
 
+### Aplicação Mobile
+
 
 
 ## Wireframes
+
+### Aplicação WEB
 
 ![Wireframe 1999](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/811688c8-5c7f-4c60-9070-91b41bd515cf)
 
@@ -130,3 +135,44 @@ Página de edição de dados: Página para edição de dados do usuário
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/108990294/fe7f278b-1574-438a-989c-80a399531e23)
 
 <p align="center"> Figura 12 - Edição de Dados </p>
+
+### Aplicação Mobile
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/f993760c-0888-490a-968e-9d8d979baea6)
+
+Figura - Wireframe do projeto mobile
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/242aacc6-9e04-4ceb-a71d-3c5d2f94381d)
+
+Figura - Wireframe tela de login
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/a926f74e-fe76-485a-9e6a-7a883276758b)
+
+Figura - Wireframe tela de cadastro
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/be9df604-e1e1-4555-b5f3-6537ea2fc5ee)
+
+Figura - Wireframe tela de cardápio
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/484173d4-5a12-443f-ada0-38a7b86af7f8)
+
+Figura - Wireframe tela de carrinho
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/84427c25-604f-4c47-acd1-00f1d828be28)
+
+Figura - Wireframe tela de histórico de pedidos
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/29d99abf-6eac-45e3-adc2-f7b9c04203b9)
+
+Figura - Wireframe tela de meus dados
+
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/a905e3a1-987e-4d52-965c-8af9007dcb7d)
+
+Figura - Wireframe tela de menu
