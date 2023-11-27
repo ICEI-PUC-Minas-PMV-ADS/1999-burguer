@@ -1,13 +1,10 @@
 import {  TextInput } from 'react-native-paper';
 import { TouchableOpacity, Text, StyleSheet, Modal, View, Button} from 'react-native';
-
-import Body from '../components/Body';
-import Footer from '../components/Footer';
 import { useState } from 'react';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+
 import { cadastroUsuario } from '../services/cadastro.service';
-import Login from './Login';
 import LoadingAnimation from '../components/Loading';
 
 const Cadastro = () => {

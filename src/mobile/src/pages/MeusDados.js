@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TextInput, Button, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { getUsuarioStorage, setUsuarioStorage } from '../services/usuario.service';
+import { Text, TextInput, View, StyleSheet, TouchableOpacity } from 'react-native';
+
+import { getUsuarioStorage } from '../services/usuario.service';
 import { crudGetById } from '../services/api.service';
 
 const MeusDados = () => {
