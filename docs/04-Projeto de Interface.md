@@ -62,7 +62,23 @@ Figura - Tela Cadastro/edição de produtos
 
 ### Aplicação Mobile
 
+Figura - Consultar Cardápio
+![consultar-cardapio](/docs/img/consultar-cardapio.png)
 
+Figura - Adicionar pedido carrinho
+![adicionar-pedido](/docs/img/adicionar-pedido-carrinho.png)
+
+Figura - Finalizar pedido
+![finalizar-pedido](/docs/img/finalizar-pedido.png)
+
+Figura - Exibir histórico
+![exibir-historico](/docs/img/exibir-historico.png)
+
+Figura - Cadastro
+![cadastro](/docs/img/cadastro.png)
+
+Figura - Meus dados
+![meus-dados](/docs/img/meus-dados.png)
 
 ## Wireframes
 
