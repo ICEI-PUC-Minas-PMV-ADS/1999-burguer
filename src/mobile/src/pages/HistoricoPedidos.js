@@ -91,7 +91,15 @@ const HistoricoPedidos = () => {
                             <View style={styles.infoContainer}>
                                 <PedidoItem label="Endereço" value={item.endereco} />
                                 <PedidoItem label="Nº" value={item.numero} />
-                                <PedidoItem label="Status" value={item.status === 3 ? 'Concluído' : item.status} />
+                                <PedidoItem label="Status" value={
+                                    item.status === 0 ? 'Pendente' 
+                                    : 
+                                    item.status === 1 ? 'Em andamento'
+                                    :
+                                    item.status === 2 ? 'Concluído'
+                                    :
+                                    'Cancelado'                                                                   
+                                    } />
                                 <PedidoItem label="Total" value={`R$${Number(item.total).toFixed(2)}`} />
                             </View>
 

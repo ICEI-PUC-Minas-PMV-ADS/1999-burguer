@@ -13,7 +13,10 @@ export const getAll = async (
         const result = await database.pedido.findMany({
             skip: Math.floor(page * limit),
             take: limit,
-            where
+            where,
+            orderBy: {
+                id: 'desc'
+            }
         });
 
         return result;
