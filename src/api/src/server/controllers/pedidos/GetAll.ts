@@ -79,8 +79,7 @@ export const getAllPedidos = async (
 
     }
 
-    const count = page === 1 ? await PedidosProvider.count(where) : 0;
-
+    const count = !filtros.page ? await PedidosProvider.count(where) : 0;
     if (count instanceof Error) {
 
         return res
@@ -92,7 +91,7 @@ export const getAllPedidos = async (
             });
 
     }
-
+    console.log(count)
     const result = { rows, count };
     return res
         .status(StatusCodes.OK)
