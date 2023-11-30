@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexDirection: 'column',
         backgroundColor: '#fafafa',
-        borderRadius: '5px',
+        borderRadius: '8px',
         marginBottom: '2rem',
         paddingVertical: '0.5rem',
         paddingHorizontal: '0.5rem',
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         width: '80px',
         height: '80px',
-        borderRadius: '5px',
+        borderRadius: '8px',
         position: 'relative',
         marginBottom: '0.5rem'
     },
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
     picker: {
         height: '40px',
         width: '100px',
-        borderRadius: '5px'
+        borderRadius: '8px'
     },
     btnRemoveCarrinho: {
         width: '36px',
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#E39568',
         padding: '0.4rem',
-        borderRadius: '5px',
+        borderRadius: '8px',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E39568',
         paddingVertical: '0.4rem',
         paddingHorizontal: '0.6rem',
-        borderRadius: '5px',
+        borderRadius: '8px',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,

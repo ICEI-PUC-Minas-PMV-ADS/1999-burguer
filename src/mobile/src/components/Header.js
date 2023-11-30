@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         width: '50px',
         height: '50px',
-        borderRadius: '5px',
+        borderRadius: '8px',
         position: 'relative'
     }
 });

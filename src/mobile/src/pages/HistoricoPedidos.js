@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     },
     pedido: {
         backgroundColor: '#fafafa',
-        borderRadius: 5,
+        borderRadius: '8px',
         marginBottom: 20,
         padding: 10,
         shadowColor: '#000',
