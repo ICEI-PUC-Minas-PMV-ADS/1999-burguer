@@ -245,6 +245,9 @@ const styles = StyleSheet.create({
     modalMessage: {
         fontSize: 18,
         marginBottom: 20,
+    },
+    modalButton: {
+        borderRadius: '8px'
     }
 });
 

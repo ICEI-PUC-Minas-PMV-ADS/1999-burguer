@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, TouchableOpacity, Image, Linking, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Image, Linking, StyleSheet, Pressable } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 
 const Header = ({ title }) => {
+
+    const navigation = useNavigation();
 
     const _handleFaleConosco = () => {
         
@@ -15,10 +18,17 @@ const Header = ({ title }) => {
 
     }
 
+    const _handleCardapio = () => {
+        navigation.navigate('Cardapio');
+    }
+
     return (
         <View style={styles.header}>
-            <Image source={require('../../assets/logo.jpg')} style={styles.logo} />
-            <TouchableOpacity title="whatsapp" onPress={_handleFaleConosco}>
+            <Pressable onPress={() => _handleCardapio()}>
+                <Image source={require('../../assets/logo.jpg')} style={styles.logo}/>
+            </Pressable>
+
+            <TouchableOpacity title="whatsapp" onPress={() => _handleFaleConosco()}>
                 <FontAwesome5
                     name="whatsapp"
                     style={styles.icone}

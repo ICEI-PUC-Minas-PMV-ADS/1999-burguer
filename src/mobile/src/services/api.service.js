@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
-const apiUrl = 'http://localhost:3000/api/v1';
+const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
+// const apiUrl = 'http://localhost:3000/api/v1';
 
 const getHeaders =  (auth = false) => {
 

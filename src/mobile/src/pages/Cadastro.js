@@ -282,6 +282,9 @@ const styles = StyleSheet.create({
     modalMessage: {
         marginBottom: 10
     },
+    modalButton: {
+        borderRadius: '8px'
+    },
     buttonContainer: {
         flexDirection: 'column',
         alignItems: 'center',
