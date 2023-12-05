@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     header: {
         width: '100%',
         height: 80,
-        paddingHorizontal: '1rem',
+        paddingHorizontal: 16,
         backgroundColor: '#fff',
         flexDirection: "row",
         justifyContent: "space-between",
@@ -55,9 +55,9 @@ const styles = StyleSheet.create({
     },
     logo: {
         maxWidth: '100%',
-        width: '50px',
-        height: '50px',
-        borderRadius: '8px',
+        width: 50,
+        height: 50,
+        borderRadius: 8,
         position: 'relative'
     }
 });

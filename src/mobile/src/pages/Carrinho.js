@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, View, FlatList, StyleSheet, Image, Pressable } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Header from '../components/Header';
 import Body from '../components/Body';
@@ -84,7 +85,8 @@ const Carrinho = () => {
 
     const _finalizarCarrinho = async () => {
 
-        const usuarioLogado = await JSON.parse(localStorage.getItem('usuario'));
+        let userMem = await AsyncStorage.getItem('usuario');
+        const usuarioLogado = userMem ? JSON.parse(userMem) : null;
 
         if (!usuarioLogado?.accessToken) {
 
@@ -216,18 +218,18 @@ export default Carrinho;
 const styles = StyleSheet.create({
     listaProdutos: {
         width: '100%',
-        marginTop: '1rem',
-        paddingHorizontal: '1rem',
+        marginTop: 16,
+        paddingHorizontal: 16,
     },
     produto: {
         width: '100%',
         justifyContent: "center",
         flexDirection: 'column',
         backgroundColor: '#fafafa',
-        borderRadius: '8px',
-        marginBottom: '2rem',
-        paddingVertical: '0.5rem',
-        paddingHorizontal: '0.5rem',
+        borderRadius: 8,
+        marginBottom: 32,
+        paddingVertical: 8,
+        paddingHorizontal: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
@@ -237,19 +239,19 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: "start",
-        gap: '0.75rem'
+        gap: 12
     },
     blocoDescricao: {
         flexDirection: 'column',
         flex: 'auto'
     },
     nome: {
-        fontSize: '22px',
+        fontSize: 22,
         fontWeight: '500',
-        marginBottom: '1rem'
+        marginBottom: 16
     },
     descricao: {
-        fontSize: '16px'
+        fontSize: 16
     },
     blocoImagem: {
         flexDirection: 'column',
@@ -257,35 +259,35 @@ const styles = StyleSheet.create({
     },
     imagem: {
         maxWidth: '100%',
-        width: '80px',
-        height: '80px',
-        borderRadius: '8px',
+        width: 80,
+        height: 80,
+        borderRadius: 8,
         position: 'relative',
-        marginBottom: '0.5rem'
+        marginBottom: 8
     },
     valor: {
-        fontSize: '20px',
+        fontSize: 20,
         fontWeight: '600'
     },
     botoes: {
-        marginTop: '1rem',
+        marginTop: 16,
         flexDirection: 'row',
-        gap: '2rem',
+        gap: 32,
         alignItems: 'flex-end'
     },
     picker: {
-        height: '40px',
-        width: '100px',
-        borderRadius: '8px'
+        height: 40,
+        width: 100,
+        borderRadius: 8
     },
     btnRemoveCarrinho: {
-        width: '36px',
-        height: '36px',
+        width: 36,
+        height: 36,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E39568',
-        padding: '0.4rem',
-        borderRadius: '8px',
+        padding: 6.4,
+        borderRadius: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
@@ -293,24 +295,24 @@ const styles = StyleSheet.create({
     },
     iconeRemoveCarrinho: {
         color: '#fff',
-        fontSize: '24px'
+        fontSize: 24
     },
     botoesRodape: {
         width: '100%',
-        marginTop: '0.5rem',
-        marginBottom: '0.5rem',
+        marginTop: 8,
+        marginBottom: 8,
         alignItems: 'center',
-        paddingHorizontal: '0.5rem'
+        paddingHorizontal: 8
     },
     btnFinalizar: {
         width: '100%',
-        height: '3rem',
+        height: 48,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E39568',
-        paddingVertical: '0.4rem',
-        paddingHorizontal: '0.6rem',
-        borderRadius: '8px',
+        paddingVertical: 6.4,
+        paddingHorizontal: 9.6,
+        borderRadius: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
@@ -319,6 +321,6 @@ const styles = StyleSheet.create({
     textoBtnFinalizar: {
         color: '#FFF',
         fontWeight: 600,
-        fontSize: '1.2rem'
+        fontSize: 19.2
     }
 });

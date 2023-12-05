@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         width: 150,
         height: 150,
-        marginBottom: '3rem',
+        marginBottom: 48,
     },
     titulo: {
         fontSize: 30,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     inputEmail: {
-        borderRadius: '8px',
+        borderRadius: 8,
         fontSize: 18,
         color: '#000000',
         width: '95%',
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     inputSenha: {
-        borderRadius: '8px',
+        borderRadius: 8,
         fontSize: 18,
         color: '#000000',
         width: '80%',
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#FFFFFF',
         height: 50,
-        borderRadius: '8px',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -200,17 +200,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#EA6419',
         width: '60%',
         height: 50,
-        borderRadius: '8px',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '1rem',
+        marginTop: 16,
     },
     buttonCadastrar: {
         backgroundColor: 'gray',
-        marginTop: '1rem',
+        marginTop: 16,
         width: '60%',
         height: 50,
-        borderRadius: '8px',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -221,13 +221,13 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     icon: {
-        marginLeft: '0.3rem',
-        width: '3.5rem',
+        marginLeft: 4.8,
+        width: 56,
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#000000',
-        borderRadius: '8px',
+        borderRadius: 8,
     },
     modalContainer: {
         flex: 1,
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: '#FFFFFF',
         padding: 20,
-        borderRadius: '8px',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     modalButton: {
-        borderRadius: '8px'
+        borderRadius: 8
     }
 });
 

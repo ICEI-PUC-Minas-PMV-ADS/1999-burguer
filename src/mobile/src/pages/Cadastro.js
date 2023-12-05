@@ -246,12 +246,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         fontWeight: 'bold',
-        paddingBottom: '0.5rem'
+        paddingBottom: 8
     },
     blocoInputs: {
         width: '100%',
         flexDirection: 'column',
-        gap: '1rem',
+        gap: 16,
         height: 'calc(100vh - 12.4rem)',
         overflow: 'auto'
     },
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         paddingHorizontal: 10,
         borderColor: 'gray',
-        borderRadius: '8px',
+        borderRadius: 8,
         color: 'black',
         backgroundColor: 'white',
         alignSelf: 'center'
@@ -277,20 +277,20 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: 'white',
         padding: 20,
-        borderRadius: '8px'
+        borderRadius: 8
     },
     modalMessage: {
         marginBottom: 10
     },
     modalButton: {
-        borderRadius: '8px'
+        borderRadius: 8
     },
     buttonContainer: {
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-        gap: '1rem',
-        marginBottom: '2rem'
+        gap: 16,
+        marginBottom: 32
     },
     buttonText: {
         color: 'white',
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EA6419',
         width: '60%',
         height: 50,
-        borderRadius: '8px',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'gray',
         width: '60%',
         height: 50,
-        borderRadius: '8px',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
     }

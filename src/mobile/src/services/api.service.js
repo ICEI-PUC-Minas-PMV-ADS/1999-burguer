@@ -1,15 +1,17 @@
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const apiUrl = 'https://1999-burguer-api.vercel.app/api/v1';
 // const apiUrl = 'http://localhost:3000/api/v1';
 
-const getHeaders =  (auth = false) => {
+const getHeaders = async (auth = false) => {
 
     let headers = {};
 
     headers['Content-Type'] = 'application/json';
 
-    const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
+    let userMem = await AsyncStorage.getItem('usuario');
+    const usuarioLogado = userMem ? JSON.parse(userMem) : null;
     
     if (auth && usuarioLogado) {
         headers['Authorization'] = `Bearer ${usuarioLogado.accessToken}`;
