@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, FlatList, StyleSheet, Image, Pressable, Picker, ActivityIndicator } from 'react-native';
+import { Text, View, FlatList, StyleSheet, Image, Pressable } from 'react-native';
 import { cloneDeep } from 'lodash-es';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Toast from 'react-native-toast-message';
+import { Picker } from '@react-native-picker/picker';
 
 import Header from '../components/Header';
 import Body from '../components/Body';
@@ -76,11 +77,6 @@ const Cardapio = () => {
 
     }
 
-    const valoresSelecao = Array.from({ length: 10 }, (_, index) => {
-        const value = (index + 1).toString();
-        return <Picker.Item key={value} label={value} value={value} />;
-    });
-
     return (
         <>
             { loading && <LoadingAnimation/> }
@@ -111,7 +107,16 @@ const Cardapio = () => {
                                     style={styles.picker}
                                     selectedValue={selectedValue[item.id]}
                                     onValueChange={(itemValue, itemIndex) => _handleAtualizaValorSelecionado(item.id, itemValue)}>
-                                    {valoresSelecao}
+                                    <Picker.Item key={1} label={1} value={1} />
+                                    <Picker.Item key={2} label={2} value={2} />
+                                    <Picker.Item key={3} label={3} value={3} />
+                                    <Picker.Item key={4} label={4} value={4} />
+                                    <Picker.Item key={5} label={5} value={5} />
+                                    <Picker.Item key={6} label={6} value={6} />
+                                    <Picker.Item key={7} label={7} value={7} />
+                                    <Picker.Item key={8} label={8} value={8} />
+                                    <Picker.Item key={9} label={9} value={9} />
+                                    <Picker.Item key={10} label={10} value={10} />
                                 </Picker>
 
                                 <Pressable style={styles.btnAddCarrinho} onPress={() => _handleAddCarrinho(item)}>
