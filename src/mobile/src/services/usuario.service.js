@@ -41,6 +41,8 @@ export const temUsuarioLogado = async () => {
 
 export const removeUsuarioStorage = async () => {
 
-    await AsyncStorage.removeItem('usuario');
+    try {
+        await AsyncStorage.removeItem('usuario');
+    } catch(e) { }
 
 };

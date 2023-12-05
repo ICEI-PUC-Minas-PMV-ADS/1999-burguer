@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, TextInput, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Header from '../components/Header';
 import Body from '../components/Body';
@@ -27,7 +28,8 @@ const MeusDados = () => {
 
         try {
 
-            const usuarioLogado = await JSON.parse(localStorage.getItem('usuario'));
+            let userMem = await AsyncStorage.getItem('usuario');
+            const usuarioLogado = userMem ? JSON.parse(userMem) : null;
 
             if (!usuarioLogado?.accessToken) {
 
@@ -240,7 +242,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         borderColor: 'gray',
-        borderRadius: 5,
+        borderRadius: 8,
         color: 'black',
         backgroundColor: 'white',
     },

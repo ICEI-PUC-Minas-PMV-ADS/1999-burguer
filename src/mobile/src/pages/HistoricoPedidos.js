@@ -2,6 +2,7 @@ import { Text, View, FlatList, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 import Toast from 'react-native-toast-message';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Header from '../components/Header';
 import Body from '../components/Body';
@@ -27,7 +28,8 @@ const HistoricoPedidos = () => {
 
         try {
 
-            const usuarioLogado = await JSON.parse(localStorage.getItem('usuario'));
+            let userMem = await AsyncStorage.getItem('usuario');
+            const usuarioLogado = userMem ? JSON.parse(userMem) : null;
 
             if (!usuarioLogado?.accessToken) {
 
@@ -127,12 +129,12 @@ const PedidoItem = ({ label, value }) => (
 const styles = StyleSheet.create({
     listaPedidos: {
         width: '100%',
-        marginTop: '1rem',
-        paddingHorizontal: '1rem'
+        marginTop: 16,
+        paddingHorizontal: 16
     },
     pedido: {
         backgroundColor: '#fafafa',
-        borderRadius: 5,
+        borderRadius: 8,
         marginBottom: 20,
         padding: 10,
         shadowColor: '#000',

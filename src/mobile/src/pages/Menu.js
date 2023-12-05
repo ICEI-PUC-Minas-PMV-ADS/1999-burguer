@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Text } from 'react-native-paper';
 import React, { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import * as UsuarioService from '../services/usuario.service';
 import UsuarioServiceClass from '../services/usuario.service';
@@ -18,10 +19,18 @@ const Menu = () => {
 
     useEffect(() => {
 
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
-        setUsuario(usuarioLogado);
+        getUsuario();
 
     }, []);
+
+    const getUsuario = async () => {
+
+        let userMem = await AsyncStorage.getItem('usuario');
+        const usuarioLogado = userMem ? JSON.parse(userMem) : null;
+
+        setUsuario(usuarioLogado);
+
+    }
 
     const _handleNavigationPress = (destination) => {
 
@@ -125,7 +134,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         flexDirection: 'column',
-        marginTop: '5rem'
+        marginTop: 80
     },
     btnNavegacao: {
         width: '100%',
@@ -133,16 +142,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         backgroundColor: '#ECECEC',
-        borderBottomWidth: '1px',
+        borderBottomWidth: 1,
         borderBottomColor: '#fff',
-        paddingHorizontal: '1rem',
-        paddingVertical: '0.5rem'
+        paddingHorizontal: 16,
+        paddingVertical: 8
     },
     icon: {
-        width: '40px',
-        marginRight: '0.5rem'
+        width: 40,
+        marginRight: 8
     },
     texto: {
-        fontSize: '18px'
+        fontSize: 18
     }
 });

@@ -3,22 +3,26 @@ import { StatusCodes } from 'http-status-codes';
 import { ProdutosProvider } from '../../database/providers/produtos';
 import ProductImg, { IProductImg } from '../../mongo-database/models/ProductImg';
 
-// só entra aqui depois do handle request
-export const getProdutosCardapio = async (req: Request, res: Response) => {
+interface IQueryProps {
+    filter?: string;
+}
 
-    // const filtros: any = req.query.filter ? JSON.parse(req.query.filter) : { page: 0, limit: 10 };
+// só entra aqui depois do handle request
+export const getProdutosCardapio = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+
+    const filtros: any = req.query.filter ? JSON.parse(req.query.filter) : {};
     
     let where: any = {};
 
-    // if (filtros.filter) {
+    if (filtros.filter) {
 
-    //     if (filtros.filter.status !== undefined) {
-    //         where.status = {
-    //             equals: filtros.filter.status
-    //         }
-    //     }
+        if (filtros.filter.status !== undefined) {
+            where.status = {
+                equals: filtros.filter.status
+            }
+        }
 
-    // }
+    }
 
     const result = await ProdutosProvider.getAll(0, 20, where);
 
