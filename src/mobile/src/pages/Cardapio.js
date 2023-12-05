@@ -195,20 +195,23 @@ const styles = StyleSheet.create({
     botoes: {
         marginTop: 16,
         flexDirection: 'row',
-        gap: 32,
-        alignItems: 'flex-end'
+        gap: 16,
+        alignSelf: 'flex-end',
+        alignItems: 'center'
     },
     picker: {
         height: 40,
-        width: 100,
-        borderRadius: 8
+        width: 64,
+        borderRadius: 8,
+        fontSize: 18,
+        textAlign: 'center'
     },
     pickerItem: {
-        fontSize: 20
+        fontSize: 24
     },
     btnAddCarrinho: {
-        width: 50,
-        height: 50,
+        width: 40,
+        height: 40,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E39568',
@@ -221,6 +224,6 @@ const styles = StyleSheet.create({
     },
     iconeAddCarrinho: {
         color: '#fff',
-        fontSize: 30
+        fontSize: 22
     }
 });

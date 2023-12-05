@@ -27,17 +27,19 @@ const Carrinho = () => {
 
     }, []);
 
-    const getLista = async () => {
+    const getLista = async (reload = false) => {
 
         const carrinho = await CarrinhoService.getCarrinhoStorage();
 
         if (!carrinho?.produtos?.length) {
 
-            Toast.show({
-                type: 'success',
-                text1: 'Carrinho vazio!',
-                position: 'bottom'
-            });
+            if (!reload) {
+                Toast.show({
+                    type: 'success',
+                    text1: 'Carrinho vazio!',
+                    position: 'bottom'
+                });
+            }
 
             navigation.navigate('Cardapio');
 
@@ -55,13 +57,15 @@ const Carrinho = () => {
 
         await CarrinhoService.updateProdutoCarrinho(produto);
 
-        getLista();
+        getLista(true);
 
     }
 
-    const _handleRemoveCarrinho = async (produto) => {
+    const _handleRemoveCarrinho = async (produto, apagar) => {
 
         produto.quantidade -= 1;
+
+        if (apagar) produto.quantidade = 0;
 
         if (produto.quantidade > 0) {
 
@@ -79,7 +83,7 @@ const Carrinho = () => {
 
         }
 
-        getLista();
+        getLista(true);
 
     }
 
@@ -164,7 +168,6 @@ const Carrinho = () => {
                             <View style={styles.infos}>
                                 <View style={styles.blocoDescricao}>
                                     <Text style={styles.nome}>{item.nome}</Text>
-                                    <Text style={styles.descricao}>{item.quantidade} un</Text>
                                 </View>
 
                                 <View style={styles.blocoImagem}>
@@ -173,13 +176,26 @@ const Carrinho = () => {
                                 </View>
                             </View>
 
-                            <View style={styles.botoes}>
-                                <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleRemoveCarrinho(item)}>
+                            <View style={styles.botoesProduto}>
+                                <Pressable style={styles.btnTrashCarrinho} onPress={() => _handleRemoveCarrinho(item, true)}>
+                                    <FontAwesome5
+                                        style={styles.iconeRemoveCarrinho}
+                                        name="trash">
+                                    </FontAwesome5>
+                                </Pressable>
+
+                                <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleRemoveCarrinho(item, false)}>
                                     <FontAwesome5
                                         style={styles.iconeRemoveCarrinho}
                                         name="minus">
                                     </FontAwesome5>
                                 </Pressable>
+
+                                <View style={styles.quantidadeProduto}>
+                                    <Text style={styles.textoQuantidadeProduto}>
+                                        {item.quantidade} un
+                                    </Text>
+                                </View>
 
                                 <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleAddCarrinho(item)}>
                                     <FontAwesome5
@@ -187,13 +203,6 @@ const Carrinho = () => {
                                         name="plus">
                                     </FontAwesome5>
                                 </Pressable>
-
-                                {/* <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleRemoveCarrinho(item)}>
-                                    <FontAwesome5
-                                        style={styles.iconeRemoveCarrinho}
-                                        name="trash">
-                                    </FontAwesome5>
-                                </Pressable> */}
                             </View>
                         </View>
                     )}
@@ -269,11 +278,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '600'
     },
-    botoes: {
+    botoesProduto: {
         marginTop: 16,
         flexDirection: 'row',
-        gap: 32,
-        alignItems: 'flex-end'
+        alignItems: 'center'
     },
     picker: {
         height: 40,
@@ -292,6 +300,20 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 3,
+    },
+    btnTrashCarrinho: {
+        width: 36,
+        height: 36,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#E39568',
+        padding: 6.4,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
+        marginRight: 16
     },
     iconeRemoveCarrinho: {
         color: '#fff',
@@ -322,5 +344,19 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontWeight: 600,
         fontSize: 19.2
+    },
+    quantidadeProduto: {
+        width: 74,
+        alignItems: 'center',
+        height: 40,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'gray',
+        borderRadius: 8,
+        marginHorizontal: 6
+    },
+    textoQuantidadeProduto: {
+        fontSize: 16
     }
 });

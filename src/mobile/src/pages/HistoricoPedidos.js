@@ -144,30 +144,26 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'baseline',
-
     },
     textosPedido: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: '600',
         color: 'black',
         flexShrink: 1,
         flex: 1
-
     },
-
     itemContainer: {
         flex: 1,
         marginBottom: 8,
         width: '100%'
-
     },
     label: {
         fontSize: 16,
         fontWeight: '600',
         color: '#EA6419',
-        marginRight: 5
+        marginRight: 5,
+        marginBottom: 3
     },
-
     infoContainer: {
         flexDirection: 'column',
         flex: 1,
