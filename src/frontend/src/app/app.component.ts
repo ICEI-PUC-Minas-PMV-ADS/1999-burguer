@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgxSpinner } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent {
     title = 'frontend';
 
     constructor(
-        private _ngxSpinner: NgxSpinner
+        private _ngxSpinner: NgxSpinnerService
     ) {
 
     }
