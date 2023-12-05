@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingTop: 20,
         paddingBottom: 40,
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#f9f9f9',
         overflow: 'scroll'
     },
     titulo: {
@@ -237,9 +237,13 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         borderColor: '#ccc',
     },
+    label: {
+        fontWeight: 600
+    },
     input: {
         height: '8%',
-        marginVertical: 12,
+        marginTop: 6,
+        marginBottom: 16,
         borderWidth: 1,
         padding: 10,
         borderColor: 'gray',

@@ -94,7 +94,7 @@ const HistoricoPedidos = () => {
                                 <PedidoItem label="Endereço" value={item.endereco} />
                                 <PedidoItem label="Nº" value={item.numero} />
                                 <PedidoItem label="Status" value={item.status === 3 ? 'Concluído' : item.status} />
-                                <PedidoItem label="Total" value={`R$${Number(item.total).toFixed(2)}`} />
+                                <PedidoItem label="Total" value={`R$ ${(+item.total).toFixed(2).replace('.', ',')}`} />
                             </View>
 
                         </View>
@@ -136,30 +136,26 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'baseline',
-
     },
     textosPedido: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: '600',
         color: 'black',
         flexShrink: 1,
         flex: 1
-
     },
-
     itemContainer: {
         flex: 1,
         marginBottom: 8,
         width: '100%'
-
     },
     label: {
         fontSize: 16,
         fontWeight: '600',
         color: '#EA6419',
-        marginRight: 5
+        marginRight: 5,
+        marginBottom: 3
     },
-
     infoContainer: {
         flexDirection: 'column',
         flex: 1,

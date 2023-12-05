@@ -79,15 +79,6 @@ const Menu = () => {
                         <Text style={styles.texto}>Meus Dados</Text>
                     </Pressable>
 
-                    <Pressable style={styles.btnNavegacao} onPress={() => _handleFaleConosco()}>
-                        <FontAwesome5
-                            name="whatsapp"
-                            style={styles.icon}
-                            size={26}>
-                        </FontAwesome5>
-                        <Text style={styles.texto}>Fale Conosco</Text>
-                    </Pressable>
-
                     <Pressable style={styles.btnNavegacao} onPress={() => _handleNavigationPress('HistoricoPedidos')}>
                         <FontAwesome5
                             name="receipt"
@@ -97,7 +88,16 @@ const Menu = () => {
                         <Text style={styles.texto}>Meus Pedidos</Text>
                     </Pressable>
 
-                    { usuario && (
+                    <Pressable style={styles.btnNavegacao} onPress={() => _handleFaleConosco()}>
+                        <FontAwesome5
+                            name="whatsapp"
+                            style={styles.icon}
+                            size={26}>
+                        </FontAwesome5>
+                        <Text style={styles.texto}>Fale Conosco</Text>
+                    </Pressable>
+
+                    {usuario && (
                         <Pressable style={styles.btnNavegacao} onPress={() => _handleLogout()}>
                             <FontAwesome5
                                 name="sign-out-alt"
@@ -108,7 +108,7 @@ const Menu = () => {
                         </Pressable>
                     )}
 
-                    { !usuario && (
+                    {!usuario && (
                         <Pressable style={styles.btnNavegacao} onPress={() => _handleLogin()}>
                             <FontAwesome5
                                 name="sign-out-alt"
@@ -118,7 +118,7 @@ const Menu = () => {
                             <Text style={styles.texto}>Login</Text>
                         </Pressable>
                     )}
-                    
+
                 </View>
             </Body>
 
