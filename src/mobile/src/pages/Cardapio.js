@@ -24,7 +24,7 @@ const Cardapio = () => {
 
             setLoading(true)
 
-            const result = await ApiService.crudGet('/cardapio', null, false);
+            const result = await ApiService.crudGet('/cardapio', { filter: { status: true } }, false);
 
             setLoading(false)
 
