@@ -5,6 +5,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 
+import Header from '../components/Header';
+import Body from '../components/Body';
+import Footer from '../components/Footer';
 import * as UsuarioService from '../services/usuario.service';
 import UsuarioServiceClass from '../services/usuario.service';
 import { postLogin } from '../services/login.service';
@@ -73,85 +76,89 @@ const Login = () => {
 
     };
 
-    return (        
-        <View style={styles.container}>
-            { loading && <LoadingAnimation/> }
-            <Image
-                source={require('../../assets/logo.jpg')}
-                style={styles.logo}
-                resizeMode="contain"
-            />
-            <Text style={styles.titulo}>
-                1999 Burguer
-            </Text>
+    return (
+        <>
+            {loading && <LoadingAnimation />}
+            <Header></Header>
 
-            <View style={styles.inputArea}>
-                <TextInput
-                    style={styles.inputEmail}
-                    placeholder="Email"
-                    keyboardType="string"
-                    value={email}
-                    onChangeText={(texto) => setEmail(texto)}
-                />
-            </View>
+            <Body>
+                <View style={styles.container}>
+                    <Image
+                        source={require('../../assets/logo.jpg')}
+                        style={styles.logo}
+                        resizeMode="contain"
+                    />
 
-            <View style={styles.inputArea}>
-                <TextInput
-                    style={styles.inputSenha}
-                    placeholder="Senha"
-                    placeholderTextColor="#000000"
-                    value={senha}
-                    onChangeText={(texto) => setSenha(texto)}
-                    secureTextEntry={hidePass}
-                />
-
-                <TouchableOpacity
-                    style={styles.icon}
-                    onPress={() => setHidePass(!hidePass)}>
-                    {hidePass ? (
-                        <Ionicons name="eye" color="#FFFFFF" size={25} />
-                    ) : (
-                        <Ionicons name="eye-off" color="#FFFFFF" size={25} />
-                    )}
-                </TouchableOpacity>
-            </View>
-
-            <TouchableOpacity style={styles.button} onPress={logar}>
-                <Text style={styles.buttonText}>Acessar</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                style={[styles.button, { backgroundColor: 'gray', marginTop: 10 }]}
-                onPress={() => { navigation.navigate('Cadastro'); }}
-            >
-                <Text style={styles.buttonText}>Cadastrar</Text>
-            </TouchableOpacity>
-
-            <Modal visible={modalVisible} animationType="fade" transparent={true} onRequestClose={() => setModalVisible(false)}>
-                <View style={styles.modalContainer}>
-                    <View style={styles.modalContent}>
-                        <Text style={styles.modalMessage}>{modalMessage}</Text>
-                        <Button style={styles.modalButton}title="OK" onPress={() => setModalVisible(false)}  color="#EA6419"/>
+                    <View style={styles.inputArea}>
+                        <TextInput
+                            style={styles.inputEmail}
+                            placeholder="Email"
+                            keyboardType="string"
+                            value={email}
+                            onChangeText={(texto) => setEmail(texto)}
+                        />
                     </View>
-                </View>
-            </Modal>
-        </View>
-    );
 
+                    <View style={styles.inputArea}>
+                        <TextInput
+                            style={styles.inputSenha}
+                            placeholder="Senha"
+                            placeholderTextColor="#000000"
+                            value={senha}
+                            onChangeText={(texto) => setSenha(texto)}
+                            secureTextEntry={hidePass}
+                        />
+
+                        <TouchableOpacity
+                            style={styles.icon}
+                            onPress={() => setHidePass(!hidePass)}>
+                            {hidePass ? (
+                                <Ionicons name="eye" color="#FFFFFF" size={25} />
+                            ) : (
+                                <Ionicons name="eye-off" color="#FFFFFF" size={25} />
+                            )}
+                        </TouchableOpacity>
+                    </View>
+
+                    <TouchableOpacity style={styles.buttonAcessar} onPress={logar}>
+                        <Text style={styles.buttonText}>Acessar</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={styles.buttonCadastrar}
+                        onPress={() => { navigation.navigate('Cadastro'); }}>
+                        <Text style={styles.buttonText}>Cadastrar</Text>
+                    </TouchableOpacity>
+
+                    <Modal visible={modalVisible} animationType="fade" transparent={true} onRequestClose={() => setModalVisible(false)}>
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <Text style={styles.modalMessage}>{modalMessage}</Text>
+                                <Button style={styles.modalButton} title="OK" onPress={() => setModalVisible(false)} color="#EA6419" />
+                            </View>
+                        </View>
+                    </Modal>
+                </View>
+            </Body>
+
+            <Footer />
+        </>
+    );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 20, 
-        backgroundColor: '#FFFFFF', 
+        backgroundColor: '#FFFFFF',
     },
     logo: {
-        width: 150, 
-        height: 150, 
-        marginBottom: 20, 
+        maxWidth: '100%',
+        width: 150,
+        height: 150,
+        marginBottom: 48,
     },
     titulo: {
         fontSize: 30,
@@ -161,6 +168,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     inputEmail: {
+        borderRadius: 8,
         fontSize: 18,
         color: '#000000',
         width: '95%',
@@ -170,6 +178,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     inputSenha: {
+        borderRadius: 8,
         fontSize: 18,
         color: '#000000',
         width: '80%',
@@ -183,18 +192,27 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#FFFFFF',
         height: 50,
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    button: {
-        backgroundColor: '#EA6419',
-        width: '60%', 
-        height: 50, 
         borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 5,
+    },
+    buttonAcessar: {
+        backgroundColor: '#EA6419',
+        width: '60%',
+        height: 50,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 16,
+    },
+    buttonCadastrar: {
+        backgroundColor: 'gray',
+        marginTop: 16,
+        width: '60%',
+        height: 50,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     buttonText: {
         color: 'white',
@@ -203,11 +221,13 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     icon: {
-        width: '15%',
+        marginLeft: 4.8,
+        width: 56,
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#000000',
+        borderRadius: 8,
     },
     modalContainer: {
         flex: 1,
@@ -218,13 +238,16 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: '#FFFFFF',
         padding: 20,
-        borderRadius: 10,
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
     },
     modalMessage: {
         fontSize: 18,
         marginBottom: 20,
+    },
+    modalButton: {
+        borderRadius: 8
     }
 });
 

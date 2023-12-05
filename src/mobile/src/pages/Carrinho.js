@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, View, FlatList, StyleSheet, Image, Pressable } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Header from '../components/Header';
 import Body from '../components/Body';
@@ -26,17 +27,19 @@ const Carrinho = () => {
 
     }, []);
 
-    const getLista = async () => {
+    const getLista = async (reload = false) => {
 
         const carrinho = await CarrinhoService.getCarrinhoStorage();
 
         if (!carrinho?.produtos?.length) {
 
-            Toast.show({
-                type: 'success',
-                text1: 'Carrinho vazio!',
-                position: 'bottom'
-            });
+            if (!reload) {
+                Toast.show({
+                    type: 'success',
+                    text1: 'Carrinho vazio!',
+                    position: 'bottom'
+                });
+            }
 
             navigation.navigate('Cardapio');
 
@@ -54,13 +57,15 @@ const Carrinho = () => {
 
         await CarrinhoService.updateProdutoCarrinho(produto);
 
-        getLista();
+        getLista(true);
 
     }
 
-    const _handleRemoveCarrinho = async (produto) => {
+    const _handleRemoveCarrinho = async (produto, apagar) => {
 
         produto.quantidade -= 1;
+
+        if (apagar) produto.quantidade = 0;
 
         if (produto.quantidade > 0) {
 
@@ -78,13 +83,14 @@ const Carrinho = () => {
 
         }
 
-        getLista();
+        getLista(true);
 
     }
 
     const _finalizarCarrinho = async () => {
 
-        const usuarioLogado = await JSON.parse(localStorage.getItem('usuario'));
+        let userMem = await AsyncStorage.getItem('usuario');
+        const usuarioLogado = userMem ? JSON.parse(userMem) : null;
 
         if (!usuarioLogado?.accessToken) {
 
@@ -162,7 +168,6 @@ const Carrinho = () => {
                             <View style={styles.infos}>
                                 <View style={styles.blocoDescricao}>
                                     <Text style={styles.nome}>{item.nome}</Text>
-                                    <Text style={styles.descricao}>{item.quantidade} un</Text>
                                 </View>
 
                                 <View style={styles.blocoImagem}>
@@ -171,13 +176,26 @@ const Carrinho = () => {
                                 </View>
                             </View>
 
-                            <View style={styles.botoes}>
-                                <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleRemoveCarrinho(item)}>
+                            <View style={styles.botoesProduto}>
+                                <Pressable style={styles.btnTrashCarrinho} onPress={() => _handleRemoveCarrinho(item, true)}>
+                                    <FontAwesome5
+                                        style={styles.iconeRemoveCarrinho}
+                                        name="trash">
+                                    </FontAwesome5>
+                                </Pressable>
+
+                                <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleRemoveCarrinho(item, false)}>
                                     <FontAwesome5
                                         style={styles.iconeRemoveCarrinho}
                                         name="minus">
                                     </FontAwesome5>
                                 </Pressable>
+
+                                <View style={styles.quantidadeProduto}>
+                                    <Text style={styles.textoQuantidadeProduto}>
+                                        {item.quantidade} un
+                                    </Text>
+                                </View>
 
                                 <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleAddCarrinho(item)}>
                                     <FontAwesome5
@@ -185,13 +203,6 @@ const Carrinho = () => {
                                         name="plus">
                                     </FontAwesome5>
                                 </Pressable>
-
-                                {/* <Pressable style={styles.btnRemoveCarrinho} onPress={() => _handleRemoveCarrinho(item)}>
-                                    <FontAwesome5
-                                        style={styles.iconeRemoveCarrinho}
-                                        name="trash">
-                                    </FontAwesome5>
-                                </Pressable> */}
                             </View>
                         </View>
                     )}
@@ -216,18 +227,18 @@ export default Carrinho;
 const styles = StyleSheet.create({
     listaProdutos: {
         width: '100%',
-        marginTop: '1rem',
-        paddingHorizontal: '1rem',
+        marginTop: 16,
+        paddingHorizontal: 16,
     },
     produto: {
         width: '100%',
         justifyContent: "center",
         flexDirection: 'column',
         backgroundColor: '#fafafa',
-        borderRadius: '5px',
-        marginBottom: '2rem',
-        paddingVertical: '0.5rem',
-        paddingHorizontal: '0.5rem',
+        borderRadius: 8,
+        marginBottom: 32,
+        paddingVertical: 8,
+        paddingHorizontal: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
@@ -237,19 +248,19 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: "start",
-        gap: '0.75rem'
+        gap: 12
     },
     blocoDescricao: {
         flexDirection: 'column',
         flex: 'auto'
     },
     nome: {
-        fontSize: '22px',
+        fontSize: 22,
         fontWeight: '500',
-        marginBottom: '1rem'
+        marginBottom: 16
     },
     descricao: {
-        fontSize: '16px'
+        fontSize: 16
     },
     blocoImagem: {
         flexDirection: 'column',
@@ -257,60 +268,73 @@ const styles = StyleSheet.create({
     },
     imagem: {
         maxWidth: '100%',
-        width: '80px',
-        height: '80px',
-        borderRadius: '5px',
+        width: 80,
+        height: 80,
+        borderRadius: 8,
         position: 'relative',
-        marginBottom: '0.5rem'
+        marginBottom: 8
     },
     valor: {
-        fontSize: '20px',
+        fontSize: 20,
         fontWeight: '600'
     },
-    botoes: {
-        marginTop: '1rem',
+    botoesProduto: {
+        marginTop: 16,
         flexDirection: 'row',
-        gap: '2rem',
-        alignItems: 'flex-end'
+        alignItems: 'center'
     },
     picker: {
-        height: '40px',
-        width: '100px',
-        borderRadius: '5px'
+        height: 40,
+        width: 100,
+        borderRadius: 8
     },
     btnRemoveCarrinho: {
-        width: '36px',
-        height: '36px',
+        width: 36,
+        height: 36,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E39568',
-        padding: '0.4rem',
-        borderRadius: '5px',
+        padding: 6.4,
+        borderRadius: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 3,
     },
-    iconeRemoveCarrinho: {
-        color: '#fff',
-        fontSize: '24px'
-    },
-    botoesRodape: {
-        width: '100%',
-        marginTop: '0.5rem',
-        marginBottom: '0.5rem',
-        alignItems: 'center',
-        paddingHorizontal: '0.5rem'
-    },
-    btnFinalizar: {
-        width: '100%',
-        height: '3rem',
+    btnTrashCarrinho: {
+        width: 36,
+        height: 36,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E39568',
-        paddingVertical: '0.4rem',
-        paddingHorizontal: '0.6rem',
-        borderRadius: '5px',
+        padding: 6.4,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
+        marginRight: 16
+    },
+    iconeRemoveCarrinho: {
+        color: '#fff',
+        fontSize: 24
+    },
+    botoesRodape: {
+        width: '100%',
+        marginTop: 8,
+        marginBottom: 8,
+        alignItems: 'center',
+        paddingHorizontal: 8
+    },
+    btnFinalizar: {
+        width: '100%',
+        height: 48,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#E39568',
+        paddingVertical: 6.4,
+        paddingHorizontal: 9.6,
+        borderRadius: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
@@ -319,6 +343,20 @@ const styles = StyleSheet.create({
     textoBtnFinalizar: {
         color: '#FFF',
         fontWeight: 600,
-        fontSize: '1.2rem'
+        fontSize: 19.2
+    },
+    quantidadeProduto: {
+        width: 74,
+        alignItems: 'center',
+        height: 40,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'gray',
+        borderRadius: 8,
+        marginHorizontal: 6
+    },
+    textoQuantidadeProduto: {
+        fontSize: 16
     }
 });

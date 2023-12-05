@@ -109,7 +109,9 @@ export const removeProdutoCarrinho = async (produto) => {
 
 export const limparCarrinho = async () => {
 
-    await AsyncStorage.removeItem('carrinho');
+    try {
+        await AsyncStorage.removeItem('carrinho');
+    } catch(e) { }
 
 }
 
