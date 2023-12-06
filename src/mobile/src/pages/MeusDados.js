@@ -73,7 +73,14 @@ const MeusDados = () => {
     }
 
     const enviarDadosParaAPI = async (dadosParaEnviar) => {
-        console.log('Enviando dados para o servidor:', dadosParaEnviar);
+        try {
+            const usuarioDados = await getUsuarioStorage();
+            await crudPut('/user/', novosDados, usuarioDados.userId);
+            getUserDados()
+        } catch (error) {
+            console.error('Erro ao carregar dados:', error);
+            setLoading(false); 
+        }
     }
 
     const solicitarApagarDados = async () => {

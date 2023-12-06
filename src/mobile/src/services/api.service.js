@@ -152,15 +152,13 @@ export const crudPut = async (rota, body, auth = true) => {
 
         try {
 
-            // let headers = await getHeaders(auth);
-
-            // fetch(`${apiUrl}${rota}/${id}`, {
-            //     method: 'PUT',
-            //     body,
-            //     headers
-            // })
-            // .then((response) => response.json())
-            // .then((json) => resolve({ res: json }));
+            fetch(`${apiUrl}${rota}/${id}`, {
+                method: 'PUT',
+                body,
+                headers: await getHeaders(auth)
+            })
+            .then((response) => response.json())
+            .then((json) => resolve({ res: json }));
 
         } catch (error) {
 
