@@ -91,7 +91,7 @@ export const getAllPedidos = async (
             });
 
     }
-    console.log(count)
+
     const result = { rows, count };
     return res
         .status(StatusCodes.OK)
