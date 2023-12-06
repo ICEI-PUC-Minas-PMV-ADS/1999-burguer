@@ -16,6 +16,13 @@ export const getAll = async (
             where,
             orderBy: {
                 id: 'desc'
+            },
+            include: {
+                pedido_produto: {
+                    include:{
+                        produto: true
+                    }
+                }
             }
         });
 

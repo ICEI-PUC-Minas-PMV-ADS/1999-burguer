@@ -11,6 +11,7 @@ export interface Pedido {
     total: string;
     uf: string;
     usuario_id: number;
+    pedido_produto:any;
 
 }
 

@@ -30,7 +30,10 @@
                         <p><strong>CEP:</strong> {{ pedido.cep }}</p>
                         <p><strong>Cidade:</strong> {{ pedido.cidade }}</p>
                         <p><strong>Data de Finalização:</strong> {{ pedido.data_finalizacao }}</p>
-
+                        <div *ngFor="let produto of pedido.pedido_produto">
+                            <p><strong>Quantidade:</strong> {{ produto.quantidade }}</p>
+                            <p><strong>Nome do Produto:</strong> {{ produto.produto.nome }}</p>
+                        </div>
                     </div>
                     <div>
                         <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
@@ -39,6 +42,7 @@
                         <p><strong>Total:</strong> {{pedido.total | currency:'BRL'}}</p>
                         <p><strong>UF:</strong> {{ pedido.uf }}</p>
                     </div>
+
                 </div>
                 <div>
                     <div class="containerBotoes">
