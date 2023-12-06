@@ -148,16 +148,19 @@ export const apiCadastro = async (rota, body) => {
  */
 export const crudPut = async (rota, body, auth = true) => {
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
 
         try {
-            fetch('${apiUrl}${rota}/${id}', {
-                method: 'PUT',
-                body,
-                headers: getHeaders(auth)
-            })
-            .then((response) => response.json())
-            .then((json) => resolve({ res: json }));
+
+            // let headers = await getHeaders(auth);
+
+            // fetch(`${apiUrl}${rota}/${id}`, {
+            //     method: 'PUT',
+            //     body,
+            //     headers
+            // })
+            // .then((response) => response.json())
+            // .then((json) => resolve({ res: json }));
 
         } catch (error) {
 
@@ -168,7 +171,6 @@ export const crudPut = async (rota, body, auth = true) => {
     });
 
 };
-
 
 /**
  * DELETE
