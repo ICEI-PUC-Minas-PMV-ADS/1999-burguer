@@ -99,3 +99,24 @@ O Framework utilizado para a realização dos testes foi o jest.
 | ----------------- | ------------------------------------------------------------- |
 | Objetivo do teste | Conseguir alterar a senha do usuaário                                   |
 | Resultado         | Todos os critérios de exito foram satisfeitos adequadamente. |
+
+
+# Registros de testes Aplicação Mobile
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/3bc4291d-1186-4527-a63f-e3f56afb9aa9)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/cec68050-2bd5-46d5-a342-9250c7c3d904)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/ca0f6780-bdd8-437e-99dc-17555e7c14c9)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/458c90ec-ba41-4e2e-b80e-928f1659cd69)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/9c46e2da-1497-43d3-a994-6de4af24804a)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/94535b03-e4f6-47db-a504-edbca69ba36f)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/98f00ae9-9c06-49c7-8cfc-51f27a64fc43)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/e472afed-4217-4340-bc43-00f636fdfe06)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t3-1999-burguer/assets/103429022/977c35ef-5b94-4737-8956-1869db3b0322)
+
+
+
+
+
+
+
+
+
