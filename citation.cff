@@ -1,0 +1,22 @@
+message: Please cite this software using these metadata.
+title: 1999-burguer
+authors:
+  - family-names: de Oliveira Costa
+    given-names: Guilherme 
+  - family-names: Puddo Cardoso
+    given-names: Gabriel José
+  - family-names: Lessa Henrique
+    given-names: João Victor
+  - family-names: Pereira Marques
+    given-names: Carlos Eduardo 
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Vilela Cardoso
+    given-names: Leonardo 
+keywords:
+  - Hamburgueria
+  - Delivery
+  - Aplicativo
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/1999-burguer
+version: 1.0.0
+date-released: 2023-12-10
